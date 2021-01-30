@@ -1,0 +1,48 @@
+ - Adventurers :: Treasure seekers looking to make their names in the big city.                                     :often:
+ - City Watch :: Members of the Waterdeep constabulary.                                                             :often:
+ - Force Grey :: League of heroes sworn to protect Waterdeep.                                                       :often:
+ - Griffon Cavalry :: Elite company of the City Guard who patrol from the air.                                      :often:
+ - Harpers :: Undercover organization sworn to defy tyranny and evil.                                               :often:
+ - Lords’ Alliance :: Coalition of nobles across the North who are sworn to unite against evil.                     :often:
+ - Mercenaries :: One of many mercenary companies that ply their trade in Waterdeep.                                :often:
+ - Order of the Gauntlet :: Tight-knit group of clerics and paladins united by religious zeal to crush evil.        :often:
+ - Pirates :: Lawless sea scavengers who return to port to spend their booty on grog.                               :often:
+ - Xanathar Guild :: Monstrous servants of the Xanathar engaged in thievery, extortion, and slavery.                :often:
+ - Zhentarim :: Unscrupulous mercenary network caught up in street war with the Xanathar Guild.                     :often:
+ - Bregan D’aerthe :: Drow mercenaries who pledge loyalty to Jarlaxle Baenre.                                       :seldom:
+ - Bull Elk Tribe :: Dock Ward gang who run protection rackets on ships passing through customs.                    :seldom:
+ - Cult of the Dragon :: Cultists who venerate evil dragons.                                                        :seldom:
+ - Emerald Enclave :: Alliance of druids and rangers sworn to defend the wilds from evil.                           :seldom:
+ - Enclave of Red Magic :: Thayan mages who often smuggle slaves into Skullport.                                    :sometimes:
+ - Fists of Hextor :: Brutal mercenaries who often sell their services to despots and villains.                     :seldom:
+ - House Cassalanter :: Agents of the devil-corrupted Cassalanter noble house.                                      :sometimes:
+ - Plague Rats :: League of wererat thieves active throughout the Western Heartlands.                               :seldom:
+ - Red Sashes :: Undercover vigilantes who seek to enact justice where the city authorities fail.                   :seldom:
+ - Shadow Thieves :: Powerful criminal cartel attempting to reestablish control in Waterdeep.                       :seldom:
+ - Wharf Rats :: Kobold gang active in the Dock Ward slums.                                                         :seldom:
+ - Black Boar Tribe :: Barbaric Dock Ward gangsters who serve as bodyguards and bouncers.                           :scarce:
+ - Church of Bane :: Worshipers of the god of fear, hatred, and tyranny.                                            :scarcely:
+ - Church of Cyric :: Worshipers of the god of strife and lies.                                                     :scarcely:
+ - Church of Loviator :: Worshipers of the goddess of agony.                                                        :scarcely:
+ - Church of Shar :: Worshipers of the goddess of darkness.                                                         :scarcely:
+ - Church of Talos :: Worshipers of the god of storms and destruction.                                              :scarcely:
+ - Church of Umberlee :: Worshipers of the cruel sea goddess.                                                       :scarcely:
+ - Cult of the Eternal Flame :: Cultists who worship Imix, the Prince of Elemental Evil Flame.                      :scarcely:
+ - Fangshields :: League of good-aligned monsters and lycanthropes sworn to fight evil.                             :scarcely:
+ - Iluskan Ship :: Bravos from one of Luskan’s major gangs (or “ships”).                                            :scarcely:
+ - Knights of the Shield :: Knowledge brokers who seek wealth and power by manipulating information.                :scarcely:
+ - Luminous Lightning League :: Cabal of wild mages.                                                                :scarcely:
+ - Sewer Snakes :: Goblin gangsters who sneak up from Skullport to rob and murder city folk.                        :scarce:
+ - Tel Teukiira :: (aka “The Moonstars”) Undercover agents who serve the Blackstaff by rooting out corruption and evil. :scarce:
+ - The Confluence :: Secret organization of half-dragons who seek to rid the city of shapeshifters.                 :scarce:
+ - The Unseen :: Consortium of shapeshifter thieves and assassins.                                                  :scarce:
+ - Thralls of Artor Morlin :: Thralls of the Waterdhavian vampire Artor Morlin, the Baron of Blood.                 :scarce:
+ - Underdark Anarchists’ Fellowship :: Anarchic rebels sworn to smash the tyrannical status quo of the Underdark.   :scarce:
+ - Cult of Entropy :: Cultists who worship a distant deity of annihilation.                                         :rarely:
+ - Cult of the Black Earth :: Cultists who worship Ogrémoch, the Prince of Elemental Evil Earth.                    :rarely:
+ - Cult of the Crushing Wave :: Cultists who worship Olhydra, the Princess of Elemental Evil Water.                 :rarely:
+ - Cult of the Howling Hatred :: Cultists who worship Yan-C-Bin, the Prince of Elemental Evil Air.                  :rarely:
+ - Halaster’s Heirs :: Dark arcanists trained at a hidden academy within Undermountain                              :rarely:
+ - People of the Black Blood :: Widespread league of lycanthrope Malar worshipers.                                  :rarely:
+ - Savants of the Dark Tide :: Enslaved humanoids used as tools by aboleths hiding out in the city’s sewers.        :rarely:
+ - The Kraken Society :: Shadowy group of thieves and mages who serve a kraken master.                              :rarely:

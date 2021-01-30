@@ -1,0 +1,763 @@
+#+TITLE:  Taverns
+#+AUTHOR: Howard X. Abrams
+#+EMAIL:  howard.abrams@gmail.com
+#+DATE:   2020-11-18 November
+#+FILETAGS:   rpg
+
+* Names
+
+1.   The Piss and Whistle
+2.   The bar is called the Setting Sun and the inn next door is called The Rising Sun
+3.   The Fishy Smell -- bar down by the docks. There's a mermaid on the sign (giggity).
+4.   The Red Lion
+5.   The Redder Lion (these two bars, own by bitter siblings, pretend to hate each other to increase business)
+6.   The Hobbit Hole -- the entrance is human sized but it shaped like the door to Bilbo Baggin's house
+7.   The Slouching Troll
+8.   Ms. Mary's Mistake -- owned and operated by Ms. Mary's son....yep.
+9.   Fortune's Wheel -- drink of the night: spin the wheel and find out
+10.  The Black Gate
+11.  The Shadow of the Castle -- is in the shadow of the castle in town.
+12.  The Giddy Griffin Inn and Tavern
+13.  Brazen Beholder Brews and Benches
+14.  The Setting Sun
+15.  The Bawdy Winch Brew Hall
+16.  The Rusty Blade
+17.  The Hobbled Hobgoblin's Hearth
+18.  Lich Lord Libations
+19.  The Wrinkled Shrimp
+20.  The Grim Goblin
+21.  The Silent Mistress
+22.  The Rusty Nail
+23.  The Winking Gnome
+24.  The Broken Plow
+25.  The Last Drop
+26.  The Orcs Head
+27.  The Happy Horse
+28.  The Sunken Fairy
+29.  The Step Right Inn
+30.  The White Elephant
+31.  The Road's End
+32.  The Keystone Roadhouse
+33.  The Old Spoke Inn
+34.  The Wagon Rut Tavern
+35.  The Anchor Point Pub
+36.  The Ginger Brew Pub
+37.  The Quiet Eaves Lodge
+38.  The Copper Sword Tavern
+39.  The Axe And Bramble
+40.  The Mustard Seed Tavern
+41.  The Bee And Bugle
+42.  The Cedar Hearth Lodge
+43.  The Scale And Ale
+44.  The Bog And Bard
+45.  The Trodden Fork
+46.  The Headless Dragon
+47.  The Tenth Hell
+48.  The Burning Blight
+49.  The Blind Beholder
+50.  The Squawking Cockatrice
+51.  The Bronze Hook
+52.  The Toothy grin
+53.  The Don't Go Inn
+54.  The Abbot and the Duchess
+55.  Slum Pickens
+56.  Westgate Beds and Brewery
+57.  The Hungry Bear Lodge. Run by a werebear.
+58.  The Gobbler
+59.  Ye Ol' Tavern
+60.  The Mighty Bite
+61.  The Banshee's Whale (sign has a chibiesque banshee riding a smiley whale)
+62.  The Styx
+63.  Forget Your Troubles
+64.  Hag's End
+65.  The Emerald Wyrm
+66.  The Seven Drunken Knights (adorn the insides with suits of armor, or even special drinks every day of the week)
+67.  The Frisky Fairy
+68.  The Staggering Paladin
+69.  The Gutted Fish (a dockside alehouse, obviously. It smells bad and sailors fight a lot, so expect splittered wood tables)
+70.  The Peckish Pixie
+71.  The Broken Drum (can't be beat)
+72.  Pints and Potatoes
+73.  The Thirsty Troll (with 2 for 1 Thirsty Thursdays)
+74.  The Mule and The Mare
+75.  The Chieftain and The Prince
+76.  The Serpent and The Virgin
+77.  Hag's Head Inn
+78.  The Molly Waggler
+79.  The Olive Branch
+80.  The Artful Lodger
+81.  Coppershiner's
+82.  Gravida's Glow
+83.  The High Mandolin
+84.  The Rare Lady
+85.  The Amber Casks
+86.  The Steamy Farmer
+87.  The Drunk Duck
+88.  The Camel's Hump
+89.  The Seaman's Reign
+90.  The Fermented Badger
+91.  The Salty Scuffer
+92.  New Beginnings -- A tavern run by a group of retired adventurers who decided to start a new life.
+93.  The Good Knight's Rest
+94.  The Laughing Ogre
+95.  Sleepless Scholar's Inn
+96.  Blackeyed Pete's R&R
+97.  The Lost Road Inn
+98.  The Bronze Buckle
+99.  The Salty Seadog
+100. The Gnashing Gnoll
+
+* Waterdeep Locations
+** [[http://oakthorne.net/wiki/index.php?title=Castle_Ward_of_Waterdeep][Castle Ward]]
+   :PROPERTIES:
+   :CUSTOM_ID: castle-ward
+   :END:
+
+*** Inns
+    :PROPERTIES:
+    :CUSTOM_ID: inns
+    :END:
+
+- *The Jade Jug:* /Inn (5c•5a)/. Waterdeep's plushest inn with luxury in every detail, and well worth the expensive price.
+- *The Pampered Traveler:* /Inn (4c•4a)/
+- *The [[http://oakthorne.net/wiki/index.php?title=Yawning_Portal][Yawning Portal]]:* /Inn (3c•4p•3a)/ A well-known inn and tavern whose main feature is a massive well on the ground floor of the tavern, some 40 feet across, that descends 140 feet into the first level of Undermountain. There is a rope hoist that can be used to lower or raise those foolhardy enough to venture into Undermountain, at a cost of 1 gp per person.
+
+*** Taverns
+    :PROPERTIES:
+    :CUSTOM_ID: taverns
+    :END:
+
+- *The Crow's Nest:* /Tavern (3c•2p)/ A modest but comfortable tavern; a favorite among the clerks, bureaucrats, and visitors of nearby Castle Waterdeep.
+- *The Dragon's Head:* /Tavern (3c•3p)/ A comfortable, unimpressive local ale-house that is a favorite of the average Waterdhavian locals, well-loved for its cheap ale and heavily spiced coast chowder.
+- *The Elfstone:* /Tavern (4c•4p)/. An old earthy tavern, with live trees in the walls and the bar, that caters to elves and half-elves, and is a rare source of such delicacies as elverquisst, guldathen nectar and maerlathen blue wine.
+- *The [[http://oakthorne.net/wiki/index.php?title=Flagon_Dragon][Flagon Dragon]]:* /Tavern (2c•3p)/ A modest neighborhood pub renowned for its zzar (Waterdhavian mulled wine) and talyths (a palm-sized cracker with a thin slice of sausage on top, and a mixture of cheese, herbs, mashed root vegetables and other ingredients whose recipe is a house secret)
+- *Gralkyn's Tankard:* /Tavern (3c•2p)/. A true oddity, the Tankard is a tavern built in the very lap of the Great Drunkard, one of the Walking Statues.
+- *The Mighty Manticore:* /Tavern (2c•3p)/. An older friendly tavern with ample ale and light evening fare at affordable prices that attracts a loyal clientele of merchants at the close of day.
+- *The Quaffing Quaggoth:* /Tavern (3c•4p)/. A dwarf-owned tavern and a growing favorite among the city's sailors, merchants and young nobles. The tavern is well-known for the house specialty: a thick-brewed stout mixed with an unknown liquor that is called the Quaggoth for its rumored ability to cure every hair on a quaggoth and then some.
+- *Sailor's Own:* /Tavern (3c•2p)/ A crowded, dark, and dirty sailor's dive bar.
+- *The Singing Sword:* /Tavern (4c•4p)/
+- *The Sleepy Sylph:* /Tavern (4c•3p)/ A popular tavern for visitors to Waterdeep, featuring /driftglobe/ lights and scantily clad waitstaff dressed as fairies.
+
+*** Festhalls
+    :PROPERTIES:
+    :CUSTOM_ID: festhalls
+    :END:
+
+- *Blushing Nymph:* /Festhall (3c•3p)/ An upscale brothel known for its exotic pleasures.
+- *The [[http://oakthorne.net/wiki/index.php?title=Crawling_Spider][Crawling Spider]]:* /Tavern, Nightclub (4c•3p)/ A tavern for subterraneans that pine for their homes (as well as regulars who like the thrilling atmosphere), decorated as if underground with serving folk dressed as drow elves. Well known for its subterranean dancing floor, and the many small "caverns" that lead off of it whose dark recesses are best left alone by the curious.
+- *Genmura's Stage:* /Festhall (2c•1p)/ A bawdy burlesque palace with two floors of small, cheap, stinking rooms above its taphall, Genmura's sees plenty of seedy sorts, criminals, dock hands, and sailors just come a'shore.
+- *Lightsinger Theater:* /Theater (3c)/ A festhall that specializes in small plays and the hosting of traveling troupes (burlesque and otherwise).
+- *Mother Salinka's House of Pleasure:* /Festhall (3c)/ A shabby, low-coin festhall.
+- *Mother Tathlorn's House of Pleasure & Healing:* /Spa (4c)/ A surprisingly upscale spa that features relaxation luxuries for all discerning tastes, Mother Tathlorn (the name has evolved over the years into a title for the proprietress) is widely considered a bureaucrat's best friend, providing a discreet, comfortable, and relaxing environment for the political figures of the city large and small to enjoy themselves, unwind, and chat with one another in private.
+- *Silavene's:* /Casino (4c)/ A casino with on-staff soft trader escorts to help woo Lady Luck or celebrate her smile. Regular guards watch the interior and front door, but the odd-ly armor plated back doors are known to become helmed horrors when folk attempt to pick or breach them!
+- *The [[http://oakthorne.net/wiki/index.php?title=Smiling_Siren][Smiling Siren]]:* /Festhall (4c•3p)/. A festhall beloved for the statue of the siren over the door, whose skirts occasionally billow in the seabreeze, and the lushly decorated fantasyland on the ground floor within, half sylvan paradise, and half beach-side wonderland. The dwarf-matron Sanchel runs the establishment with artistry and practicality.
+
+** [[http://oakthorne.net/wiki/index.php?title=Sea_Ward_of_Waterdeep][Sea Ward]]
+   :PROPERTIES:
+   :CUSTOM_ID: sea-ward
+   :END:
+
+*** Inns
+    :PROPERTIES:
+    :CUSTOM_ID: inns-1
+    :END:
+
+- *Pilgrim's Rest:* /Inn (4c•4a)/. A comfortable but modest inn that provides affordable stabling and lodgings for many visitors of Waterdeep's temples.
+- *The Wandering Wemic:* /Inn (4c•4a)/
+- *Golden Harp Inn:* /Inn (3c•4a)/. A comfortable two-story stone and slate inn, cheery and well lit at all times and noted for the magical harp that appears in mid-air at odd times to sing and play ancient ballads by itself.
+
+*** Taverns
+    :PROPERTIES:
+    :CUSTOM_ID: taverns-1
+    :END:
+
+- *The Broken Lance:* /Tavern (2c•3p)/. A cozy tavern frequented and staffed by the athletes and fighters from the Field of Triumph. The eel pie is the house specialty.
+- *The Crown & Heron:* /Tavern (5c•5p)/
+- *Gournar's Tavern:* /Tavern (4c•3p)/. A brightly lit, expensive place that's more a showcase for Waterdeep's high society at play than a tavern. It is a place to be seen, first and foremost.
+- *The Fiery Flagon:* /Tavern (4c•3p)/. A tavern that is famous among sailors the Realms over for its seafaring decor and pricey fare, without the trouble and decay of the Dock Ward.
+- *Mermaid on a Dolphin:* /Eating Lounge (4c•/. An undersea-themed eatery known for its many plates of small nibbly seafood creations and sweet sipping wine.
+- *Wyvern's Rest:* /Tavern (2c•4p)/. A former Watch-post and blockhouse, this one-story stone tavern is a favorite of Watch and Guard members, it hallmark being the stuffed wyvern that looms over the bar.
+
+*** Festhalls
+    :PROPERTIES:
+    :CUSTOM_ID: festhalls-1
+    :END:
+
+- *House of Purple Silks:* /Festhall (5c)/
+- *High Flagon Gambling House:* /Gambling House (4c)/
+
+** [[http://oakthorne.net/wiki/index.php?title=North_Ward_of_Waterdeep][North Ward]]
+   :PROPERTIES:
+   :CUSTOM_ID: north-ward
+   :END:
+
+*** Inns
+    :PROPERTIES:
+    :CUSTOM_ID: inns-2
+    :END:
+
+- *The Galloping Minotaur:* /Inn (4c•3a)/. An inn well-favored among visiting merchants that has had to expand its operations to two other buildings and implement Waterdeep's first advance bookings system. Known as a busy place with lots of overstuffed merchants, bustling messengers, and secret passages by which the servants get around.
+- *The [[http://oakthorne.net/wiki/index.php?title=Cliffwatch][Cliffwatch]]:* /Inn (3c•3a)/. An inn of tremendous size that caters mostly to wealth merchants and their caravans, the Cliffwatch is the beating heart of its neighborhood. Though blown up in the 1370s sometime, the Spindrivver family rebuilt it taller and grander than before.
+- *Swordshire House:* /Inn (4c•4a)/. A grand building that is best described as a cozy halfling burrow blown up to human-sized scale, the Swordshire attracts mostly out of towners as well as the occasional noble party looking for a unique venue for their celebrations. Notably, most hin-folk find it tacky and ridiculous. Even the most grumpy of them are forced to admit that there is no better curated collection of "hill wines" - as the wines made from sweet root vegetables made by halfling folk - to be found in Waterdeep. Its proprietor, Harnorr Leerthyn, is the Speaker for the [[http://oakthorne.net/wiki/index.php?title=Fellowship_of_Innkeepers][Fellowship of Innkeepers]].
+- *Twilight Hunters:* /Inn/. An inn decorated with various adventuring equipment and battle trophies, the Twilight Hunter is named for an adventuring company of old that owned it. The tropies are actually those gathered by the company from its days of adventuring. It is now in the holding of some of their descendants, all of whom have been inkeeps for generations now. The inn's taproom is gaining some notice for its "orangeberry wine," a sweet and fiery drink.
+
+*** Taverns
+    :PROPERTIES:
+    :CUSTOM_ID: taverns-2
+    :END:
+
+- *The Grinning Lion:* /Tavern (4c•2p)/. A raucous tavern favored by less adventurous young nobles who dare not visit the Dock Ward.
+
+*** Festhalls
+    :PROPERTIES:
+    :CUSTOM_ID: festhalls-2
+    :END:
+
+- *The Gentle Mermaid:* /Gambling House (4c•4p)/. One of the largest gambling houses in all of Faerun, and a luxurious place to see and be seen among the fabulously wealthy and powerful.
+- *The Many Masks:* /Festhall (4c•4p)/. A bawdy environs where everyone goes masked -- including when they are wearing nothing else. A grand masquerade at all times.
+
+** [[http://oakthorne.net/wiki/index.php?title=Trades_Ward_of_Waterdeep][Trades Ward]]
+   :PROPERTIES:
+   :CUSTOM_ID: trades-ward
+   :END:
+
+*** Inns
+    :PROPERTIES:
+    :CUSTOM_ID: inns-3
+    :END:
+
+- *The [[http://oakthorne.net/wiki/index.php?title=Dusken_Glade_Inn][Dusken Glade Inn]]:* /Inn (3c•4a)/. A large inn known for its music and the fact that it is largely the heart of Twilight Vaeteru in the Trades Ward.
+- *The Gentle Rest:* /Inn (3c•2a)/ A five-story structure with a nice central location and good views, the Gentle Rest used to be a bit more upscale than it is today. A handful of the in-room tubs no longer hold water properly, and some of the rooms are simply out of order and never seem to be in any better condition.
+- *Inn of the Dripping Dagger:* /Inn (3c•4p•4a)/. A battle-scarred and bloodied door hiding an amiable, comfortable place for hire-swords to stay and be hired from.
+- *The Unicorn's Horn:* /Inn (5c•4a)/. A decadent and costly inn to stay at (its Imperial Suite on the sixth floor has an impressive view, but not one worth 40 gp per night). Its saving grace is its strategic placement to the High Road.
+- *Gondalim''s Inn:* /Inn (3c•5a)/. An established inn of many comforts, with single rooms or suites available at affordable prices.
+
+*** Taverns & Eateries
+    :PROPERTIES:
+    :CUSTOM_ID: taverns-eateries
+    :END:
+
+- *Bowels of the Earth:* /Tavern (Dive) (4c•2p)/. An ill-lit rough-and-tumble tavern that caters to mercenaries looking for employment or a good brawl.
+- *The Sleeping Dragon's Den:* /Tavern (3c•2p)/. A local's pub.
+- *The Underdark:* /Tavern (Dive) (2c•2p)/. An old, rare cellar tavern with low ceilings (5' clearance) that once catered primarily to the dwarves, gnomes, halflings, and odd goblins in Waterdeep. Today, however, it is almost entirely goblinoids, kobolds, and the occasional orc (those who can tolerate being crouched over constantly). It is a rough place, with a reputation as a meeting spot for rough sorts.
+
+*** Festhalls
+    :PROPERTIES:
+    :CUSTOM_ID: festhalls-3
+    :END:
+
+- *The Golden Horn:* /Gambling House (3c)/. Once a crimson den of vice with a sinister reputation, the Golden Horn is now a well-regarded gambling establishment. Though no longer as upscale as it once was, it attracts a great deal of those merchants and visitors to Waterdeep, catering to them and offering a night of glamor and shining coin. Its owner are a married couple: Linchaser, a cleric of Tymora and his wife, Dame Wynda, who is a paladin of Waukeen. The two take great pride in the honesty of their games.
+- *The Saucy Satyr:* /Private Club (4c•3c•4a)/. One of the new private membership clubs that have taken Waterdeep by storm, the Saucy Satyr has a lascivious reputation in the broadsheets and gossip circles. They take delight in their sensual, sylvan themes.
+
+** [[http://oakthorne.net/wiki/index.php?title=South_Ward_of_Waterdeep][South Ward]]
+   :PROPERTIES:
+   :CUSTOM_ID: south-ward
+   :END:
+
+*** Inns
+    :PROPERTIES:
+    :CUSTOM_ID: inns-4
+    :END:
+
+- *House of Good Spirits:* /Vintners' Distillers' & Brewers Guild, Inn, Tavern (2c•5p•2a)/. A brewery, winery and inn noted for its wide variety of liquors and strong drink from across the Realms. Its specialty is Waterdhavian /zzar/, and it serves as the guildhouse for the Vintners' Guild as well.
+
+*** Taverns
+    :PROPERTIES:
+    :CUSTOM_ID: taverns-3
+    :END:
+
+- *The Beer Golem:* /Tavern/
+- *House of Dust:* /Tavern (1c•1p)/
+- *The Red Gauntlet:* /Tavern (2c•3p)/ Mercenary and caravan guard tavern.
+- *The Sword's Rest:* /Tavern (3c•4p)/. A tavern for strong drink, strong arms and thick skulls (for when that burly fighter cracks a mug over your head - which is often!).
+- *Tymora's Blessing:* /Tavern/. A seedy dive frequented by caravan drovers and noted for all-too-frequent brawls.
+
+*** Festhalls
+    :PROPERTIES:
+    :CUSTOM_ID: festhalls-4
+    :END:
+
+- *The [[http://oakthorne.net/wiki/index.php?title=Jade_Dancer][Jade Dancer]]:* /Festhall (4c•4p)/ A festhall well worth the high price for its entertaining dancer-escorts and excellent drinks.
+
+** [[http://oakthorne.net/wiki/index.php?title=Dock_Ward_of_Waterdeep][Dock Ward]]
+   :PROPERTIES:
+   :CUSTOM_ID: dock-ward
+   :END:
+
+*** Inns
+    :PROPERTIES:
+    :CUSTOM_ID: inns-5
+    :END:
+
+- *Shipmaster's Hall:* /Inn (sea captains)/. A private inn and dining club for captains, first mates and ship owners and their guests, with an interior elegance that far outweighs its exterior. It is sponsored by the Master Mariners' Guild.
+- *The Ship's Prow:* /Inn (3c•5a)/. An inn well known among sailors of the Sword Coast and easily found as it is actually a converted ship's prow that now juts into Fish Street and Ship Street. The prices and services in this four-story inn are reasonable, though its clientele often isn't.
+- *The Rearing Hippocampus:* /Inn (4c•3a)/
+- *The [[http://oakthorne.net/wiki/index.php?title=Sleeping_Snake][Sleeping Snake]]:* /Tavern & Inn (barely) (3c•2p•2a)/
+- *[[http://oakthorne.net/wiki/index.php?title=Stormcloak_Inn][Stormcloak Inn]]:* /Inn (1c • 1a)/ The Stormcloak is a run-down ramshackle inn whose rooms are filthy and taproom filled with street thugs and drunken sailors.
+
+*** Taverns
+    :PROPERTIES:
+    :CUSTOM_ID: taverns-4
+    :END:
+
+- *The Angry Coxswain:* /Tavern/
+- *Azuth's Mug:* /Tavern (3c•2p)/
+- *The Bloody Fist:* /Tavern (Dive) (2c•1p)/
+- *The Blue Mermaid:* /Tavern (3c•2p)/
+- *The Dancing Pony:* /Tavern (2c•1p)/
+- *The Friendly Flounder:* /Tavern (3c•3p)/. A local tavern that thrives on simple seafood fare, favored by the locals and almost unknown to visitors.
+- *Full Sails Tavern:* /Tavern, Guild HQ: [[http://oakthorne.net/wiki/index.php?title=Most_Diligent_League_of_Sailmakers_%26_Cordwainers&action=edit&redlink=1][Most Diligent League of Sailmakers & Cordwainers]]/. A merry, bright tavern on Net Street at the docks, with its upstairs space acting as meeting and storage space for the sailmakers' guild.
+- *The Grog House:* /Tavern (1c•1p)/. Often called a "swill hall" by those who've heard of it, it is a place that literally does nothing else but serve terribly cheap alcoholic swill for sailors to drink away their coins. It offers no accommodations, but no one cares if its patrons pass out under their tables.
+- *The Keelhauled Dwarf:* /Tavern (2c•1p)/. A tavern in the basements of the House of Tarmagus (a rental warehouse complex), with low ceilings, good dwarf-brewed ale, and a dark, smoky ambiance.
+- *The Knight 'n Shadow:* /Tavern (1c•1p)/. A run-down, dingy tavern with a long, poorly lit staircase that descends into Downshadow below, a portion of Undermountain that some Waterdhavians down on their luck or on the run from the law have laid claim to. A squatting ground for unsuccessful treasure hunters, coin-shy adventurers, and other criminals.
+- *Muleskull Tavern:* /Tavern; Guild HQ: [[http://oakthorne.net/wiki/index.php?title=Dungsweepers%27_Guild][Dungsweepers' Guild]]/
+- *Selune's Smile:* /Tavern/
+- *The Thirsty Throat:* /Tavern (2c•2p)/. A ramshackle dive known for its massive tankards of cheap ale and its taproom full of quiet drinking men.
+
+*** Festhalls
+    :PROPERTIES:
+    :CUSTOM_ID: festhalls-5
+    :END:
+
+- *The Copper Cup:* /Inn, Festhall (4c•3p•2a)/. Three old three- and four-story warehouses linked and converted into one of Waterdeep's busiest and most famous nightlife spots.
+- *The Mermaid's Arms:* /Inn, Festhall (3c•3p•3a)/
+- *Three Pearls Nightclub:* /Nightclub (4c)/. A popular festhall with nightly stage acts such as comedians, trained animal acts, illusionists' displays, recitals by famed bards and orators and exotic dance.
+- *The Hanging Lantern:* /Festhall (4c)/. A festhall famed for its stunning escorts and its skilled matchmakers, as well as a side business in costume rental.
+- *The Smiling Succubus:* /Festhall (2c)/
+- *Tarstroun's:* /Gambling Den (3c) & Moneylender/ A notorious gambling den and money-lender for those who are desperate or down on their luck. Known to have rooms for rent above the main floor.
+
+* Specialty Drinks
+
+1.   *The Flaming Dragon* -- A spicy beer that causes the user to
+     breathe fire when they burp.
+2.   *The Banshee's Breath* -- white, swirling liquor made from a
+     special translucent wild berry. Tastes sweet, has an effect similar
+     to mint gum in that it always feels cold.
+3.   *The Mountain's Bounty* -- A fine liquor made using water from a
+     glacial stream. Always refreshing, and always makes you feel cold
+     no mater the weather.
+4.   *Mawxie* -- A drink all the locals cite as a local treasure. Tastes
+     disgusting.
+5.   *Bog Grog* -- A mix of Rum, Orange Juice and fermented herbs that,
+     when drunk, causes the user to gain advantage on saving throws
+     against being poisoned for 30 minutes.
+6.   *Frost Mead* -- Honey and the tear of an Ice Giant make this shot.
+     The crackling blue sparkle and the jet of icy breath you have for
+     rest of the day is worth the expense.
+7.   *Weatherbee's Whirler* -- Invented by the perhaps too inventive
+     Filbus Weatherbee, this drink is testimony as to why it is a bad
+     idea to point a gnome's sharp mind towards the creation of a new
+     brew. After spending many years living among the dwarves,
+     Weatherbee made his way home with a drink even the stout folk
+     couldn't handle. This monstrosity is laced with latent magic
+     designed to lessen the chance of drinkers dying from its ungodly
+     alcohol content, and reportedly tastes like “A kick in the face
+     from a horse.” After one shot of this drink, the drinker is shunted
+     into a chaotic haze of blurry awareness, bolstered confidence, and
+     overpowering drunkenness. In addition, the latent magic in the brew
+     causes minor, uncontrolled magical effects to occur around the
+     drinker at random times during the haze. The nature of these
+     effects is up to either the DM or the player, so long as the
+     effects are sufficiently insignificant. After 1d4 hours, the haze
+     drops away and the drinker immediately and almost violently falls
+     into a deep sleep so that they may recover.
+8.   *Dragonborn Bloodwine* -- When you drink it, you are able to use a
+     breath attack once within the next 10 minutes.
+9.   *The Quieker* -- nasty rum that gives a high pitched voice for 1d4
+     hours.
+10.  *Faerie Fireball* -- a delicious cinnamon whiskey made with a touch
+     of Fey magic. Causes uncontrollable hiccups for 1d4 hours. With
+     each hiccup a small cloud of shimmering breath is released.
+11.  *Lily in a Well* -- a tall mug of ale, half full with an edible
+     flower garnish.
+12.  *Hammer Beer* -- One glass will make you feel like you just hit
+     yourself with a hammer. Minus 5 HP.
+13.  *Dragon's Piss* -- A beer that tastes exactly like one would
+     suspect by its name. For sure not a drink you need a second one of.
+14.  *Shamrock Shake* -- Instant dc15 con save. On fail the patron is
+     incapacitated. No save required if patron has Irish (sounding)
+     accent.
+15.  *The Sun's Glory* -- A citrusy cider that makes your eyes glow like
+     an Aasimar.
+16.  *Black Midnight* -- A drink created by necromancers to honor fallen
+     necromancers, Bitter with a touch of rum. Those who drink it have
+     nightmares of dying and spending an eternity rotting away inside a
+     coffin. This helps enforce necromancers to contemplate their own
+     moralities.
+17.  *The Phoenix* -- A peppery drink that burns on the way down, and
+     then again on the way out. It is often used as a prank on drunk
+     companions, who have a nasty surprise waiting for them the next
+     time they go to relieve themselves.
+18.  *Hair of the Bloodhound* -- Once you have become intoxicated on
+     this brew, you gain the usual drawbacks of drunkenness but gain
+     advantage on survival checks.
+19.  *Seer's Solution* -- A mildly viscous green liquid. The first two
+     shots have no effect. The third gives you truesight up to 60ft for
+     1d4 minutes. The fourth and subsequent shots give the drinker
+     horrible audio/visual hallucinations for 1d4+2 hours. Counter
+     resets at dawn.
+20.  *Spider's Bite* -- Take 1d8 poison damage on a failed CON saving
+     throw. Packs a mean punch.
+21.  *The Fortnight* -- Very strong alcohol. If you actually drink
+     enough to get drunk, you stay hammered for days.
+22.  *Tinkerer's Tincture* -- dark and smooth, and when you drink it all
+     the clicking, whistling, and scraping noises are more apparent to
+     your ear.
+23.  *2 Couples in a Shared Household* -- (much easier if teabags exist)
+     Two different types of hot tea, 2 of each, into one mug.
+24.  *Sucker Punching a Rabbit* -- A single teabag steeped in the
+     biggest mug you have.
+25.  *Buried Treasure* -- A single, very sweet, rather expensive hard
+     candy is stuck to the bottom of a mug of very hard liqour. Once
+     you've drunk it all, you get a spoon to pull it off with.
+26.  *Ouch* -- Two full shots worth of lemon juice put into a glass of
+     very high proof alcohol.
+27.  *What was I Saying?* -- An unassuming shot of very strong alcohol,
+     with a cherry in it, usually taken in the middle of a conversation,
+     which is promptly ended.
+28.  *Actual Torture* -- 2 Teaspoons of salt which are to be eaten all
+     at once. Then washed down with a citrus based liquor. If anyone
+     else offers any drinks, their hands are free game for attack.
+29.  *The Green Kobold* -- The first drink to ever be served in a piece
+     of ham, with the skin. 1 shot of herbal liquor wrapped in ham. To
+     be eater all at once. Probably fixed in place with at least 1 pin,
+     make sure you pick it out before you eat it.
+30.  *End of the Line* -- Very high quality, rather expensive alcohol. A
+     coin is flipped. If heads, your drink is free. If tails, you are
+     forced to drink until you either die or pass out. If you regain
+     consciousness, you must continue drinking.
+31.  *Traffic Stop* -- Invented by a Diviner. Whenever a fight seems to
+     be brewing, everyone orders a traffic stop. It's a mug of 3
+     separate liquors that stay separated in their mug, all very
+     strong.The goal is to drink it all before the local police forces
+     arrive.
+32.  *Dragon Milk* -- not really milk, or related to dragons. It's an
+     expensive white drink, resembling milk (duh) that removes any
+     alcohol in your body. As a result you exale fire in the form of a
+     single burp, resembling a dragon.
+33.  *The Necromancer* -- a drink for those who fall unconcious from
+     alcohol. It's a green glowing liquid. Also known as the ‘Corpse
+     Reviver'; when poured into the unconcious persons mouth he/she gets
+     up and walks in a way similair to a zombie.
+34.  *Beholder* -- a delicious drink decorated with an eye or multiple
+     smaller ones. Feels like normal alcohol but gives the person a
+     (false of course) feeling he/she has multiple eyes after drinking
+     enough of it.
+35.  *Elysium* -- a nonalcoholic drink that smells and looks as bad as
+     it tastes. Some compared it to trash, vomit or even excrement but
+     only because they couldn't find the adequate foul words. Most
+     refuse to look at it, let alone allow it to come close to their
+     nose. Only those with the strongest will manage to gulp it down.
+     Once drunk, the person experiences true bliss, which seems to last
+     for decades. In reality it's a few seconds.
+36.  *Nine Steps* -- commonly known as ‘The Niner' or by it's full name
+     ‘Nine Steps to Hell'. It is a liquid that when left to settle
+     separates into 9 parts, the bottom one being pure black and the top
+     a beautiful red with a gradient in between. After drinking it the
+     person seems frozen for a few seconds, but to the person who gulpes
+     it down it feels like days, weeks, maybe even months of 9 different
+     experiences, all basically a form of torture. Often used as a
+     torture method but sometimes drunk to prove ones mental strenght,
+     as those that can't endure it go insane. The niner is a rare drink
+     because it's extremely hard to make. An amateur making it, if the
+     ingridients aren't correct to the milligram, makes a drink that
+     causes instant death.
+37.  *Honey Pine Dew* -- An imported halfling mead, served in small
+     cups. Very pleasant taste, cheap in halfling towns, but expensive
+     elsewhere.
+38.  *Cubed Spirit* -- This drink is served as a hollow ice cube with
+     liquid spirit within. As the ice melts in your mouth the drink will
+     come out. How exactly this novelty drink is produced, is a well
+     kept secret.
+39.  *Milky Way Whisky* -- A light blue drink that tastes like very
+     watered down, sweetened milk with a lot of alcohol. Besides giving
+     a quick buzz, it also gives bone, and thus teeth, a blue
+     fluorescent glow for 1d4 hours.
+40.  *The house special* -- This drink doesn't have a particular name,
+     but it's cheap. It doesn't really have an effect. In fact, you're
+     pretty sure the bartender is simply casting prestidigitation on
+     dishwater to make it raste like like it has alcohol in it.
+41.  *True Dwarven Stout* -- A strong drink, not recommended if you
+     cannot handle your alcohol. Traditionally served on the rocks,
+     literally. There are pieces of stone lying on the bottom of your
+     drink. Said to give the true mining flavor. This drink will make
+     any dwarve feel very nostalgic.
+42.  *Petralias Wine* -- A very expensive wine that is served as a
+     single droplet. It does nothing for thirst or getting drunk, bit
+     the flavor is said to be very concentrated and the lack of drink
+     quantity should make the experience richer. Typically ordered by
+     very pretentious people.
+43.  *Golden Goat* -- Fermented goat milk and honey.
+44.  *Star Liquid* -- A really black drink resembling the night sky. If
+     you drink it you experience a wonderful journey trough the stars
+     for 1 min.
+45.  *Polymorphic Brew* -- Commonly used in drinking games, this brew
+     will turn the user into an animal when they burp. They turn back
+     about a minute later.
+46.  *Insom's Ale* -- has same effects as a long rest, calming.
+47.  *Lilphina's Lusty Lover Liquid Liquor* -- The bottle comes in two
+     parts, with each part having a different hue of color depending on
+     the flavor. When two persons consume the drink within 5 minutes of
+     one another, their minds are swapped for 1 hour.
+48.  *Piña Colossus* -- a rare colossal pineapple hollowed out and
+     filled with rum, coconut cream, and pineapple juice. Usually a
+     shared drink. The pineapple shrinks in size when the liquid is
+     drank or spilled. It will also continue to expand and grow to
+     colossal proportions the more liquid that is added.
+49.  *The Coup de Grace* -- At the end of the night, the bartop is wiped
+     down with a rag, the contents are rung into a shot glass.
+50.  *Drippzt* -- The drops in the bottoms of emptied kegs mixed
+     together and dyed black. Anyone who can drink a pint of it without
+     vomiting doesn't have to pay.
+51.  *Firebreath Ale* -- If someone drinks it and then breathes into a
+     flame, a 3rd level Fireball is cast centered on the flame.
+52.  *Belching rum* -- After trunking this make a con save. On a failed
+     save the effect takes place immediately. On a success you choose
+     when to have the effect take place (After ten minutes the effect
+     takes place no matter what.) Effect: You belch thunderously.
+     Everyone in a 100 foot radius is defened for one round.
+53.  *The Titans brew* -- A regular tasting ale served in an enormous
+     cup, and after drinking it the receiver grows a few inches.
+54.  *Paladin's Bane* -- sweet enough to tempt the righteous and you
+     hardly taste the alcohol, but it'll give you a decent hangover and
+     diabetes to boot.
+55.  *Goodberry Gin* -- if you drink enough of it, it works as a mild
+     healing potion which may or may not compensate for the damage done
+     to your liver or you falling down the stairs while drunk. 1d6 hp
+     healing, 1d4 drunk damage.
+56.  *Hagraven Brandy* -- though it has a taste as ugly as its
+     namegiver, the appearance of everyone around you will exponentially
+     improve with every sip you take. -3 on Charisma saving throws for
+     1d6 hours.
+57.  *Will-o-the-Whiskey* -- whisky with minor hallucinatory effects,
+     starts with a tiny tingling light in the corner of your eyes, ends
+     with a shining orb of light dancing a few yards away from you,
+     moving away as you try to catch it.
+58.  *Mandrake Mocha* -- a hot creamy beverage with a narcotic effect.
+     Dulls the pain, leads you into a deep slumber.
+59.  *Madman's Mead* -- downing a mug causes a fleeting bout of
+     insanity, roll a d100 for effects of Short-Term Madness.
+60.  *Ochre Stout* -- a cheap drink so thick you can taste chunks in it.
+     Best to swallow and not be curious.
+61.  *The Drunken Dwarf* -- a pint of dwarven stout with a teabag in it.
+62.  *For (local deity)'s Sake* -- a local sake or rice wine, popular
+     with priests.
+63.  *Ciderella* -- a sweet apple cider, considered “a girls drink”.
+     Even the toughest bloke will begin giggling like a little girl
+     after a few drinks.
+64.  *Jalapálinka* -- a fruit brandy spiced with hot peppers. Burns the
+     throat, downing a pitcher leads to steam escaping ears and
+     nostrils.
+65.  *Ginger Ale* -- Wait, this doesn't taste like ginger at all... An
+     ale that turns your hair ginger, effect lasts for 1d6 days.
+66.  *The Maiden's Ass* -- a quadrupel beer, served in a bottle with a
+     donkey and a pretty girl on the label. Sweet but strong.
+67.  *Bock Bear* -- a bock beer that gives you +1 Str and extra body
+     hair for 1d6 hours.
+68.  *Polypilsener* -- turns you into a canary for 1d4 minutes. Drinking
+     half a mug will turn you halfway into a canary.
+69.  *Our Thoughts and Prayers* -- a brandy that works as a reverse
+     Detect Thoughts spell; surrounding people learn your surface
+     thoughts, although you're unaware of it. Range increases with 2ft
+     each glass, though your thoughts don't exactly get more coherent.
+70.  *Smirgnome* -- a vodka that fills your brain with the weirdest
+     ideas, although the morning after you'll likely have no memory of
+     inventing a sunlight-storing clockwork pigeon to hunt vampires
+     with.
+71.  *Abbathor's Gold* -- a clear golden mead that does nothing to
+     quench your thirst -- instead, you crave more of it. Roll a
+     Charisma saving throw (DC 10) after each glass; if you fail, you
+     keep drinking. After 8 glasses you pass out for 1d10 hours.
+72.  *Coala* -- a Dwarven invention, this black bubbly drink tastes like
+     grinded coal with sugar, but also makes you feel reinvigorated and
+     less tired.
+73.  *Cinder* -- a spiced cider served hot. You can control non-magical
+     flame that fits within a 1ft cube for 1d10 minutes.
+74.  *The Umber Hulk* -- a pint of whisky, brandy and tequila in equal
+     measures. Good luck.
+75.  *Bottomless pint* -- the bartender pours beer into a ceramic mug.
+     When the patron pulls the glass up to their mouths, they realize
+     that the mug really doesn't have a bottom. The mug is empty, and
+     the beer has been pour through the mug into a hole in the bar with
+     a pitcher underneath.
+76.  *Copperhead* -- the bartender pours a beer, mixes in a shot of
+     whiskey, and then a couple drop of snake venom from a vial.
+     Normally drinkers will feel numb in their extremities. If a drinker
+     fails their saving throw, they will be paralyzed from the neck down
+     for 1D20 minutes.
+77.  *Brazenbrew* -- Served in a special mug laced with bronze, the
+     drinker is more apt to make outrageous claims of ability, but also
+     gains the relevant luck to succeed while still under the influence.
+78.  *Yam's Choice* -- A delightful mead, high class, has a fair chance
+     of being extremely addictive. Withdrawal is applying two effects
+     from the long-term madness chart, and one from the short-term
+     chart.
+79.  *Witchwood Absinthe* -- A potent spirit the color of a moss-covered
+     tombstone. It has mild hallucinogenic properties, and local
+     folklore holds you can hear the voices of those you've lost if you
+     drink enough. Not too much, though. You might join them.
+80.  *Salty Dog Ale* -- A dark, rich brew that reminds you of the sea.
+     Plopping in the shell of a sea snail for good luck is customary,
+     and adds a fitting salinity to the drink.
+81.  *Hymvaren's Luck* -- A bright, golden-colored beer named after a
+     local drunk who woke up on the beach after a night of carousing
+     with a chest full of pirate's treasure. He claims to have no memory
+     of that night.
+82.  *Bourbon of Dwarfkind* -- makes the user start to grow a beard. If
+     they can normally, you see accelerated growth. If they can't, a few
+     hairs will sprout on their chin.
+83.  *Old Mill Rye* -- tastes alright, has a strange aftertaste in the
+     back of your throat of an old sock. It's cheap and gets you drink
+84.  *[Insert local diety's name] brew* -- Has characteristics that
+     reminds you of said god. Gold for sun worship for example. Hint of
+     cinnamon for a hot and fiery one. A hint of licorice root perhaps
+85.  *Ochre Jelly Ale* -- Ale with safe-to-drink ochre jelly mixed in
+     it.
+86.  *A regular glass of water* -- That's it. It's just a normal glass
+     with regular, boring water inside.
+87.  *Mimic Drink* -- Usually sold by tricksters to play pranks on
+     people. Looks like a regular glass of water, but a tiny water
+     elemental/water weird is disguised as normal water.
+88.  *Liquid Nitrogen* -- Drank by frost giants and other beings that
+     can tolerate extreme cold.
+89.  *Mead of invulnerability* -- Once drunk user makes a DC 15 Wisdom
+     check. On a fail believes they are immune to all damage and if
+     damage is dealt to them believe they did not take the damage.
+     Effects for ten minutes. User still take all damage as normal.
+90.  *Inverted rum* -- when you drink it, every one around you in a 15
+     foot cube becomes drunk. This dose not include yourself.
+91.  *Goblin Spit* -- whiskey and gin mixed with the barkeep's home-made
+     mints. It tastes surprisingly good despite its name. As is tavern
+     tradition, a long-distance spitting competition occurs after every
+     round.
+92.  *The Hook and Slider* -- a cooked goat (?) intestine tied and
+     filled with a heavy beer. After finishing the beer chow on the
+     intensive
+93.  *Lucky Leprechaun* -- A sickly green drink that gives you advantage
+     on Charisma checks for one hour.
+94.  *The Tiamat* -- 5 different shots, one for each color of the
+     different heads. One is black and syrupy, one blue and gives tingly
+     feeling, one is on fire, one is green and tastes a bit minty, the
+     last is white and frosts the closest things. They are mixed
+     together and separate in the cup making a very nice presentation.
+95.  *The Sweet Roll* -- flavors of cinnamon and sugar blend with the
+     strong scent of rum. The drinker gains an additional 1d4 to any
+     pickpocket attempts for the next hour.
+96.  *The Sailor's Spirit* -- There once was a cap' and a crew, Who made
+     the most wonderful brew, From rations of lime, They would in their
+     spare time, Make fine drinks no man could outdo.
+97.  *Good Hearth's Brew* -- A hot spiced rum which is popular during
+     long winter nights for the immediate feeling of warmth and calm
+     that follows.
+98.  *Tarnation* -- A strong spiced cider served warm and traditionally
+     drank as quickly as posible after a boisterous cheer or a lewd
+     drinking song. Enchantmented with the effect of the consumer
+     belching a small flame right after ingesting.
+99.  *Gnome Rum* -- Makes your voice high, squeaky, and annoying.
+100. *Ethereal Ale* -- The more intoxicated you get, the more you fade
+     into the ethereal plane. First you become slightly transparent,
+     than objects start to phase through you from tame to time and if
+     you manage to keep drinking you entirely enter the ethereal plane.
+
+* Encounters
+
+1.   Tonight is the 10th annual Dragonfire Drinking contest! The person who can stomach the most Dragonfire Ale (very, VERY hot) will win the grand prize!
+2.   A group in the back corner of the tavern are arm wrestling.
+3.   An elven bard is playing on stage tonight and asking for requests.
+4.   A travelling gnome from a far away land has made a deal with the tavern, and is selling exotic and strange drinks in a wooden stand they have set up in the corner of the room.
+5.   It is the monthly wild magic surge brew drinking contest. If you can get the most down, you win. You may lose your hair and grow an extra arm but hey, the prize is 30 gp.
+6.   Local criminals hangout in this tavern. They try to sell drugs. One criminal pours red dust in the drinks of the guest while they are not watching.
+7.   The tavern is know for gambling. One guy is on a big winsteak and pays drinks for everybody. Nobody knows yet that he plays with loaded dice.
+8.   Some tables are flipped over. In the middle of the room is a young orc girl on the ground surrounded by a few people. Her water just broke. She is about to receive twins. Nobody knows what to do.
+9.   The owner of the tavern is an old lady. She owns about 5d20 cats. She cant serve you drinks or food right now because she has to feed her cats first.
+10.  There is a cow in the middle of the tavern. Everybody is wasted and nobody knows how the cow got there or who owns the cow.
+11.  The ‘bartender' is handing out free drinks and food. The owner is looked into the storage room.
+12.  A 10-year old girl is running the tavern. Everybody is afraid of her.
+13.  A half-elf sitting alone seems to be muttering to themselves but is actually decribing the comings and goings of the tavern to a sentient weapon on their lap.
+14.  Two separate people are drinking alone. Neither seems at all suspicious on their own, but together they happen to be watching every single patron, as well as every entrance/exit.
+15.  A soldier is dressed in plainclothes, watching a deal going on at another table. The disguise is not fooling anyone.
+16.  It's the annual ‘Food Frenzy'. For two silver pieces (one of which goes to the house, the other to the pot), participants compete to eat the most meatballs in 10 minutes. There are six heats, and a then final. The winner of the gets the pot.
+17.  It's the annual Ferret-legging Endurance competition. In the sport of ferret-legging, competitors tie their trousers at the ankles before placing two ferrets inside and securely fastening their belts to prevent the ferrets from escaping. Each competitor then stands in front of the judges for as long as he can. Competitors cannot be drunk or drugged, nor can the ferrets be sedated. In addition, competitors are not allowed to wear underwear beneath their trousers which must allow the ferrets free access from one leg to the other and the ferrets must have a full set of teeth that must not have been filed or otherwise blunted. The winner is the person who lasts the longest.
+18.  In the annual Bonny Beard Competition, the most elaborately styled beard, as judged by the patrons, nets the winner a night of free drinks. The losers have to shave their beards off.
+19.  The Annual Greased Piglet Game requires that a 15x15ft pen is set up in the tavern. Participants pay a small fee to compete to catch a lard greased piglet in the quickest time. The winner keeps the piglet.
+20.  A crossbow bolt crashes through the window and strikes a merchant who came to the city from far away.
+21.  You hear an explosion from across the tavern. The blast knocked out a male gnome for 1d6 minutes. Once the gnome wakes up he starts madly raving, saying things like ‘I was so close!' and ‘that was my last chance.' and ‘it's too late now.'
+22.  A ventriloquist starts preforming. The puppet looks very old and is wearing clothes that were quite fashionable about a century ago. The performance satirizes current events and culture and has the whole tavern laughing, but if you are observant for about half an hour, whenever the ventriloquist suggests wrapping up the performance the puppet dismisses his concerns. The show goes on for three hours until the puppet is finally satisfied, at which point the ventriloquist is extremely tired and looks terrified.
+23.  It's a only milk tavern, including milk derivatives.
+24.  Off in the corner a group is gathering around an intense card game. At the table are a wise cracking dwarf, an elf who invented ‘poker face', and a burly half orc about to loss all him gold.
+25.  An old, friendly sea-hag offers a free sample of stew, with more to come if the taster guesses the secret ingredient. The stew gives a positive magical boon on a DC15 CON save and a negative effect on a failure.
+26.  As the party walks in they hear a Bard who is recounting there recent adventures as if he was there for all of them. (This is good for a low renown party as it adds an air of mystery).
+27.  An old man can be overheard telling a ragtag group of mixed races about a dungeon. After some discussion, and a handshake, he hands them a map.
+28.  An old man challenges you to a game of wizard's chess. The wooden pieces are enchanted, gesturing and shouting as they fight, though you can't make out what they say. It is fascinating to watch. The man promises who can win from him will win the chess set, though if you lose, it will not be easy to stop playing. He offers no further explanation. (If you lose, you become a chess piece, trapped in the game).
+29.  A puritan priest comes in and berates the patrons for their behavior, preaching a path of holiness and purity. The old innkeep tells him ‘Yer aff yer heid, ya wee bawface!' and proceeds to flash her boobs at him. The priest flees in horror, muttering protective chants.
+30.  It's ‘Bear Night'. There are mounted bear heads on the wall, bear furs on the chairs and your drinks are served in bear-decorated goblets. After a while you begin to notice the bar is packed exclusively with hairy middleaged men, who are all acting rather familiar with each other...
+31.  There's a haggis eating competition. Winner gets free whisky till sunrise.
+32.  A scruffy looking man slips something into a drink before returning to the woman at his table.
+33.  It's a busy night and the bar is packed. Suddenly everyone turns around as several squealing greased pigs are released into the tavern. They have numbers painted on their backs. The staff begins chasing them to much hilarity of the patrons. After a while, they have caught the pigs numbered 1, 2 and 4 but there is no sign of number 3.
+34.  All the windows of the Inn slam open as the candle light dims, only to be undone a few moments later. Then a small girl stands and shouts her apologies for the disturbance.
+35.  Knife throwing competition! D20+DEX: 1-10 miss the target. 10-14 outer ring. 14-18 middle ring. 18-19 inner ring. 20 bullseye. 3 throws each. PCs can play each other or NPCs for gold / rewards etc.
+36.  It's a two for one special night and the tavern is packed, making easy targets for thieves and pickpockets.
+37.  A drunk half-orc starts taunting the innkeeper, who's cut him off.
+38.  The tavern has a black board on one of the walls, with the names of each person present, and current bets. It's a deadpool, in which people bet on your death.
+39.  There's a discussion going on at the bar. One of the customers seems to be underage, and the bartender won't get them a drink, unless he sees something that confirms they're old enough to drink. The customer has a way to prove that, but made a bet with the other customers, giving 10 gp to each one that gets it right, and takes 10gp from each who gets it wrong.
+40.  A group of exquisitely dressed people walk into the tavern, judging people's outfits, generally in a negative way.
+41.  A portal opens in the middle of the tavern. A man wearing pajamas comes out of it, orders a drink, and leaves through the portal, that closes behind him. If the players ask anyone, they will just say he shows up sometimes.
+42.  The tavern's owner runs into the tavern, saying they won the lottery, and will get everyone free drinks.
+43.  A fight breaks out, between two big strong men. The bartender sighs, and gives each a free drink, separating them.
+44.  The customers are all looking over their shoulders, with small smiles on their faces, and seem ready to... do something. Suddenly, someone screams ‘FOOD FIGHT!' and everyone starts throwing food at each other. In the end, the owner gets pissed, and makes everyone clean up the mess.
+45.  The tavern is hosting a weekly poker tournament. If the players win, they get gold and gossip possibly leading to a quest.
+46.  A man in a dark trench coat is skulking in the back, selling contraband to anyone who asks.
+47.  A man in a dark trench coat is skulking in the back, selling contraband to anyone who asks. However, he is part of a sting, and the local guard snatches up the buyers on their way out of the tavern.
+48.  Someone playing the knife-fingers stabbing game accidentally stabs their own hand, possibly cutting off a finger.
+49.  One of the patrons has gathered a sizable crowd with their exotic pet and its tricks.
+50.  The local militia captain busts down the door and grabs the innkeeper, placing him under arrest for an unknown reason.
+51.  Two drunken wizards come to blows over a perceived slight. Parts of the tavern catch fire or are otherwise affected by magical effects.
+52.  A shadowy figure enters and orders a drink. The only problem is, there seem to be a mass of tentacles where feet should be.
+53.  This tavern exists in multiple dimensions, it has at least 20 different doors which connect to the outside world, but as you guessed, different ones. The owner is a mad wizard with the longest and most unkempt beard youve ever seen. Over each of the entries, there is a sign to where it leads. One of the doors is barred and kept shut at all times, the sign reads: dont open, dead inside.
+54.  Tonight's the local Battle of the Bards, where the prize pool includes a set of fine platinum strings.
+55.  The first batch of beer from the halfling brewery in the next town is very lively. A bit too lively. A tide of hoppy foam bursts from the barrel and up into the bar, showing no signs of slowing down.
+56.  After a few drinks, you could swear all the patrons in the bar have the exact same face. You shake your head. Must be the wine.
+57.  The barkeep here has a very literal approach to lock-ins. Sure, you can drink past closing time---as long as you didn't want to leave again, ever.
+58.  The Tavern menu has a ‘Mystery Special'. When ordered it is a large stack of pancakes covered in various fruit that looks like a big smiling face. When eaten the player is reminded of their mother/father/paternal guardian.
+59.  A female drow in common clothes and a big hat (to block the sun) walks into the tavern and an uncomfortable silence ensues. After it is clear that the drow doesn't want any trouble the tavern slowly goes back to normal and the drow woman orders a drink and sits down with a wealthy half elf merchant.
+60.  A wrestling ring has been erected in the middle of the tavern. The current champion drinks nearby, and accepts all challengers.
+61.  An old drow tells stories about his long life in the Underdark. He tells tales of other drow, kuo toa, mind flayers, flumphs, and even a purple worm he encountered.
+62.  The local beastmaster has arranged an animal show. He starts off with a raven, a giant frog, and a blood hawk. He finishes with a bulette, an owlbear, and a displacer beast. Each animal loves him like a family member.
+63.  Part of the tavern is under construction after a battle or large fight. Builders are constantly moving planks of wood between tables and sometimes hitting patrons. Roll improvised weapon attacks vs players AC at various points in the visit.
+64.  The inn is flooded with people. Survivers of a battle not far off. Some seem to only have superficial wounds while others are not as lucky. Over the sounds of heavy breathing and mouning the party hears a voice ring out ‘CLERIC!! We need a cleric!'
+65.  A health inspector busts in and attempts to shut the bar down due to health code violations.
+66.  Inside the Tavern the party finds about 60 people stuffed inside this small three room tavern all gathered around the bar. The tavern just recently hired a barmaid to work full time.
+67.  After several drinks the party realizes that they're the only non-monster creatures in the tavern.
+68.  After several minutes inside the tavern the party can hear a thunder storm rolling into the area. The weather gets increasing worse the longer they stay inside, and after 45 minutes a tree crashes into the side of the tavern.
+69.  A religious group comes inside to preach about the sin of consuming alcohol.
+70.  The musicians plating inside the tavern draw in a large enough crowd that the that the bartenders have to start kicking people who are to drunk.
+71.  After the party sits down for a drink or two, a group of guards come inside searching for several highway robbers. The robbers descriptions match those of the party members; so they'er handcuffed, dragged to prison, waiting for a trial.
+72.  The Half-Orc chef near a large fire pit offers the party a sample of the roasting boar he has over a spit.
+73.  A Tabaxi hunter set up in the corner offers to sell the party wild pheasants and other game birds for the Tavern cook to make.
+74.  Two Warforged start fighting one another. Watch out for their partner the Gnome pickpocket. She's the brains of the operation.
+75.  A fire elemental moves into the hearth!
+76.  This is a thieve's guild's secret hideout in plain sight. Tonight, the corpses of the dead they left beneath the floorboards arise!
+77.  The tavernkeep is a vampire. One of his servants accidentally begins pouring a bottle of his finest blood.
+78.  A group of overzealous paladins springs a sudden raid on the tavern, breaking casks and arresting people, slamming them into cage-carts they parked in the back.
+79.  One of the patrons is a werewolf, and he begins to turn.
+80.  An ancient legend is (figuratively) brought to life by a traveling team of a bard and an illusion wizard.
+81.  Once a month the neighboring warlords meet in this tavern to discuss... literature.
+82.  Tavern is holding bar tending classes once a week to train new staff as well as supply competent labor to the noble houses -- top of the class gets to pick their assignment.
+83.  Tavern acts as a clearinghouse for counterfeit currency. Next shipment arrives two days from today.
+84.  A polymorphed silver dragon walks in, orders a drink with no ice, and then he just frosts up his drink whenever. He only has one drink, and when he finishes his drink, you can see him switching from creature to creature , but only minorly.
+85.  The tavern begins a ‘you break it, we hire a bounty hunter to make you pay' policy today. No one wants to be the first person to break the rule.
+86.  That Elven barmaid, that's been slapped on the ass one to many times, turns out to be a shapeshifter. And she's just transformed into a raging ogre.
+87.  A notorious criminal duo known as the Grimshade Brothers have arrived to the tavern to celebrate which is in the neighboring village of the city they just robbed. Their known for robbing banks and causing mayhem wherever they go.
+88.  Two goblins are on stage doing a juggling act. The juggling act involves flaming torches, hand axes, and vials of strange green goo. No one seems concerned.
+89.  A love potion is accidentally slipped into one of your party's drinks instead of the beautiful lady at the next table....
+90.  It is a roast night. Have the players take turns roasting either each other's characters, or the DM.
+91.  A talent agent is holding auditions for the midwinter festival play. Bonus points for singing and dancing!
+92.  After 1d6 drinks gravity seems to hold no sway over the bar patrons. Everyone starts to float and the regular drinks keep drinking on the ceiling as if this is a normal occurrence.
+93.  Book signing for the new release ‘Quest for Annihilation : How Adventuring is Destroying Our Moral Fabric'
+94.  The drunk mage in the corner is passed out and talking in his sleep. Roll for wild magic effect.
+95.  The tavern is about to run out of ale. Your party is discretely asked to procure some more within 1d4 hours to avoid a riot.
+96.  A member of your party is mistaken for a local celebrity. People are constantly asking for autographs etc for the whole night.
+97.  It's the owners birthday! Reduced drink prices and free cake!
+98.  You stumble into the middle of a wake, complete with the body of the deceased on ice next to the bar. Bonus points if that's the ice used in the drinks!
+99.  The owner makes it very clear he don't want no trouble in his bar. Will not serve adventurers if they don't relinquish their weapons.
+100. The barkeep leaves a single coin with a tiny dragon at your table, he says ‘be sure to spend him quick, he likes to travel' the dragon is friendly but will not separate from the coin.
