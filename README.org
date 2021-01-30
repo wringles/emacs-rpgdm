@@ -1,0 +1,29 @@
+#+TITLE:  Dungeon Master Support in Emacs
+#+AUTHOR: Howard X. Abrams
+#+EMAIL:  howard.abrams@workday.com
+#+DATE:   2021-01-27 January
+#+TAGS:   rpg
+
+The overlap between Emacs and running a Dungeons and Dragon campaign
+
+* Themes
+** Yes/No Complications
+According to [[https://www.hipstersanddragons.com/difficulty-classes-for-ability-checks-5e/][this essay]], the standard DC 15 skill check is actually /too hard/ for most situations,
+The [[https://www.drivethrurpg.com/product/89534/FU-The-Freeform-Universal-RPG-Classic-rules][FU Rules]] think a attempt with randomness (what D&D calls an ability check) shouldn't be just a yes/no, but could have some /complications/, like "yes, but..." or "no, and...". I want to be able to wrap these ideas into a single interface.
+** Random Items
+As a DM, we
+** DM Screen and Roll from my Notes
+* Code
+What do I have here:
+  - [[file:rpgdm.el][rpgdm.el]] :: Primary interface offering:
+    - rpgdm-yes-and-50/50
+    - rpgdm-skill-check given a target and a d20 dice result, returns yes/no, but possibly with complications
+    - rpgdm-skill-check-easy queries a rolled results, and returns a complicated yes/no for an /easy/ skill challenge
+    - rpgdm-skill-check-moderate
+    - rpgdm-skill-check-hard
+    - rpgdm-skill-check-difficult
+    - rpgdm-skill-check-impossible
+  - [[file:rpgdm-dice.el][rpgdm-dice]] :: All the random number generators, plus:
+    - =rpgdm-forward-roll= to move point to the next dice expression
+    - =rpgdm-roll= randomly evaluates dice expression at point, or queries for one
+    - =rpgdm-roll-advantage= / =rpgdm-roll-disadvantage= rolls a d20 with a modifier
