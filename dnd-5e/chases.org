@@ -1,0 +1,73 @@
+#+TITLE:  Chases
+#+AUTHOR: Howard X. Abrams
+#+EMAIL:  howard.abrams@gmail.com
+#+FILETAGS: :rpg:5e:dm-screen:
+
+Rules:
+
+  - *Chase Initiative*
+  - Use *Dash action* a number of times equal to 3 + Constitution /modifier/.
+    - Each successive Dash: DC 10 Constitution save, or gain [[file:exhaustion.org][one level of exhaustion]].
+  - *Roll d20* at end of turn.  Less than 10? *Complication*
+    - Complication affects /next chase participant/ in the initiative order
+    - Participant who rolled die or the participant affected by the complication can spend inspiration to negate the complication
+  - Quarry makes a Dexterity (Stealth) check at the end of each round (after all participants have taken their turn)
+    - All pursuers make a Wisdom (Perception) check (can be passive).
+***** Escape Factors
+| Factor                                                      | Check Has ... |
+|-------------------------------------------------------------+---------------|
+| Quarry has many things to hide behind                       | Advantage     |
+| Quarry is in a very crowded or noisy area                   | Advantage     |
+| Quarry has few things to hide behind                        | Disadvantage  |
+| Quarry is in an uncrowded or quiet area                     | Disadvantage  |
+| The lead pursuer is a ranger or has proficiency in [[https://www.dndbeyond.com/compendium/rules/basic-rules/using-ability-scores#Survival][Survival]] | Disadvantage  |
+***** Urban Chase Complications
+
+  1. A large obstacle such as a horse or cart blocks your way. Make a DC 15 Dexterity ([[https://www.dndbeyond.com/compendium/rules/basic-rules/using-ability-scores#Acrobatics][Acrobatics]]) check to get past the obstacle. On a failed check, the obstacle counts as 10 feet of difficult terrain.
+  2. A crowd blocks your way. Make a DC 10 Strength ([[https://www.dndbeyond.com/compendium/rules/basic-rules/using-ability-scores#Athletics][Athletics]]) or Dexterity ([[https://www.dndbeyond.com/compendium/rules/basic-rules/using-ability-scores#Acrobatics][Acrobatics]]) check (your choice) to make your way through the crowd unimpeded. On a failed check, the crowd counts as 10 feet of difficult terrain.
+  3. A large stained-glass window or similar barrier blocks your path. Make a DC 10 Strength saving throw to smash through the barrier and keep going. On a failed save, you bounce off the barrier and fall [[https://www.dndbeyond.com/compendium/rules/basic-rules/appendix-a-conditions#Prone][prone]].
+  4. A maze of barrels, crates, or similar obstacles stands in your way. Make a DC 10 Dexterity ([[https://www.dndbeyond.com/compendium/rules/basic-rules/using-ability-scores#Acrobatics][Acrobatics]]) or Intelligence check (your choice) to navigate the maze. On a failed check, the maze counts as 10 feet of difficult terrain.
+  5. The ground beneath your feet is slippery with rain, spilled oil, or some other liquid. Make a DC 10 Dexterity saving throw. On a failed save, you fall [[https://www.dndbeyond.com/compendium/rules/basic-rules/appendix-a-conditions#Prone][prone]].
+  6. You come upon a pack of dogs fighting over food. Make a DC 10 Dexterity ([[https://www.dndbeyond.com/compendium/rules/basic-rules/using-ability-scores#Acrobatics][Acrobatics]]) check to get through the pack unimpeded. On a failed check, you are bitten and take 1d4 piercing damage, and the dogs count as 5 feet of difficult terrain.
+  7. You run into a brawl in progress. Make a DC 15 Strength ([[https://www.dndbeyond.com/compendium/rules/basic-rules/using-ability-scores#Athletics][Athletics]]), Dexterity ([[https://www.dndbeyond.com/compendium/rules/basic-rules/using-ability-scores#Acrobatics][Acrobatics]]), or Charisma ([[https://www.dndbeyond.com/compendium/rules/basic-rules/using-ability-scores#Intimidation][Intimidation]]) check (your choice) to get past the brawlers unimpeded. On a failed check, you take 2d4 bludgeoning damage, and the brawlers count as 10 feet of difficult terrain.
+  8. A beggar blocks your way. Make a DC 10 Strength ([[https://www.dndbeyond.com/compendium/rules/basic-rules/using-ability-scores#Athletics][Athletics]]), Dexterity ([[https://www.dndbeyond.com/compendium/rules/basic-rules/using-ability-scores#Acrobatics][Acrobatics]]), or Charisma ([[https://www.dndbeyond.com/compendium/rules/basic-rules/using-ability-scores#Intimidation][Intimidation]]) check (your choice) to slip past the beggar. You succeed automatically if you toss the beggar a coin. On a failed check, the beggar counts as 5 feet of difficult terrain.
+  9. An overzealous [[https://www.dndbeyond.com/monsters/guard][guard]] (see the /Monster Manual/ for game statistics) mistakes you for someone else. If you move 20 feet or more on your turn, the guard makes an opportunity attack against you with a spear (+3 to hit; 1d6 + 1 piercing damage on a hit).
+  10. You are forced to make a sharp turn to avoid colliding with something impassable. Make a DC 10 Dexterity saving throw to navigate the turn. On a failed save, you collide with something hard and take 1d4 bludgeoning damage.
+***** Wilderness Chase Complications
+
+  1. Your path takes you through a rough patch of brush. Make a DC 10 Strength ([[https://www.dndbeyond.com/compendium/rules/basic-rules/using-ability-scores#Athletics][Athletics]]) or Dexterity ([[https://www.dndbeyond.com/compendium/rules/basic-rules/using-ability-scores#Acrobatics][Acrobatics]]) check (your choice) to get past the brush. On a failed check, the brush counts as 5 feet of difficult terrain.
+  2. Uneven ground threatens to slow your progress. Make a DC 10 Dexterity ([[https://www.dndbeyond.com/compendium/rules/basic-rules/using-ability-scores#Acrobatics][Acrobatics]]) check to navigate the area. On a failed check, the ground counts as 10 feet of difficult terrain.
+  3. You run through a [[https://www.dndbeyond.com/monsters/swarm-of-insects][swarm of insects]] (see the /Monster Manual/ for game statistics, with the DM choosing whichever kind of insects makes the most sense). The swarm makes an opportunity attack against you (+3 to hit; 4d4 piercing damage on a hit).
+  4. A stream, ravine, or rock bed blocks your path. Make a DC 10 Strength ([[https://www.dndbeyond.com/compendium/rules/basic-rules/using-ability-scores#Athletics][Athletics]]) or Dexterity ([[https://www.dndbeyond.com/compendium/rules/basic-rules/using-ability-scores#Acrobatics][Acrobatics]]) check (your choice) to cross the impediment. On a failed check, the impediment counts as 10 feet of difficult terrain.
+  5. Make a DC 10 Constitution saving throw. On a failed save, you are [[https://www.dndbeyond.com/compendium/rules/basic-rules/appendix-a-conditions#Blinded][blinded]] by blowing sand, dirt, ash, snow, or pollen until the end of your turn. While [[https://www.dndbeyond.com/compendium/rules/basic-rules/appendix-a-conditions#Blinded][blinded]] in this way, your speed is halved.
+  6. A sudden drop catches you by surprise. Make a DC 10 Dexterity saving throw to navigate the impediment. On a failed save, you fall 1d4 × 5 feet, taking 1d6 bludgeoning damage per 10 feet fallen as normal, and land [[https://www.dndbeyond.com/compendium/rules/basic-rules/appendix-a-conditions#Prone][prone]].
+  7. You blunder into a hunter's snare. Make a DC 15 Dexterity saving throw to avoid it. On a failed save, you are caught in a net and [[https://www.dndbeyond.com/compendium/rules/basic-rules/appendix-a-conditions#Restrained][restrained]]. See [[https://www.dndbeyond.com/compendium/rules/phb/equipment#SpecialWeapons][chapter 5]] of the /Player's Handbook/ for rules on escaping a net.
+  8. You are caught in a stampede of spooked animals. Make a DC 10 Dexterity saving throw. On a failed save, you are knocked about and take 1d4 bludgeoning damage and 1d4 piercing damage.
+  9. Your path takes you near a patch of razorvine. Make a DC 15 Dexterity saving throw or use 10 feet of movement (your choice) to avoid the razorvine. On a failed save, you take 1d10 slashing damage.
+  10. A creature indigenous to the area chases after you. The DM chooses a creature appropriate for the terrain.
+
+****** Sewer Chase Complication Table
+  1. A roaring river of sewage blocks your path. Make a DC 15 Strength (Athletics) check. On a failed check, the sewage counts as 10 feet of difficult terrain.
+  2. Disorienting echoes cause you to question your current path. Make a DC 10 Wisdom (Perception) check. On a failed chec, you move in a random direction determined by the DM.
+  3. A pipe opens next to you releasing a spray of sewage. Make a DC 15 Dexterity saving throw. On a failed save, you are knocked prone by the sewage.
+  4. You disturb a nest of rats. A *swarm of rats* chases after you.
+  5. Ahead of you a mechanical iron portcullis begins to shut. Make a DC 15 Dexterity (Acrobatics) check or use 10 feet of movement to go around a different way. On a failed check, you take 1d4 bludgeoning damage and have to use 10 feet of movement to go around a different way.
+  6. You must cross over the top of a pipe opening. Make a DC 10 Strength (Athletics) check to jump over. On a failed check, you fall 1d4 x 5 feet (taking the normal 1d6 bludgeoning damage per 10 feet) and land prone.
+  7. You run through a cloud of noxious fumes. Make a DC 15 Constitution saving throw. On a failed save, you are poisoned until the end of your next turn.
+  8. An *ochre jelly* falls from the ceiling and attacks you.
+  9. You must cross a pool knee-deep sewage. Make a DC 10 Strength (Athletics) check. On a failed check, the sewage counts as 10 feet of difficult terrain.
+  10. You run through a pocket of explosive gas. If you are carrying a lit torch, candle, lantern, or other fire-powered light source, open flame, or create fire by magic or mundane means this round, make a Dexterity saving throw. On a failed save, you take 2d6 fire damage.
+
+****** Treetop City Chase Complication Table
+  1. You cross an unstable rope bridge. Make a DC 10 Dexterity (Acrobatics) check or fall prone on the bridge.
+  2. You cross a crumbling bridge. Make a DC 10 Dexterity saving throw. On a failed save, you fall 1d3 x 10 feet (taking the normal 1d6 bludgeoning damage per 10 feet) and land prone.
+  3. You run across a narrow bridge. Make a DC 15 Dexterity (Acrobatics) check. On a failed check, you fall 1d3 x 10 feet (taking the normal 1d6 bludgeoning damage per 10 feet) and land prone.
+  4. The bridge before you is broken. Make a DC 15 Strength (Athletics) check to jump the distance. On a failed check, you fall 1d3 x 10 feet (taking the normal 1d6 bludgeoning damage per 10 feet) and land prone.
+  5. You disturb a hive of hornets. A flying *swarm of insects* chases after you.
+  6. You have reached the end of your path on this level and there is nowhere for you to go but up. Make a DC 15 Strength (Athletics) check to climb up to a new level. On a failed check, the effort to climb costs you 10 feet of movement.
+  7. You accidentally knock over an irate *druid*. Make a DC 15 Charisma (Persuasion) check or she chases after you.
+  8. A large puddle of tree sap is in your path. Make a DC 10 Dexterity (Acrobatics) check to avoid it. On a failed check, the sticky grounds costs you 5 feet of movement.
+  9. A large gap between structures blocks your path. You can make a DC 15 Dexterity (Acrobatics) check to swing across the gap on a vine or use 10 feet of movement to walk around the gap. On a failed check, you fall 1d3 x 10 feet (taking the normal 1d6 bludgeoning damage per 10 feet) and land prone.
+  10. An overgrowth of razorvine blocks your path. Make a DC 10 Strength (Athletics) check to jump over it. On a failed check, you take 1d10 slashing damage and lose 5 feet of movement.
+
+Need to read [[https://worldbuilderblog.me/tag/chase-scene/][Outrunning Hazards]].

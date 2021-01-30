@@ -1,0 +1,22 @@
+#+TITLE:  Actions in Combat
+#+AUTHOR: Howard X. Abrams
+#+EMAIL:  howard.abrams@gmail.com
+#+FILETAGS: :rpg:5e:dm-screen:
+
+ - Attack ::
+   - Bonus Attack uses prof for attack, but not extra damage
+ - Cast a Spell ::
+ - Dash :: Extra movement base on your speed
+ - Disengage :: You don't provoke opportunity attacks
+ - Dodge :: Works until start of your next turn:
+   - Attacks against you have disadvantage
+   - Dex Saving Throws have advantage
+ - Help :: PC gains advantage on skill check
+ - Hide :: Relative, since you hiding locations
+ - Ready :: Act as a Reaction
+ - Search ::
+ - Use an Object :: A lot of these are bonus Actions
+
+# Local Variables:
+# eval: (narrow-to-region 121 633)
+# End:

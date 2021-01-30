@@ -1,0 +1,23 @@
+#+TITLE:  Skill Checks
+#+AUTHOR: Howard X. Abrams
+#+EMAIL:  howard.abrams@gmail.com
+#+FILETAGS: :rpg:5e:dm-screen:
+
+  - [[elisp:(call-interactively 'rpgdm-skill-check-easy)][Easy DC]]
+  - [[elisp:(call-interactively 'rpgdm-skill-check-moderate)][Moderate DC]]
+  - [[elisp:(call-interactively 'rpgdm-skill-check-hard)][Hard DC]]
+  - [[elisp:(call-interactively 'rpgdm-skill-check-difficult)][Difficult DC]]
+  - [[elisp:(call-interactively 'rpgdm-skill-check-impossible)][Nearly Impossible DC]]
+
+| Strength  | Dexterity  | Intellect | Wisdom   | Charisma   |
+|-----------+------------+-----------+----------+------------|
+| Athletics | Acrobatics | Arcana    | Animal   | Deception  |
+|           | Sleight of | History   |   Handle | Intimidate |
+|           |   Hand     | Invest-   | Insight  | Perform    |
+|           | Stealth    |   igation | Medicine | Persuasion |
+|           |            | Nature    | Perceive |            |
+|           |            | Religion  | Survival |            |
+
+# Local Variables:
+# eval: (narrow-to-region 116 494)
+# End:

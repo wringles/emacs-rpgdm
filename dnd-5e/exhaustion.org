@@ -1,0 +1,63 @@
+#+title:     Exhaustion
+#+author:    Howard X. Abrams
+#+email:     howard.abrams@gmail.com
+#+FILETAGS: :rpg:5e:dm-screen:
+
+*Exhaustion* is a [[conditions.org][condition]] but with levels (that stack), see [[https://www.dndbeyond.com/sources/phb/appendix-a-conditions#Exhaustion][PHB pg. 291]], or [[https://thealpinedm.com/dnd-5e-exhaustion/][this summary]]:
+
+   | 1 | [[https://www.dandwiki.com/wiki/5e_SRD:Disadvantage][Disadvantage]] on ability checks                 |
+   | 2 | Speed halved                                   |
+   | 3 | [[https://www.dandwiki.com/wiki/5e_SRD:Disadvantage][Disadvantage]] on attack rolls and saving throws |
+   | 4 | [[https://www.dandwiki.com/wiki/5e_SRD:Hit_Points][Hit point]] maximum halved                       |
+   | 5 | Speed reduced to 0                             |
+   | 6 | Death                                          |
+
+* Overview
+
+Try to imagine -- if you will -- all the various things in real life that can leave you feeling exhausted. Given the current state of the world, and the COVID-19 outbreak, this shouldn't be too difficult. A lack of survival supplies, chronic high levels of stress, and not getting a good night's sleep are all perfect examples.
+
+Next, imagine the different equivalents of these exhausters within your Dungeons and Dragons realm. Get creative! You're the Dungeon Master (/aka basically god/) so this can really be anything you want it to be.
+
+* *Practical Examples of Acquiring Exhaustion*:
+    :PROPERTIES:
+    :CUSTOM_ID: practical-examples-of-acquiring-exhaustion
+    :END:
+
+  - Not getting enough sleep
+  - Not getting enough food or water
+  - Any strenuous task done for a long duration without resting
+  - Traveling too long in the hot desert sun
+  - Stages of withdrawal from a potent narcotic
+  - A powerful artifact, but using it requires passing a save or gain a level of exhaustion
+  - Repeatedly using an unstable method of dimension-hopping
+
+My only piece of advice here is that: if the characters may be gaining exhaustion by attempting to push onwards, make this clear when they're debating the decision.
+
+Example:
+
+#+begin_quote
+  Let's say that the party has been traveling for an entire day, but the town
+  that they're headed towards is only about 4 more hours down the road. The
+  party may consider choosing to push onwards so they can safely rest at an inn
+  for the night. In this case, I'd clearly tell the players that they are free
+  to continue their journey, however they are going to face the risk of
+  exhaustion (which I would handle by making them do a CON save).
+#+end_quote
+
+However if the exhaustion is gained from an unknown source -- such as if an enemy has a unique ability, or if there is a cursed item in their possession -- then fuck it. Don't tell them anything until it happens. 
+
+The Players Handbook /does/ mention that *environmental hazards* are one of the methods in which players can acquire levels of exhaustions. What qualifies as an ‘environmental hazard' is really up to you as a Dungeon Master, but just use your best judgement. In these types of situations I would also be sure that the players are aware that they are facing the possibility of being exhausted. For example, if the party is traveling through an icy tundra (and do not have temperature-appropriate gear) I would let them know that they will need some form or shelter or heat soon or possibly face exhaustion. 
+
+* *Removing Exhaustion*
+   :PROPERTIES:
+   :CUSTOM_ID: removing-exhaustion
+   :END:
+As you can imagine, gaining levels of exhaustion will begin taking a toll quickly if not dealt with. Basically shit can get real, and fast.  So, how do players get rid of exhaustion? 
+
+Characters *remove a level of exhaustion* is *by finishing a long rest* (/if they have plenty of food and clean water available/) or /Greater Restoration/ spell.
+
+Notice that it only removes a single level of exhaustion! So if a character has multiple levels of exhaustion, it can take quite a while, in-game, to get back to normal.
+
+# Local Variables:
+# eval: (narrow-to-region 123 872)
+# End:

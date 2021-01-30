@@ -1,0 +1,162 @@
+#+TITLE:  Schools of Magic
+#+AUTHOR: Howard X. Abrams
+#+EMAIL:  howard.abrams@gmail.com
+#+FILETAGS: :rpg:5e:dm-screen:
+
+  - [[#conjuration][Conjuration]] ... creating
+  - [[#necromancy][Necromancy]] ...
+  - [[#evocation][Evocation]] ... offensive
+  - [[#abjuration][Abjuration]] ... defensive
+  - [[#transmutation][Transmutation]] ... physically changing
+  - [[#divination][Divination]] ... revealing
+  - [[#enchantment][Enchantment]] ... mentally changing
+  - [[#illusion][Illusion]] ... affecting senses
+
+See [[https://www.dndbeyond.com/sources/phb/spellcasting#AttackRolls][PHB, pg 203]] or [[https://thealpinedm.com/dnd-5e-schools-of-magic/][this summary]].
+
+* *School of Conjuration* : “Pulling a rabbit from a hat”
+   :PROPERTIES:
+   :CUSTOM_ID: conjuration
+   :END:
+
+The School of Conjuration deals with creating objects and creatures, or making them disappear. 
+
+Examples:
+
+#+begin_quote
+  *Low Level*: /Find Familiar, Poison Spray/
+
+  *Mid Level*: /Spirit Guardians, Conjure Elemental/
+
+  *High Level*: /Plane Shift, Wish/
+#+end_quote
+
+/DM Thoughts: You might think Banishment would be within the School of Conjuration, since it deals with making things disappear, but it's actually within the School of Abjuration./
+
+* *School of Necromancy* : “Nice to you again...”
+   :PROPERTIES:
+   :CUSTOM_ID: necromancy
+   :END:
+
+In general, think of spells within the School of Necromancy as manipulating the ebb and flow of different creatures' “life energy”, or the balance of energy between life and death. This can come across in the form of helping resurrection, or draining necrotic damage. 
+
+Examples:
+
+#+begin_quote
+  *Low Level*: /Chill Touch, Inflict Wounds/
+
+  *Mid Level*: /Animate Dead, Blight/
+
+  *High Level*: /Resurrection, Finger of Death/
+#+end_quote
+
+/Unsolicited DM Thoughts: All forms of healing magic should be within the school of necromancy, and not scattered all about different schools of magic./
+
+* *School of Evocation* : Offence
+:PROPERTIES:
+:CUSTOM_ID: evocation
+:END:
+
+Casters within the school of evocation unleash a raw magical energy upon their enemies. Whether it be flames, ice, or pure arcane energy: evocation spellcasters are here to deal damage and chew gum... and they're all out of gum. 
+
+Examples:
+
+#+begin_quote
+  *Low Level*: /Burning Hands, Dancing Lights/
+
+  *Mid Level*: /Fireball, Freezing Sphere/
+
+  *High Level*: /Meteor Swarm, Prismatic Spray/
+#+end_quote
+
+/Unsolicited DM Thoughts: The spell sending is within the School of Evocation, though I think it is a better fit for the School of Divination./
+
+* *School of Abjuration* : Defence
+:PROPERTIES:
+:CUSTOM_ID: abjuration
+:END:
+
+Magical spells and effects within the school of abjuration are primarily designed for protection and shielding. Don't be fooled however, some Abjuration spells can pack quite a punch.
+
+Examples:
+
+#+begin_quote
+  *Low Level*: /Dispel Magic, Shield/
+
+  *Mid Level*: /Dispel Evil and Good, Greater Restoration/
+
+  *High Level*: /Invulnerability, Antimagic Field/
+#+end_quote
+
+* *School of Transmutation* : “Water to wine”
+:PROPERTIES:
+:CUSTOM_ID: transmutation
+:END:
+
+Casters who study within the School of Transmutation are able to manipulate the physical properties of both items and people. This could be something simple -- such as turning copper into gold -- or could be an advanced spell that turns you into a newt (/it'll get better...)/
+
+Examples:
+
+#+begin_quote
+  *Low Level*: /Shape Water, Feather Fall/
+
+  *Mid Level*: /Gaseous Form, Stone Shape/
+
+  *High Level*: /Polymorph, Etherealness/
+#+end_quote
+
+* *School of Divination*
+:PROPERTIES:
+:CUSTOM_ID: divination
+:END:
+
+The magical School of Divination is centered around revealing and granting knowledge and information to the caster. Useful for reading ancient scripts, identifying magical items, and seeing invisible enemies. 
+
+Examples:
+
+#+begin_quote
+  *Low Level: */Identify, Find Traps/
+
+  *Mid Level: */Scrying, Locate Creature/
+
+  *High Level: */True Seeing, Foresight/
+#+end_quote
+
+* *School of Enchantment* : “You're getting sleepy...”
+:PROPERTIES:
+:CUSTOM_ID: enchantment
+:END:
+
+Spells within the School of Enchantment are designed to manipulate the mental state of the target. This entire school is very similar to hypnotism, where the affected creature may act completely differently than how they normally behave.
+
+Examples:
+
+#+begin_quote
+  *Low Level*: /Hold Person, Sleep/
+
+  *Mid Level*: /Modify Memory, Mass Suggestion/
+
+  *High Level*: /Feeblemind, Power Word Kill/
+#+end_quote
+
+* *School of Illusion*
+:PROPERTIES:
+:CUSTOM_ID: illusion
+:END:
+
+The School of Illusion is concerned with manipulating the various senses of people and creatures. This could be vision, hearing, or other various senses such as body temperature. 
+
+Example: 
+
+#+begin_quote
+  *Low Level*: /Disguise Self, Silent Image/
+
+  *Mid Level*: /Invisibility, Hallucinatory Terrain/
+
+  *High Level*: /Project Image, Weird/
+#+end_quote
+
+
+# Local Variables:
+# eval: (narrow-to-region 120 663)
+# End:

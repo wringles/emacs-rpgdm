@@ -1,0 +1,19 @@
+  - Cold :: The temperature ranges between 0 and 32 degrees. This functions as Extreme Cold from Chapter 5 of the Dungeon Master’s Guide, except the saving throw is made with advantage
+
+  - Extreme Cold :: This functions as Extreme Cold from Chapter 5 of the Dungeon Master’s Guide
+
+  - Hail :: Hailstones plummet from the sky, causing disadvantage on Wisdom (Perception) checks that rely on hearing. Creatures caught without shelter for ten minutes or more must succeed on a DC 10 Constitution saving throw or suffer 1d3 bludgeoning damage
+
+  - Heavy Fog :: A blanket of heavy fog makes it impossible to see across the street. The entire area is heavily obscured, and creatures suffer from the blindness condition when attempting to see anything beyond five feet of them.Heavy Rain or Snow. As Heavy Precipitation from Chapter 5 of the Dungeon Master’s Guide. If it has been snowing for an hour or more, exterior locations in the city count as difficult terrain
+
+  - Hot :: The temperature ranges between 85 and 100 degrees. Characters without shelter or water suffer effects as per Extreme Heat from Chapter 5 of the Dungeon Master’s Guide, except their saving throws are made with advantage
+
+  - Ice :: As Slippery Ice from Chapter 5 of the Dungeon Master’s Guide
+
+  - Light Fog :: A light fog lightly obscures the area, causing Wisdom (Perception) checks that rely on sight to be made with disadvantage
+
+  - Lightning :: Extreme weather has generated perfect conditions for lightning strikes. For every ten minutes that a creature spends in the open, it has a cumulative 2% chance of being caught in a lightning strike. A creature struck by lightning must make a DC 12 Dexterity saving throw, suffering 18 (4d8) lightning damage on a failed save, or half as much damage on a successful one. Characters wearing metal armor or in high places such as roof or treetops suffer disadvantage on this saving throw.Light Rain or Snow. A steady light precipitation covers the area, providing disadvantage on Wisdom (Perception) checks that rely on sight. Light rain has a 50% chance per hour of extinguishing an open flame
+
+  - Strong Wind :: As Strong Wind from Chapter 5 of the Dungeon Master’s Guide
+
+  - Windy :: Howling winds gust through the streets, providing disadvantage on Wisdom (Perception) checks that rely on hearing. Open flames have a 50% chance of being extinguished for every 10 minutes they’re exposed to the wind, and fog effects are automatically dispersed.

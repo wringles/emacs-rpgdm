@@ -1,0 +1,17 @@
+#+TITLE:  Exchange Rates
+#+AUTHOR: Howard X. Abrams
+#+EMAIL:  howard.abrams@gmail.com
+#+FILETAGS: :rpg:5e:dm-screen:
+
+ | Coin          |        |    cp |   sp |   ep | gp    | pp      |
+ |---------------+--------+-------+------+------+-------+---------|
+ | Copper (cp)   | Nib    |     1 | 1/10 | 1/50 | 1/100 | 1/1,000 |
+ | Silver (sp)   | Shard  |    10 |    1 |  1/5 | 1/10  | 1/100   |
+ | Electrum (ep) | Sambar |    50 |    5 |    1 | 1/2   | 1/20    |
+ | Gold (gp)     | Dragon |   100 |   10 |    2 | 1     | 1/10    |
+ | Platinum (pp) | Sun    | 1,000 |  100 |   20 | 10    | 1       |
+
+ In [[https://forgottenrealms.fandom.com/wiki/Currency#Waterdeep][Waterdeep]], we had a couple other coins:
+
+   - Square brass "taol" was worth 2 dragons, but had no value elsewhere.
+   - Palm-sized crescent-shaped platinum "harbor moon" was 50 dragons in the city, but 2 gold outside.
