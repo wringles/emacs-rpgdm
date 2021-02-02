@@ -260,7 +260,7 @@ Unless the point is on a dice roll description, e.g 2d12+3."
                          (match-string-no-properties 0)
                        (read-string "Dice Expression: "))))
   (let ((roll-results (rpgdm--roll-expression expression)))
-    (message "Rolled: %s" (rpgdm--display-roll roll-results expression))))
+    (rpgdm-message "Rolled: %s" (rpgdm--display-roll roll-results expression))))
 
 
 ;; ----------------------------------------------------------------------
@@ -286,7 +286,7 @@ otherwise, prompt for the modifier. Results are displayed."
   (interactive (list (if (looking-at rpgdm-roll-regexp)
                          (match-string-no-properties 0)
                        (read-number "Advantage roll with modifier: "))))
-  (message "Rolled with Advantage: %s"
+  (rpgdm-message "Rolled with Advantage: %s"
            (rpgdm--roll-with-choice 'max modifier plus-minus)))
 
 (defun rpgdm-roll-disadvantage (modifier &optional plus-minus)
@@ -297,7 +297,7 @@ otherwise, prompt for the modifier. Results are displayed."
   (interactive (list (if (looking-at rpgdm-roll-regexp)
                          (match-string-no-properties 0)
                        (read-number "Disadvantage roll with modifier: "))))
-  (message "Rolled with Disadvantage: %s"
+  (rpgdm-message "Rolled with Disadvantage: %s"
            (rpgdm--roll-with-choice 'min modifier plus-minus)))
 
 

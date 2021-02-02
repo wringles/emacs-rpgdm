@@ -4,26 +4,107 @@
 #+DATE:   2021-01-27 January
 #+TAGS:   rpg
 
-The overlap between Emacs and running a Dungeons and Dragon campaign
+The overlap between Emacs and running a Dungeons and Dragon campaign is... expected? Jotting notes and plans in an org-mode file has been great, but what if, during a game session, my notes became /more interactive/? I started creating some helper functions, which has now become a minor mode I use as a sort of layer on top of Org.
 
+The primary interface is =f13= which calls up a /sticky/ Hydra to call my functions, but still allowing full cursor movement (but without changing the code):
+[[file:README-hydra.png]]
 * Themes
+What emerged from some late night hacking is more than just a dice roller, but I may have to explain my rationale.
 ** Yes/No Complications
-According to [[https://www.hipstersanddragons.com/difficulty-classes-for-ability-checks-5e/][this essay]], the standard DC 15 skill check is actually /too hard/ for most situations,
-The [[https://www.drivethrurpg.com/product/89534/FU-The-Freeform-Universal-RPG-Classic-rules][FU Rules]] think a attempt with randomness (what D&D calls an ability check) shouldn't be just a yes/no, but could have some /complications/, like "yes, but..." or "no, and...". I want to be able to wrap these ideas into a single interface.
+The [[https://www.drivethrurpg.com/product/89534/FU-The-Freeform-Universal-RPG-Classic-rules][FU Rules]] believes a attempt with randomness (what D&D calls an ability check) shouldn't be just a yes/no, but could have some /complications/, like "yes, but..." or "no, and...".
+Those rules used a d6 with six variations:
+
+  1. no, and ... (failure, plus a new complication)
+  2. no
+  3. no, but ... (failure, but a glimmer of something positive)
+  4. yes, but ... (success, but with a complication)
+  5. yes
+  6. yes, and ... (success, plus a bonus)
+
+I love this idea, and thought that I could extend it to d20 skill check rolls. Perhaps 1 and 6 happened pretty infrequently, followed by 3 and 4, and 2 and 5 happen most often.
+
+According to [[https://www.hipstersanddragons.com/difficulty-classes-for-ability-checks-5e/][this essay]], the standard DC 15 skill check is actually /too hard/ for most situations, however, I don't trust my bias when choosing a value for a difficulty check. For the life of me, I can't find where I saw this idea, but you could choose a number of d6s for the challenge (1 is easy, 2 is moderate, etc.) and then add 7. That sounds pretty good, so after calling for a check, I can enter it, and Emacs confirm the results.
+
+I want to be able to wrap both of these ideas into a single interface.
 ** Random Items
-As a DM, we
+As a DM, we often have to invent unplanned details to our story...especially names, but even the trinkets in the goblin's pocket. Most DMs make lists of things, and some even pin some of these to their DM Screen, so they can look a player in the eye, and say, "My name is Samuel Gustgiver, I work at the bakery, but my friends just call me Sam."
+
+I wanted to create a directory full of files containing tabular goodness, and have a function that would read all the files, and then allow me to choose a random item from anything on the list, for instance:
+
+[[file:README-choose-table.png]]
+
+And then having the results show up easily:
+
+[[file:README-results.png]]
+
+Oh, and when the players ask what the name of that strange NPC was, I made a function to display the last randomly displayed message.
+
+
+Writing a function to read all the items in a list is pretty trivial, printing out a random name would be nice, but some items on these lists may be more prevalent than others. For instance, what if half the people in Waterdeep belonged to a faction, and I wanted to help my NPC's backstory with a random faction, but wouldn't some factions be more prevalent than others? Same with occupations, as our players would run into more docker workers than workers of magic.
+
+A file of lists can include a /frequency/, for instance:
+
+#+begin_example
+ - Xanathar Guild     :often:
+ - Church of Talos    :scarcely:
+ - The Kraken Society :rarely:
+ - Bregan D’aerthe    :seldom:
+ - Bull Elk Tribe     :seldom:
+ - Cult of the Dragon :seldom:
+#+end_example
+But how much more often is /often/? So, lists are purely randomly distributed, but other frequencies are /pre-calculated/, as in:
+
+  - 4 -- =often=
+  - 3 -- =seldom=, =sometimes=
+  - 2 -- =scarcely=, =scarce=, =hardly ever=
+  - 1 -- =rarely=
+
+So /often/ is four times likelier than /rarely/. I also have this list:
+
+  - 10 -- =common=
+  - 6 -- =uncommon=
+  - 4 -- =rare=
+  - 2 -- =veryrare=, =very-rare=, =very rare=
+  - 1 -- =legendary=
+
+Where /common/ is ten times more likelier than /legendary/. Actually, after all the work in getting this working, I'm not sure how often, in an epic fantasy game, where rare should be commonplace for the player.
 ** DM Screen and Roll from my Notes
+Finally, I wanted to quickly bring up a collection of rules and tables along with my session notes, a bit of a DM Screen for my screen.
+
+Two things I noticed about org files, is that I could initially hide unnecessary meta information and focus on just the contents of the file's table or list by prepending this blurb:
+
+#+begin_example
+# Local Variables:
+# eval: (narrow-to-region 121 633)
+# End:
+#+end_example
+
+Keep in mind, that this is only good for more /static/ files that don't change, as I have to figure out the range.
+
+The second thing I realized is that Org's links can call Emacs functions. This allows me to have a bit of random-ness to a table's list, for instance:
+
+#+begin_example
+[[elisp:(call-interactively 'rpgdm-skill-check-easy)][Easy DC]]
+#+end_example
+
+My initial ideas for listing a bunch of random NPC names and having a link that displayed one of them, got supplanted for the ideas I described above.
 * Code
 What do I have here:
   - [[file:rpgdm.el][rpgdm.el]] :: Primary interface offering:
-    - rpgdm-yes-and-50/50
-    - rpgdm-skill-check given a target and a d20 dice result, returns yes/no, but possibly with complications
-    - rpgdm-skill-check-easy queries a rolled results, and returns a complicated yes/no for an /easy/ skill challenge
-    - rpgdm-skill-check-moderate
-    - rpgdm-skill-check-hard
-    - rpgdm-skill-check-difficult
-    - rpgdm-skill-check-impossible
+    - =rpgdm-mode=, plus a Hydra interface for easily calling the rest of these functions.
+    - =rpgdm-yes-and-50/50=, flip a coin and make a give a result with or without complications or bonuses.
+    - =rpgdm-skill-check=,  given a target and a d20 dice result, returns yes/no, but possibly with complications or bonuses, depending on how well the result is.
+    - =rpgdm-skill-check-easy=,  queries a rolled results, and returns a complicated yes/no for an /easy/ skill challenge, where the average DC is 10, but it could be anywhere from 8 to 13.
+    - =rpgdm-skill-check-moderate=, same as above, but for moderate challenges where the average DC is 14
+    - =rpgdm-skill-check-hard=, same, but for hard challenges where the average DC is 17 (with a range of 10 to 25, but with a pyramid bell curve, the average is likely)
+    - =rpgdm-skill-check-difficult=, for challenges where the average DC is 20 (range from 11 to 30)
+    - =rpgdm-skill-check-impossible=, the average DC for this is 24 (with a range of 14 to 35)
   - [[file:rpgdm-dice.el][rpgdm-dice]] :: All the random number generators, plus:
     - =rpgdm-forward-roll= to move point to the next dice expression
     - =rpgdm-roll= randomly evaluates dice expression at point, or queries for one
     - =rpgdm-roll-advantage= / =rpgdm-roll-disadvantage= rolls a d20 with a modifier
+  - [[file:rpgdm-tables.el][rpgdm-tables]] :: For randomly displaying choices from a directory of tables. Call either:
+    - =rpgdm-tables-load= and point to a directory of text files
+    - =rpgdm-tables-choose= and choose from one of the tables dynamically, and a result is displayed.
+  - [[file:rpgdm-screen.el][rpgdm-screen]] :: Still working on this one
+    - =rpgdm-screen= :: to display some tables in buffer windows on the right side of the screen.

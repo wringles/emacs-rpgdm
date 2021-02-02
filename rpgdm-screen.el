@@ -22,14 +22,6 @@
 (require 'org-element)
 (require 's)
 
-(defvar rpgdm-screen-last-results ""
-  "The results from calls to `rpgdm-screen-' functions are stored here.")
-
-(defun rpgdm-screen-last-results ()
-  "Display results from the last call to a `rpgdm-screen-' function."
-  (interactive)
-  (message rpgdm-screen-last-results))
-
 (defun rpgdm-screen--get-list-items ()
   "Return a list of all the list items in the org document."
   (org-element-map (org-element-parse-buffer) 'item
@@ -44,8 +36,7 @@ The contents of the item is displayed in the mini-buffer."
   (interactive)
   (let* ((items (rpgdm-screen--get-list-items))
          (item (nth (random (length items)) items)))
-    (setq rpgdm-screen-last-results (s-trim item))
-    (message rpgdm-screen-last-results)))
+    (rpgdm-message (s-trim item))))
 
 (defun rpgdm-screen-choose-sublist ()
   "Randomly choose an elemeent from the lists in the subtree.
@@ -67,12 +58,12 @@ The contents of the item is displayed in the mini-buffer."
   (dired-hide-details-mode)
 
   (split-window-right)
-  (find-file "skill-checks.org")
+  (find-file "actions.org")
 
   (split-window-below)
   (split-window-below)
   (other-window 1)
-  (find-file "names.org")
+  (find-file "weather-effects.org")
   (other-window 1)
   (find-file "magic-schools.org")
   (split-window-below)
@@ -86,7 +77,7 @@ The contents of the item is displayed in the mini-buffer."
   (other-window 1)
   (find-file "gear.org")
   (other-window 1)
-  (find-file "trinkets.org")
+  (find-file "armor.org")
   (split-window-below)
   (other-window 1)
   (find-file "conditions.org")

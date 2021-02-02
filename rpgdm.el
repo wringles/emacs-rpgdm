@@ -18,6 +18,11 @@
 ;;
 ;;; Code:
 
+(require 'cl)
+(require 'dash)
+(require 'hydra)
+(require 's)
+
 (defconst rpgdm-base (file-name-directory load-file-name))
 (load-file (expand-file-name "rpgdm-dice.el" rpgdm-base))
 (load-file (expand-file-name "rpgdm-screen.el" rpgdm-base))
@@ -28,6 +33,51 @@
   :prefix "rpgdm-"
   :group 'applications
   :link '(url-link :tag "Github" "https://gitlab.com/howardabrams/emacs-rpgdm"))
+
+(define-minor-mode rpgdm-mode
+  "Minor mode for layering role-playing game master functions over your notes."
+  :lighter " D&D"
+  :keymap (let ((map (make-sparse-keymap)))
+            (define-key map (kbd "<f13>") 'hydra-rpgdm/body)
+            map))
+
+(defhydra hydra-rpgdm (:color pink :hint nil)
+  "
+    ^Dice^              ^Tables^          ^Checks^
+ ^^^^^^^----------------------------------------------------------------------------------------
+    _d_: Roll Dice      _h_: Dashboard    _s_: d20 Skill
+    _f_: Next Dice Expr _t_: Load Tables  _e_: Easy check
+    _b_: Previous Expr  _c_: Choose from  _m_: Moderate
+    _z_: Flip a coin         a table    _h_: Hard check
+    _a_/_A_: Advantage/Disadvantage       _v_: Difficult   "
+  ("d" rpgdm-roll)              ("<f13>" rpgdm-last-results)
+  ("f" rpgdm-forward-roll)      ("b" rpgdm-forward-roll)
+  ("a" rpgdm-roll-advantage)    ("A" rpgdm-roll-disadvantage)
+  ("z" rpgdm-yes-and-50/50)
+  ("s" rpgdm-skill-check)       ("i" rpgdm-skill-check-impossible)
+  ("e" rpgdm-skill-check-easy)  ("m" rpgdm-skill-check-moderate)
+  ("h" rpgdm-skill-check-hard)  ("v" rpgdm-skill-check-difficult)
+
+  ("t" rpgdm-tables-load)       ("c" rpgdm-tables-choose)
+  ("h" rpgdm-screen)
+
+  ("q" nil "quit"))
+
+
+(defvar rpgdm-last-results ""
+  "The results from calls to `rpgdm-screen-' functions are stored here.")
+
+(defun rpgdm-message (format-string &rest args)
+  "Replace `messasge' function allowing it to be re-displayed.
+The FORMAT-STRING is a standard string for the `format' function,
+and ARGS are substitued values."
+  (setq rpgdm-last-results (apply 'format format-string args))
+  (rpgdm-last-results))
+
+(defun rpgdm-last-results ()
+  "Display results from the last call to a `rpgdm-screen-' function."
+  (interactive)
+  (message rpgdm-last-results))
 
 
 (defun rpgdm-yes-and-50/50 ()
@@ -152,7 +202,7 @@ The string can return a bit of complications, from `rpgdm--yes-and'."
   (interactive (list (completing-read "Target Level: "
                                       '(Trivial Easy Moderate Hard Difficult Impossible))
                      (read-number "Rolled Results: ")))
-  (message (rpgdm--yes-and target rolled-results)))
+  (rpgdm-message (rpgdm--yes-and target rolled-results)))
 
 (defun rpgdm-skill-check-easy (rolled-results)
   "Return an embellished pass/fail from ROLLED-RESULTS for an easy skill check."

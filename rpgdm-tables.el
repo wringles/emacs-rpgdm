@@ -162,7 +162,7 @@ For instance, `veryrare' and `very-rare' are the same."
 (defun rpgdm-tables--choose-list (lst)
   "Randomly choose (equal chance for any) element in LST."
   (let ((item (seq-random-elt lst)))
-    (message "%s" item)))
+    (rpgdm-message "%s" item)))
 
 ;; However, choosing an element in a hash of tags seems ... challenging. This is
 ;; because I want the tags to somehow add a particular weight to the randomness.
