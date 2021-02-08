@@ -155,6 +155,24 @@ average value of AVG, if given."
         (rpgdm--test-roll-series 'rpgdm--roll dice-args lowest highest)))))
 
 
+;; For programmatic reasons, we need a quick way to roll dice and get a
+;; numeric value.
+
+(defun rpgdm-roll-sum (first &optional dice-type modifier)
+  "Return a number value from rolling some dice.
+The FIRST can be one of the following values:
+ - A dice expression as a string, e.g. 2d4+2
+ - A roll-combo tuple list
+ - A single number of dice to roll (but this requires more values)
+
+If FIRST is an integer, then DICE-TYPE is the number of dice sides.
+MODIFIER, if given, is added to roll."
+  (cond
+   ((stringp first) (rpgdm--sum (rpgdm--roll-expression first)))
+   ((listp first)   (rpgdm--sum first))
+   (t               (rpgdm--sum (rpgdm--roll first dice-type modifier)))))
+
+
 ;; Now that we can roll a die with distinct numbers, let's now deal with dice
 ;; strings, e.g. 2d10+4. Can we have a regular expression that could identify
 ;; as well as pull apart the individual numbers?

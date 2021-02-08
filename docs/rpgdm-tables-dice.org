@@ -1,0 +1,190 @@
+#+title:     Dice Tables for Games
+#+author:    Howard X. Abrams
+#+email:     howard.abrams@gmail.com
+#+FILETAGS:  :org-mode:emacs:rpgdm:
+#+STARTUP: inlineimages yes
+#+PROPERTY: header-args:emacs-lisp :tangle ../rpgdm-tables-dice.el :comments yes
+#+PROPERTY: header-args :eval no-export
+#+PROPERTY: header-args :results silent
+#+PROPERTY: header-args :exports both
+
+#+BEGIN_SRC emacs-lisp
+;;; rpgdm-tables-dice.el --- Rolling dice for choosing items from Tables -*- lexical-binding: t; -*-
+;;
+;; Copyright (C) 2021 Howard X. Abrams
+;;
+;; Author: Howard X. Abrams <http://gitlab.com/howardabrams>
+;; Maintainer: Howard X. Abrams <howard.abrams@gmail.com>
+;; Created: February  5, 2021
+;;
+;; This file is not part of GNU Emacs.
+;;
+;;
+;;; Commentary:
+
+#+END_SRC
+
+A "dice table" is a table that is easy to manipulate with dice in a game, and is pretty typical. The general idea is to roll one or more specific dice, and compare the number in the first column to see what the choice.
+
+For instance, Xanathar's Guide to Everything, a Dungeons and Dragons supplement from Wizards of the Coast, allows you to choose a random alignment with the following table:
+
+| 3d6    | Alignment                                   |
+|--------+---------------------------------------------|
+| 3      | Chaotic evil (50%) or chaotic neutral (50%) |
+| 4--5   | Lawful evil                                 |
+| 6--8   | Neutral evil                                |
+| 9--12  | Neutral                                     |
+| 13--15 | Neutral good                                |
+| 16--17 | Lawful good (50%) or lawful neutral (50%)   |
+| 18     | Chaotic good (50%) or chaotic neutral (50%) |
+
+#+BEGIN_SRC emacs-lisp
+;;; Code:
+#+END_SRC
+
+To represent these types of tables, we create a special type, called a =dice-table=. Where the first "slot" is the dice expression (or the number of sides of a dice to roll), and an associative list of result values and the choice.
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defstruct dice-table dice rows)
+#+END_SRC
+
+How is this used to render the example table above?
+
+#+NAME: alignment-table
+#+BEGIN_SRC emacs-lisp :results silent :tangle no
+(make-dice-table :dice "3d6"
+                 :rows '((3  . ("Chaotic evil" "Chaotic neutral"))
+                         (5  . "Lawful evil")
+                         (8  . "Neutral evil")
+                         (12 . "Neutral")
+                         (15 . "Neutral good")
+                         (17 . ("Lawful good" "Lawful neutral"))
+                         (18 . ("Chaotic good" "chaotic neutral"))))
+#+END_SRC
+
+Couple things to notice about this rendering of the table. First, we don't need a range, just the upper bound (for if we roll a 4, we skip over the 3, we are below the next number, so we bugger off with the answer).
+
+Second, a table row could have multiple choices. For instance, if we were to roll a =3=, we should flip a coin to choose between /chaotic evil/ and /chaotic neutral/. In other words, if the value of the row is a list, then we could just select from one of those options.
+
+Let's do the fun part, and select an item from one of these dice-tables. First, we grab the dice expression and the rows of the table and put them into a couple of variables. We use a helper function, =rpgdm-tables-dice--choose= to get the results of rolling the dice expression
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun rpgdm-tables--choose-dice-table (table)
+  "Choose a string from a random dice table."
+  (let* ((roll (rpgdm-roll-sum (dice-table-dice table)))
+         (rows (dice-table-rows table))
+         (results (rpgdm-tables-dice--choose roll rows)))
+    (if (stringp results)
+        results
+        (seq-random-elt results))))
+#+END_SRC
+
+If the results are not a single string item, we assume we have a list sequence, and return one at random using =seq-random-elt=.
+
+The helper function is recursive, as we can evaluate each /row/ to see if it matches the dice roll:
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun rpgdm-tables-dice--choose (roll rows)
+  "Given a numeric ROLL, return row that matches.
+This assumes ROWS is a sorted list where the first element (the
+`car') is a numeric level that if ROLL is less than or equal, we
+return the `rest' of the row. Otherwise, we recursively call this
+function with the `rest' of the rows."
+  (let* ((row (first rows))
+         (level (car row))
+         (answer (rest row)))
+
+    (if (<= roll level)
+        answer
+      (rpgdm-tables-dice--choose roll (rest rows)))))
+#+END_SRC
+
+So, let's see it in action, by first assigning the dice-table above, to a variable: =alignment-table=:
+
+#+BEGIN_SRC emacs-lisp :var alignment-table=alignment-table :tangle no
+(rpgdm-tables--choose-dice-table alignment-table)
+#+END_SRC
+
+#+RESULTS:
+: Neutral good
+
+Nice. Now we just have to read and parse the table from an org-mode file.
+
+Since I format my tables in different /styles/, I need to be able to identify a /dice table/, I figured I would have a key word, =Roll on table= with a dice expression from =rpgdm-dice.el=:
+
+#+BEGIN_SRC emacs-lisp :results silent
+(setq rpgdm-tables-dice-table-regexp (rx "Roll"
+                                           (one-or-more space)
+                                           (optional (or "on" "for"))
+                                           (zero-or-more space)
+                                           "Table:"
+                                           (zero-or-more space)
+                                           (group
+                                            (regexp rpgdm-roll-regexp))))
+#+END_SRC
+
+A predicate could return true when this regular expression returns a valid response:
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun rpgdm-tables-dice-table? ()
+  "Return non-nil if current buffer contains a dice-table"
+  (goto-char (point-min))
+  (re-search-forward rpgdm-tables-dice-table-regexp nil t))
+#+END_SRC
+
+Assuming we just called that function, we can call =match-string= to pick up that group and then parse the rest of the buffer as a table:
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun rpgdm-tables--parse-as-dice-table ()
+  "Return `dice-table' of lines matching `rpgdm-tables-dice-table-rows'."
+  (let ((dice (match-string-no-properties 1))         ; Grab expression before moving on
+        (rows ())                                     ; Modify this with add-to-list
+        (row-splitter (rx (* space) "|" (* space))))  ; Split rest of table row
+
+    (while (re-search-forward rgpdm-tables-dice-table-rows nil t)
+      (let* ((levelstr (match-string-no-properties 1))
+             (level    (string-to-number levelstr))
+             (row      (match-string-no-properties 2))
+             (choices  (split-string row row-splitter t)))
+        (add-to-list 'rows (cons level choices))))
+    (make-dice-table :dice dice
+                     :rows (sort rows (lambda (a b) (< (first a) (first b)))))))
+#+END_SRC
+
+This function relies on a regular expression for parsing the tables:
+
+#+BEGIN_SRC emacs-lisp :results silent
+(setq rgpdm-tables-dice-table-rows (rx bol
+                                         (zero-or-more space) "|" (zero-or-more space)
+                                         (optional (one-or-more digit)
+                                                   (one-or-more "-"))
+                                         (group
+                                          (one-or-more digit))
+                                         (zero-or-more space) "|" (zero-or-more space)
+                                         (group (+? any))
+                                         (zero-or-more space) "|" (zero-or-more space)
+                                         eol))
+#+END_SRC
+
+Let's read the following table into a buffer:
+
+#+begin_example
+Roll on Table: 3d6
+
+|      3 | Chaotic evil | chaotic neutral |
+|   4--5 | Lawful evil  |                 |
+|   6--8 | Neutral evil |                 |
+|  9--12 | Neutral      |                 |
+| 13--15 | Neutral good |                 |
+| 16--17 | Lawful good  | lawful neutral  |
+|     18 | Chaotic good | chaotic neutral |
+#+end_example
+
+#+BEGIN_SRC emacs-lisp
+(provide 'rpgdm-tables-dice)
+;;; rpgdm-tables-dice.el ends here
+#+END_SRC
+
+# Local Variables:
+# eval: (add-hook 'after-save-hook #'org-babel-tangle t t)
+# End:

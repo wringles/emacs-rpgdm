@@ -1,0 +1,329 @@
+#+title:     Frequency Tables for Games
+#+author:    Howard X. Abrams
+#+email:     howard.abrams@gmail.com
+#+FILETAGS:  :org-mode:emacs:rpgdm:
+#+STARTUP: inlineimages yes
+#+PROPERTY: header-args:emacs-lisp :tangle ../rpgdm-tables-freq.el :comments yes
+#+PROPERTY: header-args :eval no-export
+#+PROPERTY: header-args :results silent
+#+PROPERTY: header-args :exports both
+
+#+BEGIN_SRC emacs-lisp
+;;; rpgdm-tables-freq.el --- Rolling dice for choosing items from Tables -*- lexical-binding: t; -*-
+;;
+;; Copyright (C) 2021 Howard X. Abrams
+;;
+;; Author: Howard X. Abrams <http://gitlab.com/howardabrams>
+;; Maintainer: Howard X. Abrams <howard.abrams@gmail.com>
+;; Created: February  5, 2021
+;;
+;; This file is not part of GNU Emacs.
+;;
+;;; Commentary:
+
+#+END_SRC
+
+* Introduction
+While the majority of my tables are simple lists to choose a random element, some lists should return /some elements/ more often than /other elements/. While that sounds great in a sentence, I need to actually code what I mean. I call them /frequency tables/ and they look something like my Faction Encounter table:
+
+
+ | Church of Talos :: Worshipers of the god of storms and destruction.                    | scarcely   |
+ | City Watch :: Members of the Waterdeep constabulary.                                   | often      |
+ | Cult of the Dragon :: Cultists who venerate evil dragons.                              | seldom     |
+ | Emerald Enclave :: Alliance of druids and rangers sworn to defend the wilds from evil. | seldom     |
+ | Enclave of Red Magic :: Thayan mages who often smuggle slaves into Skullport.          | sometimes  |
+ | Force Grey :: League of heroes sworn to protect Waterdeep.                             | often      |
+ | Halaster’s Heirs :: Dark arcanists trained at a hidden academy within Undermountain    | rarely     |
+ | The Kraken Society :: Shadowy group of thieves and mages who serve a kraken master.    | rarely     |
+
+While I have over 50 factions running around my Waterdeep campaign, I would assume my players would run into the City Watch more often than the delusional members of the /Kraken Society/.
+
+While I am using the following code, I would like to explain it better, so until that happens, I'm not really advertising this page.
+
+* Parsing a Frequency Table
+Unlike a normal list, we should have two columns, where the first is the item and the second determines the frequency. My =rpgdm-tables--line-parse= regular expression is already available to parse, and return two groups, so we can create a predicate:
+
+#+BEGIN_SRC emacs-lisp
+(defun rpgdm-tables-freq-table? ()
+  "Return non-nil if current buffer contains a frequency table"
+  (goto-char (point-min))
+  (re-search-forward rpgdm-tables--line-parse nil nil)
+  (match-string 2))
+#+END_SRC
+
+You'll notice that this predicate is not a /pure function/, as it scans the current buffer, leaving the initial match in the /hopper/, so the parsing function called next, can /make an assumption/, and to immediately grab that =match-string= and then parse the rest of the buffer.
+
+The =rpgdm-tables--parse-as-freq-table= will return a =hash-table= where the /keys/ are the frequency labels, like =often= or =common=, and the /values/ will be the list of items of that frequency.
+
+First, grab the previously matched entry and store them, and then with each successive match, append them (via =cons=) to whatever list is already there.
+
+#+BEGIN_SRC emacs-lisp
+(defun rpgdm-tables--parse-as-freq-table ()
+  "Return hashtable of lines matching `rpgdm-tables--line-parse'.
+The keys in the hashtable are the tags from the file, and the
+values will be a list of matching entries of that tag.
+
+For instance, the file:
+  - salt :common:
+  - silver :rare:
+  - gold :rare:
+  - pepper :common:
+
+Would return a hashtable containing:
+
+  rare: [gold silver]
+  common [salt peper]"
+  ;; Create a hash, populated it, and return it:
+  (let ((results (make-hash-table :test 'equal))
+        (entry (match-string-no-properties 1))
+        (tag (match-string-no-properties 2)))
+    ;; Store initial match from parent call:
+    (puthash tag (list entry) results)
+
+    (while (re-search-forward rpgdm-tables--line-parse nil t)
+      (let* ((entry (match-string-no-properties 1))
+             (tag (match-string-no-properties 2))
+             (prev-list (gethash tag results)))
+        (puthash tag (cons entry prev-list) results)))
+
+    ;; Combine the sublists of equivalent tags:
+    (rpgdm-tables--merge-frequencies results)))
+#+END_SRC
+
+The previous function needs to massage the hash table a wee bit. I feel that I might write the frequency label, =scarce= one time, and =scarcely= another time. Why not allow this, but then /merge/ them:
+
+#+BEGIN_SRC emacs-lisp
+(defun rpgdm-tables--merge-frequencies (table)
+  "Combine the values of equivalent table-tags in TABLE.
+A table, read as a hash table, may have similar, but equal tags.
+For instance, `veryrare' and `very-rare' are the same."
+  (let* ((table-tags (rpgdm-tables--which-tag-group table))
+         (tags (-map 'rest table-tags)))  ; Ignore all the numbers
+    (dolist (subtag-list tags)
+      (unless (= 1 (length subtag-list))
+        (let ((keeper (first subtag-list)))
+          (dolist (tag (rest subtag-list))
+            (puthash keeper (append (gethash keeper table)
+                                    (gethash tag table)) table)
+            (remhash tag table)))))
+    table))
+#+END_SRC
+
+* Frequencies as Weights
+However, choosing an element in a hash of tags seems ... challenging. This is because I want the tags to somehow add a particular weight to the randomness. Not a complete standard distribution (bell curve), but a little more favor to some items. For instance, labeling something =common= should show more often than =uncommon=.
+
+Choosing an item from a hash table is a complicated algorithm that may not be as obvious by reading the code, so let's describe this with an example. Assume we have the following frequency table with a /relative weight/ for each tag:
+
+  - often : 4
+  - seldom : 3
+  - scarely : 2
+  - rarely : 1
+
+Is coded with the following list of lists:
+
+#+BEGIN_SRC emacs-lisp :results silent :tangle no
+   ((4 "often")
+    (3 "seldom" "sometimes")
+    (2 "scarcely" "scarce" "hardly ever")
+    (1 "rarely"))
+#+END_SRC
+
+Read this as: /we should have 4 times as many items labeled "often" as "rarely"./
+
+So we use the function, =rpgdm-tables--table-distribution= to make a
+table-specific tag list, usually called =table-tags=, where:
+
+#+begin_quote
+   each weight = the number of items * relative weight
+#+end_quote
+
+So if we had 11 items in the table tagged as "often", and 8 rare
+items, we would have a tag table as:
+
+#+BEGIN_SRC emacs-lisp :results silent :tangle no
+   ((44 "often") (27 "seldom") (22 "scarcely") (8 "rarely"))
+#+END_SRC
+
+Granted, English tags and their relative weights are hard-coded at the moment.
+But this really should just be part of the file, perhaps as a buffer-local variable?
+
+#+BEGIN_SRC emacs-lisp
+(defconst rpgdm-tables-tag-groups
+  '(((12 "common")
+     (7 "uncommon")
+     (4 "rare")
+     (2 "veryrare" "very-rare" "very rare")
+     (1 "legendary"))
+
+    ((4 "often")
+     (3 "seldom" "sometimes")
+     (2 "scarcely" "scarce" "hardly ever")
+     (1 "rarely"))))
+#+END_SRC
+
+* Choosing an Item
+#+BEGIN_SRC emacs-lisp
+(defun rpgdm-tables--choose-freq-table (table)
+  "Select item from a hash TABLE.
+Note that tables stored in a hash table have weight keys and a list
+of items associated with that weight."
+  (let* ((table-tags (rpgdm-tables--table-distribution table))
+         (tag (rpgdm-tables--choose-tag table-tags)))
+    (seq-random-elt (gethash tag table))))
+
+
+(defun rpgdm-tables--relevel-table (table tag)
+  "Given a TAG of a hash TABLE, return new relative level.
+The new value is based on the original weight, e.g. 4 and the
+number of items of that particular tag.
+
+Note: This is a helper function for `rpgdm-tables--table-distribution'."
+  (let* ((name  (second tag))
+         (items (gethash name table))
+         (weight (first tag))
+         (new-weight (* weight (length items))))
+    (list new-weight name)))
+
+(ert-deftest rpgdm-tables-relevel-table-test ()
+  ;; Need to make a fake table, so we will just have a single entry in this
+  ;; table, with a tag of "often". We'll specify that the weight for this should
+  ;; be 4, and we'll store 10 items under that tag:
+  (let* ((table (make-hash-table :test 'equal))
+         (tag "often")
+         (tag-weight-tuple (list 4 tag)))
+    (puthash tag (number-sequence 1 10) table)
+    (should (equal (list 40 tag)
+                   (rpgdm-tables--relevel-table table tag-weight-tuple)))))
+
+
+(defun rpgdm-tables--table-distribution (table)
+  "Return a relative frequency tag group for a given TABLE.
+Works by running map over the table's tags through the
+`rpgdm-tables--relevel-table' helper function."
+  (let ((table-tags (rpgdm-tables--which-tag-group table)))
+    (--map (rpgdm-tables--relevel-table table it) table-tags)))
+
+
+(defun rpgdm-tables--sum-tag-weights (tags)
+  "The TAGS is a list of lists where the first element is a numeric weight.
+Using `-reduce' allows us to sum these, but we need to make sure that the
+first element of our list is our initial condition, so we `cons' a 0 onto
+the start."
+  (--reduce (+ acc (first it)) (cons 0 tags)))
+
+(ert-deftest rpgdm-tables--sum--tag-weights-test ()
+  (let ((weighted-tags
+         '((44 "often") (27 "seldom") (22 "scarcely") (7 "rarely"))))
+    (should (= 100 (rpgdm-tables--sum-tag-weights weighted-tags)))))
+
+
+(defun rpgdm-tables--find-tag (roll tag-list)
+  "Given a ROLL as a level in TAG-LIST, return matching tag.
+The matching is based on the weight. A million ways to do this,
+but stepping through the list of tags to see roll is in that
+,*window*, and if not, both move to the next tag, as well as
+decrement the ROLL value."
+  (cl-loop for (num-elems tag) in tag-list do
+           ;; (message "Comparing %d <= %d for %s" roll num-elems tag)
+           (if (<= roll num-elems)
+               (return tag)
+             (decf roll num-elems))))
+
+(ert-deftest rpgdm-tables--find-tag-test ()
+  (let ((weighted-tags
+         '((44 "often") (27 "seldom") (22 "scarcely") (7 "rarely"))))
+    (should (equal "often"    (rpgdm-tables--find-tag 1 weighted-tags)))
+    (should (equal "often"    (rpgdm-tables--find-tag 44 weighted-tags)))
+    (should (equal "seldom"   (rpgdm-tables--find-tag 45 weighted-tags)))
+    (should (equal "seldom"   (rpgdm-tables--find-tag 71 weighted-tags)))
+    (should (equal "scarcely" (rpgdm-tables--find-tag 72 weighted-tags)))
+    (should (equal "scarcely" (rpgdm-tables--find-tag 93 weighted-tags)))
+    (should (equal "rarely"   (rpgdm-tables--find-tag 94 weighted-tags)))
+    (should (equal "rarely"   (rpgdm-tables--find-tag 100 weighted-tags)))))
+
+
+(defun rpgdm-tables--choose-tag (tags)
+  "Select random tag from TAGS in `rpgdm-tables-tag-groups'.
+Uses helper function, `rpgdm-tables--find-tag'."
+  (let* ((upper-limit (rpgdm-tables--sum-tag-weights tags))
+         (roll (rpgdm--roll-die upper-limit)))
+    ;; (message "Rolled %d on %d" roll upper-limit)
+    (rpgdm-tables--find-tag roll tags)))
+
+#+END_SRC
+
+#+RESULTS:
+: rpgdm-tables--choose-tag
+
+* Match Table with Tag Group
+#+BEGIN_SRC emacs-lisp
+(defun rpgdm-tables--which-tag-group (table)
+  "Return the tag table-tags associated with TABLE."
+  (let (results
+        (tag (first (hash-table-keys table))))
+    (dolist (table-tags rpgdm-tables-tag-groups results)
+      (let ((tag-list (->> table-tags
+                          (-map 'rest)  ; Drop the numeric weight from each sublist
+                          (-flatten))))
+        (when (-contains? tag-list tag)
+          (setq results table-tags))))))
+
+#+END_SRC
+* Validating my Assumptions
+Let's attempt to test our code and its theories.
+
+The function repeatedly selects items from a table randomly, and returns a hash of the number of times each element was selected ...
+
+#+BEGIN_SRC emacs-lisp
+(defun rpgdm-tables-validate (&optional table-name iterations)
+  "Return results randomly choosing many items from TABLE-NAME.
+Calls `rpgdm-tables-choose' a number of ITERATIONS (defaults to 500)."
+  (unless iterations (setq iterations 500))
+  (unless table-name
+    (setq table-name "test-subject")
+    (puthash table-name (make-hash-table :test 'equal) rpgdm-tables)
+    (setf (gethash "often" (gethash table-name rpgdm-tables))
+          '(o1 o2 o3 o4 o5 o6 o7 o8 o9 o0))
+    (setf (gethash "seldom" (gethash table-name rpgdm-tables))
+          '(s1 s2 s3 s4 s5 s6 s7 s8 s9 s0))
+    (setf (gethash "scarcely" (gethash table-name rpgdm-tables))
+          '(l1 l2 l3 l4 l5 l6 l7 l8 l9 l0))
+    (setf (gethash "rarely" (gethash table-name rpgdm-tables))
+          '(r1 r2 r3 r4 r5 r6 r7 r8 r9 r0)))
+
+  (let ((accumulator (make-hash-table :test 'equal)))
+    (dotimes (i iterations accumulator)
+      (let* ((item (rpgdm-tables-choose table-name))
+             (item-name (first (s-split " :: " item))))
+        (incf (gethash item-name accumulator 0))))
+    accumulator))
+#+END_SRC
+
+Since we are randomly selecting items, even over large iterations, one can see =scarcely= appear almost as much as items labeled =often=. However, if we first sort the data:
+
+#+begin_example
+    "o1" 35 "o2" 31 "o3" 38 "o4" 44 "o5" 43 ...
+    "s1" 35 "s2" 38 "s3" 29 "s4" 28 "s5" 26 ...
+    "l1" 26 "l2" 20 "l3" 19 "l4" 19 "l5" 26 ...
+    "r1" 10 "r2" 7 "r3" 8 "r4" 5 "r5" 13 ...
+#+end_example
+
+And then calculate the average of each _level_, we see that the items occur as we would expect:
+
+#+BEGIN_SRC emacs-lisp :results silent :tangle no
+    (/ (+ 35 31 38 44 43) 5) ; -> 38
+    (/ (+ 35 38 29 28 26) 5) ; -> 31
+    (/ (+ 26 20 19 19 26) 5) ; -> 22
+    (/ (+ 10  7  8  5 13) 5) ; ->  8
+#+END_SRC
+
+Good enough for now.
+
+#+BEGIN_SRC emacs-lisp
+(provide 'rpgdm-tables-freq)
+;;; rpgdm-tables-freq.el ends here
+#+END_SRC
+
+# Local Variables:
+# eval: (add-hook 'after-save-hook #'org-babel-tangle t t)
+# End:
