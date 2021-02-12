@@ -1,4 +1,3 @@
-;; [[file:../../../../../Volumes/Personal/dropbox/org/rpg-dm/docs/rpgdm-tables-freq.org::+BEGIN_SRC emacs-lisp][No heading:1]]
 ;;; rpgdm-tables-freq.el --- Rolling dice for choosing items from Tables -*- lexical-binding: t; -*-
 ;;
 ;; Copyright (C) 2021 Howard X. Abrams
@@ -10,17 +9,17 @@
 ;; This file is not part of GNU Emacs.
 ;;
 ;;; Commentary:
-;; No heading:1 ends here
+;;
+;;     This file contains the source code, but the concept behind what I'm
+;;     calling random frequency tables is a bit complex, so I recommend looking
+;;     at the original file in `docs/rpgdm-tables-freq.org'.
 
-;; [[file:../../../../../Volumes/Personal/dropbox/org/rpg-dm/docs/rpgdm-tables-freq.org::*Parsing a Frequency Table][Parsing a Frequency Table:1]]
 (defun rpgdm-tables-freq-table? ()
   "Return non-nil if current buffer contains a frequency table"
   (goto-char (point-min))
   (re-search-forward rpgdm-tables--line-parse nil nil)
   (match-string 2))
-;; Parsing a Frequency Table:1 ends here
 
-;; [[file:../../../../../Volumes/Personal/dropbox/org/rpg-dm/docs/rpgdm-tables-freq.org::*Parsing a Frequency Table][Parsing a Frequency Table:2]]
 (defun rpgdm-tables--parse-as-freq-table ()
   "Return hashtable of lines matching `rpgdm-tables--line-parse'.
 The keys in the hashtable are the tags from the file, and the
@@ -51,9 +50,7 @@ Would return a hashtable containing:
 
     ;; Combine the sublists of equivalent tags:
     (rpgdm-tables--merge-frequencies results)))
-;; Parsing a Frequency Table:2 ends here
 
-;; [[file:../../../../../Volumes/Personal/dropbox/org/rpg-dm/docs/rpgdm-tables-freq.org::*Parsing a Frequency Table][Parsing a Frequency Table:3]]
 (defun rpgdm-tables--merge-frequencies (table)
   "Combine the values of equivalent table-tags in TABLE.
 A table, read as a hash table, may have similar, but equal tags.
@@ -68,9 +65,7 @@ For instance, `veryrare' and `very-rare' are the same."
                                     (gethash tag table)) table)
             (remhash tag table)))))
     table))
-;; Parsing a Frequency Table:3 ends here
 
-;; [[file:../../../../../Volumes/Personal/dropbox/org/rpg-dm/docs/rpgdm-tables-freq.org::*Frequencies as Weights][Frequencies as Weights:3]]
 (defconst rpgdm-tables-tag-groups
   '(((12 "common")
      (7 "uncommon")
@@ -82,9 +77,7 @@ For instance, `veryrare' and `very-rare' are the same."
      (3 "seldom" "sometimes")
      (2 "scarcely" "scarce" "hardly ever")
      (1 "rarely"))))
-;; Frequencies as Weights:3 ends here
 
-;; [[file:../../../../../Volumes/Personal/dropbox/org/rpg-dm/docs/rpgdm-tables-freq.org::*Choosing an Item][Choosing an Item:1]]
 (defun rpgdm-tables--choose-freq-table (table)
   "Select item from a hash TABLE.
 Note that tables stored in a hash table have weight keys and a list
@@ -171,9 +164,7 @@ Uses helper function, `rpgdm-tables--find-tag'."
          (roll (rpgdm--roll-die upper-limit)))
     ;; (message "Rolled %d on %d" roll upper-limit)
     (rpgdm-tables--find-tag roll tags)))
-;; Choosing an Item:1 ends here
 
-;; [[file:../../../../../Volumes/Personal/dropbox/org/rpg-dm/docs/rpgdm-tables-freq.org::*Match Table with Tag Group][Match Table with Tag Group:1]]
 (defun rpgdm-tables--which-tag-group (table)
   "Return the tag table-tags associated with TABLE."
   (let (results
@@ -184,9 +175,7 @@ Uses helper function, `rpgdm-tables--find-tag'."
                           (-flatten))))
         (when (-contains? tag-list tag)
           (setq results table-tags))))))
-;; Match Table with Tag Group:1 ends here
 
-;; [[file:../../../../../Volumes/Personal/dropbox/org/rpg-dm/docs/rpgdm-tables-freq.org::*Validating my Assumptions][Validating my Assumptions:1]]
 (defun rpgdm-tables-validate (&optional table-name iterations)
   "Return results randomly choosing many items from TABLE-NAME.
 Calls `rpgdm-tables-choose' a number of ITERATIONS (defaults to 500)."
@@ -209,9 +198,6 @@ Calls `rpgdm-tables-choose' a number of ITERATIONS (defaults to 500)."
              (item-name (first (s-split " :: " item))))
         (incf (gethash item-name accumulator 0))))
     accumulator))
-;; Validating my Assumptions:1 ends here
 
-;; [[file:../../../../../Volumes/Personal/dropbox/org/rpg-dm/docs/rpgdm-tables-freq.org::*Validating my Assumptions][Validating my Assumptions:3]]
 (provide 'rpgdm-tables-freq)
 ;;; rpgdm-tables-freq.el ends here
-;; Validating my Assumptions:3 ends here

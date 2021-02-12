@@ -210,6 +210,11 @@ the following:
     (re-search-forward rpgdm-roll-regexp))
   (goto-char (match-beginning 0)))
 
+(defun rpgdm-dice-format-string (str)
+  "Replace all dice expressions in STR with a dice roll results."
+  (while (string-match rpgdm-roll-regexp str)
+    (replace-regexp-in-string (concat rpgdm-roll-regexp "'") 'rpgdm-roll-sum str)))
+
 ;; Practice:  somed8 d4 2d8 3d6+2
 
 (defun rpgdm--roll-expression (expression)

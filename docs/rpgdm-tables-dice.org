@@ -3,7 +3,7 @@
 #+email:     howard.abrams@gmail.com
 #+FILETAGS:  :org-mode:emacs:rpgdm:
 #+STARTUP: inlineimages yes
-#+PROPERTY: header-args:emacs-lisp :tangle ../rpgdm-tables-dice.el :comments yes
+#+PROPERTY: header-args:emacs-lisp :tangle ../rpgdm-tables-dice.el :comments no
 #+PROPERTY: header-args :eval no-export
 #+PROPERTY: header-args :results silent
 #+PROPERTY: header-args :exports both
@@ -21,6 +21,10 @@
 ;;
 ;;
 ;;; Commentary:
+;;
+;;     This file contains the source code, but the concept behind what I'm
+;;     calling random dice tables is a bit complex, so I recommend looking
+;;     at the original file in `docs/rpgdm-tables-dice.org'.
 
 #+END_SRC
 

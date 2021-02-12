@@ -3,7 +3,7 @@
 #+email:     howard.abrams@gmail.com
 #+FILETAGS:  :org-mode:emacs:rpgdm:
 #+STARTUP: inlineimages yes
-#+PROPERTY: header-args:emacs-lisp :tangle ../rpgdm-tables-freq.el :comments yes
+#+PROPERTY: header-args:emacs-lisp :tangle ../rpgdm-tables-freq.el :comments no
 #+PROPERTY: header-args :eval no-export
 #+PROPERTY: header-args :results silent
 #+PROPERTY: header-args :exports both
@@ -20,12 +20,14 @@
 ;; This file is not part of GNU Emacs.
 ;;
 ;;; Commentary:
+;;
+;;     This file contains the source code, but the concept behind what I'm
+;;     calling random frequency tables is a bit complex, so I recommend looking
+;;     at the original file in `docs/rpgdm-tables-freq.org'.
 
 #+END_SRC
-
 * Introduction
 While the majority of my tables are simple lists to choose a random element, some lists should return /some elements/ more often than /other elements/. While that sounds great in a sentence, I need to actually code what I mean. I call them /frequency tables/ and they look something like my Faction Encounter table:
-
 
  | Church of Talos :: Worshipers of the god of storms and destruction.                    | scarcely   |
  | City Watch :: Members of the Waterdeep constabulary.                                   | often      |

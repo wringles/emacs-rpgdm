@@ -58,16 +58,33 @@ would be easy (see `rpgdm-tables--choose-list'), or it is either
 a freq-uency table (see `rpgdm-tables--choose-freq-table') or a
 dice table (see `rpgdm-tables--choose-dice-table')."
   (interactive (list (completing-read "Choose from Table: " (hash-table-keys rpgdm-tables))))
-  (let* ((table (gethash table-name rpgdm-tables))
-         (response (cond ((dice-table-p table) (rpgdm-tables--choose-dice-table table))
+
+  (let* ((table    (gethash table-name rpgdm-tables))
+         (result   (cond ((dice-table-p table) (rpgdm-tables--choose-dice-table table))
                          ((hash-table-p table) (rpgdm-tables--choose-freq-table table))
                          ((listp table)        (rpgdm-tables--choose-list table))
-                         (t "Error: Could choose anything from %s (internal bug?)" table-name))))
-    (rpgdm-message "%s" response)))
+                         (t "Error: Could choose anything from %s (internal bug?)" table-name)))
+         ;; Replace any dice expression in the message with an roll:
+         (dice-sum (lambda (dice-exp) (number-to-string (rpgdm-roll-sum dice-exp))))
+         (no-dice-nums  (replace-regexp-in-string rpgdm-roll-regexp dice-sum result))
+         (no-alt-words  (rpgdm-tables--choose-string-list no-dice-nums)))
+    (rpgdm-message "%s" no-alt-words)))
 
 (defun rpgdm-tables--choose-list (lst)
   "Randomly choose (equal chance for any) element in LST."
   (seq-random-elt lst))
+
+(defun rpgdm-tables--choose-string-list (str)
+  "Return a substituted item from _string-list_ in STR.
+For instance, the string: 'You found a [chair/box/statue]'
+would be converted randomly to something like: 'You found a box.'"
+  (let ((regexp (rx "[" (+? any) "/" (+? any) "]"))
+        (subbed (lambda (str) (--> str
+                           (substring it 1 -1)
+                           (s-split (rx (*? space) "/" (*? space)) it)
+                           (seq-random-elt it)))))
+    (replace-regexp-in-string regexp subbed str)))
+
 
 ;; I originally thought that I could have a single regular expression that
 ;; matched all possible tables, but that is a bit too complicated. The following

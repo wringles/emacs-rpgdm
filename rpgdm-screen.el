@@ -22,6 +22,12 @@
 (require 'org-element)
 (require 's)
 
+(defvar rpgdm-base ".")
+
+(defvar rpgdm-screen-directory
+  (expand-file-name "dnd-5e" rpgdm-base)
+  "Directory path containing the tables to load and create functions.")
+
 (defun rpgdm-screen--get-list-items ()
   "Return a list of all the list items in the org document."
   (org-element-map (org-element-parse-buffer) 'item
@@ -47,42 +53,44 @@ The contents of the item is displayed in the mini-buffer."
     (rpgdm-screen-choose-list)
     (widen)))
 
-(defun rpgdm-screen ()
-  (interactive)
+(defun rpgdm-screen (&optional filepath)
+  "Hard-coded (currently) approach to displaying files from FILEPATH."
+  (interactive (list (read-directory-name "DM Screen Directory: "
+                                          rpgdm-screen-directory)))
   (delete-other-windows)
 
-  ;; Start the Right Side with DIRED
-  (split-window-right)
-  (other-window 1)
-  (dired "dnd-5e")
-  (dired-hide-details-mode)
+  (let ((default-directory filepath))
+    ;; Start the Right Side with DIRED
+    (split-window-right)
+    (other-window 1)
+    (dired ".")
+    (dired-hide-details-mode)
 
-  (split-window-right)
-  (find-file "actions.org")
+    (split-window-right)
+    (find-file "actions.org")
 
-  (split-window-below)
-  (split-window-below)
-  (other-window 1)
-  (find-file "weather-effects.org")
-  (other-window 1)
-  (find-file "magic-schools.org")
-  (split-window-below)
-  (other-window 1)
-  (find-file "costs.org")
-  (other-window 1)
+    (split-window-below)
+    (split-window-below)
+    (other-window 1)
+    (find-file "weather-effects.org")
+    (other-window 1)
+    (find-file "magic-schools.org")
+    (split-window-below)
+    (other-window 1)
+    (find-file "costs.org")
+    (other-window 1)
 
-  ;; On the far right window:
-  (split-window-below)
-  (split-window-below)
-  (other-window 1)
-  (find-file "gear.org")
-  (other-window 1)
-  (find-file "armor.org")
-  (split-window-below)
-  (other-window 1)
-  (find-file "conditions.org")
-  (other-window 1)
-  )
+    ;; On the far right window:
+    (split-window-below)
+    (split-window-below)
+    (other-window 1)
+    (find-file "gear.org")
+    (other-window 1)
+    (find-file "armor.org")
+    (split-window-below)
+    (other-window 1)
+    (find-file "conditions.org")
+    (other-window 1)))
 
 (provide 'rpgdm-screen)
 ;;; rpgdm-screen.el ends here

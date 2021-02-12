@@ -71,11 +71,13 @@
   "Replace `messasge' function allowing it to be re-displayed.
 The FORMAT-STRING is a standard string for the `format' function,
 and ARGS are substitued values."
+  ;; TODO Push this onto a ring instead of reset this string variable:
   (setq rpgdm-last-results (apply 'format format-string args))
   (rpgdm-last-results))
 
 (defun rpgdm-last-results ()
   "Display results from the last call to a `rpgdm-screen-' function."
+  ;; TODO Need to add a prefix and display a numeric version with last as a ring.
   (interactive)
   (message rpgdm-last-results))
 
