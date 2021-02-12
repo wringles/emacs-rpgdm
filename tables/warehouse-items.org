@@ -1,0 +1,35 @@
+# The idea here is to have items that probably aren't in a box or crate.
+
+ | Crate (search on warehouse-boxes)                      | common    |
+ | Crate with foreign writing (search on warehouse-boxes) | common    |
+ | Wooden box (search on warehouse-boxes)                 | common    |
+ | Crate (seems empty)                                    | common    |
+ | 1d4 kegs of mead                                       | uncommon  |
+ | 1d10 kegs of ale                                       | uncommon  |
+ | 1d12 casks of wine                                     | uncommon  |
+ | 1d8 casks of wine                                      | uncommon  |
+ | 1d8 empty cages                                        | uncommon  |
+ | Broken cage                                            | rare      |
+ | 1d4 empty crates                                       | rare      |
+ | Caged [wolf/foxes/badger]                              | very-rare |
+ | Caged Owlbear                                          | legendary |
+ | 1d10 wooden bar [stools/chairs]                        | uncommon  |
+ | Stuffed Owlbear                                        | rare      |
+ | 1d6 cauldrons                                          | uncommon  |
+ | Unused coffin                                          | rare      |
+ | Coffin (in use)                                        | legendary |
+ | Ornate chest (locked)                                  | rare      |
+ | Old mounted [wolf/deer/cockatrice] head                | rare      |
+ | 2d20 Timber beams (30, oak, 6”x6”x20’)                 | uncommon  |
+ | Extravagant bed frame                                  | rare      |
+ | Rusted chest (locked)                                  | rare      |
+ | Dead body (crushed by fallen crates)                   | legendary |
+ | Caged geese (1d8)                                      | uncommon  |
+ | 3d20 Logs (20, cedar, 1’x10’)                          | rare      |
+ | Old throne                                             | legendary |
+ | Wagon of soil                                          | legendary |
+ | Granite slab                                           | legendary |
+ | Large stone statue (ancient ruler)                     | legendary |
+ | Wooden bust (sea god)                                  | legendary |
+ | Custom sign (“The Lazy Sow Inn” or roll on 'Taverns')  | legendary |
+ | Extravagant chair                                      | rare      |

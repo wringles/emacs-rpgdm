@@ -3,6 +3,27 @@
 #+EMAIL:  howard.abrams@gmail.com
 #+DATE:   2019-10-24 October
 
+ - Frea Forceshort
+ - Wenmit Forcebreaker
+ - Betroy Stormelven
+ - Markkev Axsteel
+ - Phieleofu Landermoon
+ - Lauforth Flaremoon
+ - Dra Earfalcon
+ - Sonan Breezearrow
+ - Bethrah Darkiron
+ - Timegel Yellow
+ - Fastda Goatwyrm
+ - Venmond Raintongue
+ - Timisum Quiver
+ - Werdguth Brightear
+ - Fredgar Goldeye
+ - Dratergar Elfhunter
+ - Loches Axseabattle
+ - Jo Capegazer
+ - Barda Hound
+ - Nethdino Rambright
+
    - Maronne Harpsorcerer
    - Casimir Bullcry
    - Achaios Crowwhisper
