@@ -40,14 +40,33 @@
 
 
 (defun rpgdm-tables-load (&optional filepath)
-  "Create functions from table files located in FILEPATH directory."
+  "Read and parse table files located in FILEPATH directory.
+Files will be stored in `rpgdm-tables' hash, and available by name
+when calling `rpgdm-tables-choose'."
   (interactive (list (read-directory-name "DM Tables Directory: " rpgdm-tables-directory)))
-  (dolist (table-file (directory-files filepath t))
-    (let ((name (file-name-base table-file))
-          (contents (rpgdm-tables--read-table-file table-file)))
-      ;; (message "Read: %s" table-file)
-      (puthash name contents rpgdm-tables)))
+  (rpgdm-tables--load-dir filepath)
   (message "Read: %s" (s-join ", " (hash-table-keys rpgdm-tables))))
+
+(defun rpgdm-tables--load-dir (filepath &optional prefix)
+  "Read and parse the files in the directory given by FILEPATH.
+PREFIX all tables if this parameter is given."
+  (dolist (file (directory-files filepath t))
+    (let ((new-prefix (s-join "/" (-flatten (list prefix (file-name-base file))))))
+      (message "Reading: %s (%s)" file new-prefix)
+      (cond ((file-directory-p file)    (rpgdm-tables--load-dir file new-prefix))
+            ((and (file-regular-p file) (file-readable-p file))
+             (rpgdm-tables--load-file file prefix))))))
+
+(defun rpgdm-tables--load-file (filepath prefix)
+  "Read, parse and store the table given by FILEPATH.
+PREFIX the table name, if given."
+  (let ((name (file-name-base filepath))
+        (contents (rpgdm-tables--read-table-file filepath)))
+    (if prefix
+        (setq name (format "%s/%s" prefix name)))
+    ;; (message "Read: %s" table-file)
+    (puthash name contents rpgdm-tables)))
+
 
 (defun rpgdm-tables-choose (table-name)
   "Return random item from a table of a given TABLE-NAME string.
@@ -57,7 +76,7 @@ value returned is a _table_ of sorts. It could be a list, which
 would be easy (see `rpgdm-tables--choose-list'), or it is either
 a freq-uency table (see `rpgdm-tables--choose-freq-table') or a
 dice table (see `rpgdm-tables--choose-dice-table')."
-  (interactive (list (completing-read "Choose from Table: " (hash-table-keys rpgdm-tables))))
+  (interactive (list (completing-read "Choose from Table: " (sort (hash-table-keys rpgdm-tables) #'string-lessp))))
 
   (let* ((table    (gethash table-name rpgdm-tables))
          (result   (cond ((dice-table-p table) (rpgdm-tables--choose-dice-table table))
@@ -69,6 +88,7 @@ dice table (see `rpgdm-tables--choose-dice-table')."
          (no-dice-nums  (replace-regexp-in-string rpgdm-roll-regexp dice-sum result))
          (no-alt-words  (rpgdm-tables--choose-string-list no-dice-nums)))
     (rpgdm-message "%s" no-alt-words)))
+
 
 (defun rpgdm-tables--choose-list (lst)
   "Randomly choose (equal chance for any) element in LST."
@@ -145,4 +165,3 @@ would be converted randomly to something like: 'You found a box.'"
 
 
 (provide 'rpgdm-tables)
-;;; rpgdm-tables.el ends here
