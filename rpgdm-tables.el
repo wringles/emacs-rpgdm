@@ -76,23 +76,23 @@ value returned is a _table_ of sorts. It could be a list, which
 would be easy (see `rpgdm-tables--choose-list'), or it is either
 a freq-uency table (see `rpgdm-tables--choose-freq-table') or a
 dice table (see `rpgdm-tables--choose-dice-table')."
-  (interactive (list (completing-read "Choose from Table: " (sort (hash-table-keys rpgdm-tables) #'string-lessp))))
-
-  (let* ((table    (gethash table-name rpgdm-tables))
-         (result   (cond ((dice-table-p table) (rpgdm-tables--choose-dice-table table))
-                         ((hash-table-p table) (rpgdm-tables--choose-freq-table table))
-                         ((listp table)        (rpgdm-tables--choose-list table))
-                         (t "Error: Could choose anything from %s (internal bug?)" table-name)))
-         ;; Replace any dice expression in the message with an roll:
-         (dice-sum (lambda (dice-exp) (number-to-string (rpgdm-roll-sum dice-exp))))
-         (no-dice-nums  (replace-regexp-in-string rpgdm-roll-regexp dice-sum result))
-         (no-alt-words  (rpgdm-tables--choose-string-list no-dice-nums)))
-    (rpgdm-message "%s" no-alt-words)))
-
+  (interactive (list (completing-read "Choose from Table: "
+                                      (sort (hash-table-keys rpgdm-tables) #'string-lessp))))
+  (when-let ((table  (gethash table-name rpgdm-tables)))
+    (let* ((result   (cond ((dice-table-p table) (rpgdm-tables--choose-dice-table table))
+                           ((hash-table-p table) (rpgdm-tables--choose-freq-table table))
+                           ((listp table)        (rpgdm-tables--choose-list table))
+                           (t "Error: Could choose anything from %s (internal bug?)" table-name)))
+           ;; Replace any dice expression in the message with an roll:
+           (dice-sum (lambda (dice-exp) (number-to-string (rpgdm-roll-sum dice-exp))))
+           (no-dice-nums  (replace-regexp-in-string rpgdm-roll-regexp dice-sum result))
+           (no-alt-words  (rpgdm-tables--choose-string-list no-dice-nums)))
+      (rpgdm-message "%s" no-alt-words))))
 
 (defun rpgdm-tables--choose-list (lst)
   "Randomly choose (equal chance for any) element in LST."
-  (seq-random-elt lst))
+  (when lst
+    (seq-random-elt lst)))
 
 (defun rpgdm-tables--choose-string-list (str)
   "Return a substituted item from _string-list_ in STR.
