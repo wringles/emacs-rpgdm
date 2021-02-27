@@ -27,12 +27,7 @@
 (load-file (expand-file-name "rpgdm-dice.el" rpgdm-base))
 (load-file (expand-file-name "rpgdm-screen.el" rpgdm-base))
 (load-file (expand-file-name "rpgdm-tables.el" rpgdm-base))
-
-(defgroup rpgdm nil
-  "Customization for the Dungeon Master support package."
-  :prefix "rpgdm-"
-  :group 'applications
-  :link '(url-link :tag "Github" "https://gitlab.com/howardabrams/emacs-rpgdm"))
+(load-file (expand-file-name "rpgdm-npc.el" rpgdm-base))
 
 (define-minor-mode rpgdm-mode
   "Minor mode for layering role-playing game master functions over your notes."
@@ -43,14 +38,12 @@
 
 (defhydra hydra-rpgdm (:color pink :hint nil)
   "
-    ^Dice^              ^Tables^          ^Checks^
- ^^^^^^^----------------------------------------------------------------------------------------
-    _d_: Roll Dice      _h_: Dashboard    _s_: d20 Skill
-    _f_: Next Dice Expr _t_: Load Tables  _e_: Easy check
-    _b_: Previous Expr  _c_: Choose from  _m_: Moderate
-    _z_: Flip a coin         a table    _h_: Hard check
-    _a_/_A_: Advantage/Disadvantage       _v_: Difficult   "
-  ("d" rpgdm-roll)              ("<f13>" rpgdm-last-results)
+    ^Dice^                              ^Tables^          ^Checks^
+ ----------------------------------------------------------------------------------------
+    _d_: Roll Dice _z_: Flip a coin    _r_: Dashboard    _s_: d20 Skill  _m_: Moderate
+    _b_: Previous  _f_: Next Dice Expr _t_: Load Tables  _e_: Easy check _h_: Hard check
+    _a_/_A_: Advantage/Disadvantage    _c_: Choose Item  _v_: Difficult  _i_: Impossible   "
+  ("d" rpgdm-roll)
   ("f" rpgdm-forward-roll)      ("b" rpgdm-forward-roll)
   ("a" rpgdm-roll-advantage)    ("A" rpgdm-roll-disadvantage)
   ("z" rpgdm-yes-and-50/50)
@@ -59,27 +52,68 @@
   ("h" rpgdm-skill-check-hard)  ("v" rpgdm-skill-check-difficult)
 
   ("t" rpgdm-tables-load)       ("c" rpgdm-tables-choose)
-  ("h" rpgdm-screen)
+  ("r" rpgdm-screen-show)       ("R" delete-window)
+  ("n" rpgdm-npc)
 
-  ("q" nil "quit"))
+  ("C-m" rpgdm-last-results)
+  ("C-n" rpgdm-last-results-next) ("C-p" rpgdm-last-results-previous)
+  ("s-l" rpgdm-last-results)
+  ("s-j" rpgdm-last-results-next) ("s-k" rpgdm-last-results-previous)
+
+  ("q" nil "quit") ("<f13>" nil))
 
 
-(defvar rpgdm-last-results ""
+(defvar rpgdm-last-results (make-ring 10)
   "The results from calls to `rpgdm-screen-' functions are stored here.")
+
+(defvar rpgdm-last-results-ptr 0
+  "Keeps track of where we are in the message display ring.
+Each call to `rpgdm-last-results' resets this to 0.")
 
 (defun rpgdm-message (format-string &rest args)
   "Replace `messasge' function allowing it to be re-displayed.
 The FORMAT-STRING is a standard string for the `format' function,
 and ARGS are substitued values."
-  ;; TODO Push this onto a ring instead of reset this string variable:
-  (setq rpgdm-last-results (apply 'format format-string args))
-  (rpgdm-last-results))
+  (let ((message (apply 'format format-string args)))
+    (ring-insert rpgdm-last-results message)
+    (rpgdm-last-results)))
 
 (defun rpgdm-last-results ()
-  "Display results from the last call to a `rpgdm-screen-' function."
-  ;; TODO Need to add a prefix and display a numeric version with last as a ring.
+  "Display results from the last call to a `rpgdm-message' function."
   (interactive)
-  (message rpgdm-last-results))
+  (setq rpgdm-last-results-ptr 0)
+  (message (ring-ref rpgdm-last-results rpgdm-last-results-ptr)))
+
+(defun rpgdm-last-results-previous ()
+  "Display results from an earlier call to `rpgdm-message'."
+  (interactive)
+  (incf rpgdm-last-results-ptr)
+  (when (>= rpgdm-last-results-ptr (ring-length rpgdm-last-results))
+    (setq rpgdm-last-results-ptr 0))
+  (message "%d> %s" rpgdm-last-results-ptr (ring-ref rpgdm-last-results rpgdm-last-results-ptr)))
+
+(defun rpgdm-last-results-next ()
+  "Display results from an later call to `rpgdm-message'.
+Meant to be used with `rpgdm-last-results-previous'."
+  (interactive)
+  (when (> rpgdm-last-results-ptr 0)
+    (decf rpgdm-last-results-ptr))
+  (message "%d> %s" rpgdm-last-results-ptr (ring-ref rpgdm-last-results rpgdm-last-results-ptr)))
+
+(ert-deftest rpgdm-last-results-test ()
+  (progn
+    (setq rpgdm-last-results (make-ring 10))
+    (rpgdm-message "First in, so this is the oldest")
+    (rpgdm-message "Something or other")
+    (rpgdm-message "Almost the newest")
+    (rpgdm-message "Newest"))
+
+  (should (equal "Newest" (rpgdm-last-results)))
+  (should (equal "1> Almost the newest" (rpgdm-last-results-previous)))
+  (should (equal "2> Something other" (rpgdm-last-results-previous)))
+  (should (equal "1> Almost the newest" (rpgdm-last-results-next)))
+  (should (equal "0> Almost the newest" (rpgdm-last-results-next)))
+  (should (equal "0> Almost the newest" (rpgdm-last-results-next))))
 
 
 (defun rpgdm-yes-and-50/50 ()
@@ -98,13 +132,14 @@ one of six answers with equal frequency:
 
 https://www.drivethrurpg.com/product/89534/FU-The-Freeform-Universal-RPG-Classic-rules"
   (interactive)
-  (let (rolled (rpgdm--roll-die 6))
-    (cond ((= rolled 1)  "No, and... (fails badly that you add a complication)")
-          ((= rolled 2)  "No.")
-          ((= rolled 3)  "No, but... (fails, but add a little bonus or consolation prize)")
-          ((= rolled 4)  "Yes, but... (succeeds, but add a complication or caveat)")
-          ((= rolled 5)  "Yes.")
-          (t             "Yes, and... (succeeds, plus add a litle extra something-something)"))))
+  (let* ((rolled (rpgdm--roll-die 6))
+         (results (cond ((= rolled 1)  "No, and... (fails badly that you add a complication)")
+                        ((= rolled 2)  "No.")
+                        ((= rolled 3)  "No, but... (fails, but add a little bonus or consolation prize)")
+                        ((= rolled 4)  "Yes, but... (succeeds, but add a complication or caveat)")
+                        ((= rolled 5)  "Yes.")
+                        (t             "Yes, and... (succeeds, plus add a litle extra something-something)"))))
+    (rpgdm-message results)))
 
 ;; ----------------------------------------------------------------------
 ;;    SKILL CHECKS
@@ -198,9 +233,10 @@ https://www.drivethrurpg.com/product/89534/FU-The-Freeform-Universal-RPG-Classic
   (should (equal (rpgdm--yes-and 10 16) "Yes."))
   (should (equal (rpgdm--yes-and 10 17) "Yes, and...")))
 
-(defun rpgdm-skill-check (target rolled-results)
+(defun rpgdm-skill-check (target rolled-results &optional label)
   "Given a TARGET skill check, and ROLLED-RESULTS, return pass/fail.
-The string can return a bit of complications, from `rpgdm--yes-and'."
+The string can return a bit of complications, from `rpgdm--yes-and'.
+The LABEL will be append to the message, and used form other calls."
   (interactive (list (completing-read "Target Level: "
                                       '(Trivial Easy Moderate Hard Difficult Impossible))
                      (read-number "Rolled Results: ")))

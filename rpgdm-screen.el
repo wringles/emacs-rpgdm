@@ -28,13 +28,55 @@
   (expand-file-name "dnd-5e" rpgdm-base)
   "Directory path containing the tables to load and create functions.")
 
+(defvar rpgdm-screen-files nil
+  "Associative list of files and their titles.")
+
+(defvar rpgdm-screen-window-side t)
+(defvar rpgdm-screen-window-size nil)
+(defvar rpgdm-screen-fullscreen nil)
+
+(defun rpgdm-screen-show (file-title)
+  "Display in a side-window, FILE-TITLE.
+Interactively, display a list of files in `rpgdm-screen-directory'."
+  (interactive (list (completing-read "Show screen: "
+                                      (rpgdm-screen-screen-list))))
+  (let ((filename (alist-get file-title (rpgdm-screen-screen-list) nil nil 'equal)))
+    (unless rpgdm-screen-fullscreen
+      (delete-other-windows))
+    (save-excursion
+      (select-window
+       (split-window (frame-root-window)
+                     rpgdm-screen-window-size
+                     rpgdm-screen-window-side))
+      (find-file filename))))
+
+
+(defun rpgdm-screen-screen-list ()
+  "A memoized list of cons cells containing the title and fully-qualified filename."
+  (unless rpgdm-screen-files
+    (dolist (file (directory-files rpgdm-screen-directory t))
+      (add-to-list 'rpgdm-screen-files (cons (rpgdm-screen--read-title file) file))))
+  rpgdm-screen-files)
+
+(defun rpgdm-screen--read-title (file)
+  "Return the title of an org-formatted FILE or its first line of text."
+  (with-temp-buffer
+    (insert-file-contents file)
+    (goto-char (point-min))
+    (if (re-search-forward (rx bol "#+title:" (one-or-more space)
+                               (group (one-or-more any))) nil t)
+        (match-string 1)
+      (goto-char (point-min))
+      (buffer-substring-no-properties (point-min) (line-end-position)))))
+
+
 (defun rpgdm-screen--get-list-items ()
   "Return a list of all the list items in the org document."
   (org-element-map (org-element-parse-buffer) 'item
     (lambda (item)
       (buffer-substring-no-properties
-          (org-element-property :contents-begin item)
-          (org-element-property :contents-end item)))))
+       (org-element-property :contents-begin item)
+       (org-element-property :contents-end item)))))
 
 (defun rpgdm-screen-choose-list ()
   "Randomly choose an elemeent from all lists in the current file.

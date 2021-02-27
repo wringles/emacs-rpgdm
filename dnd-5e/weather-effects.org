@@ -1,3 +1,5 @@
+#+TITLE: Weather Effects
+
   - Cold :: The temperature ranges between 0 and 32 degrees. This functions as Extreme Cold from Chapter 5 of the Dungeon Master’s Guide, except the saving throw is made with advantage
 
   - Extreme Cold :: This functions as Extreme Cold from Chapter 5 of the Dungeon Master’s Guide
