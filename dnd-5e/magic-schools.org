@@ -14,7 +14,7 @@
 
 See [[https://www.dndbeyond.com/sources/phb/spellcasting#AttackRolls][PHB, pg 203]] or [[https://thealpinedm.com/dnd-5e-schools-of-magic/][this summary]].
 
-* *School of Conjuration* : “Pulling a rabbit from a hat”
+* *School of Conjuration* : “Pull a rabbit from a hat”
    :PROPERTIES:
    :CUSTOM_ID: conjuration
    :END:
@@ -115,11 +115,11 @@ The magical School of Divination is centered around revealing and granting knowl
 Examples:
 
 #+begin_quote
-  *Low Level: */Identify, Find Traps/
+  *Low Level:* /Identify, Find Traps/
 
-  *Mid Level: */Scrying, Locate Creature/
+  *Mid Level:* /Scrying, Locate Creature/
 
-  *High Level: */True Seeing, Foresight/
+  *High Level:* /True Seeing, Foresight/
 #+end_quote
 
 * *School of Enchantment* : “You're getting sleepy...”

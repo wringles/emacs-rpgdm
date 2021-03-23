@@ -35,6 +35,7 @@
 (defvar rpgdm-screen-window-size nil)
 (defvar rpgdm-screen-fullscreen nil)
 
+
 (defun rpgdm-screen-show (file-title)
   "Display in a side-window, FILE-TITLE.
 Interactively, display a list of files in `rpgdm-screen-directory'."
@@ -50,6 +51,11 @@ Interactively, display a list of files in `rpgdm-screen-directory'."
                      rpgdm-screen-window-side))
       (find-file filename))))
 
+(defun rpgdm-quick-close ()
+  "Easily close the current chart."
+  (interactive)
+  (kill-buffer)
+  (delete-window))
 
 (defun rpgdm-screen-screen-list ()
   "A memoized list of cons cells containing the title and fully-qualified filename."

@@ -44,27 +44,39 @@
 Files will be stored in `rpgdm-tables' hash, and available by name
 when calling `rpgdm-tables-choose'."
   (interactive (list (read-directory-name "DM Tables Directory: " rpgdm-tables-directory)))
+  (unless filepath
+    (setq filepath rpgdm-tables-directory))
   (rpgdm-tables--load-dir filepath)
   (message "Read: %s" (s-join ", " (hash-table-keys rpgdm-tables))))
 
 (defun rpgdm-tables--load-dir (filepath &optional prefix)
   "Read and parse the files in the directory given by FILEPATH.
 PREFIX all tables if this parameter is given."
-  (dolist (file (directory-files filepath t))
+  (dolist (file (directory-files filepath t (rx bol (not "."))))
     (let ((new-prefix (s-join "/" (-flatten (list prefix (file-name-base file))))))
-      (message "Reading: %s (%s)" file new-prefix)
       (cond ((file-directory-p file)    (rpgdm-tables--load-dir file new-prefix))
             ((and (file-regular-p file) (file-readable-p file))
-             (rpgdm-tables--load-file file prefix))))))
+             (rpgdm-tables--almost-load-file file prefix))))))
 
-(defun rpgdm-tables--load-file (filepath prefix)
-  "Read, parse and store the table given by FILEPATH.
-PREFIX the table name, if given."
-  (let ((name (file-name-base filepath))
-        (contents (rpgdm-tables--read-table-file filepath)))
+(defun rpgdm-tables--almost-load-file (filepath &optional prefix)
+  "Loading hundreds of tables takes a long time, and fills up memory.
+Instead, we store a reference to FILEPATH with the optional
+PREFIX, and then if we query for that table (and it is just a
+string), we load it then."
+  (let ((name (file-name-base filepath)))
     (if prefix
         (setq name (format "%s/%s" prefix name)))
-    ;; (message "Read: %s" table-file)
+    (puthash name filepath rpgdm-tables)))
+
+(defun rpgdm-tables-load-file (filepath &optional name)
+  "Read, parse and store the table given by FILEPATH.
+Store it by NAME in the `rpgdm-tables' hash table."
+  (interactive (list (read-file-name "DM Table: " rpgdm-tables-directory)))
+  (when (null name)
+    (setq name (file-name-base filepath)))
+  (let ((contents (rpgdm-tables--read-table-file filepath)))
+    (when (called-interactively-p)
+      (message "Read: %s" name))
     (puthash name contents rpgdm-tables)))
 
 
@@ -79,6 +91,8 @@ dice table (see `rpgdm-tables--choose-dice-table')."
   (interactive (list (completing-read "Choose from Table: "
                                       (sort (hash-table-keys rpgdm-tables) #'string-lessp))))
   (when-let ((table  (gethash table-name rpgdm-tables)))
+    (when (stringp table)
+      (setq table (rpgdm-tables-load-file table table-name)))
     (let* ((result   (cond ((dice-table-p table) (rpgdm-tables--choose-dice-table table))
                            ((hash-table-p table) (rpgdm-tables--choose-freq-table table))
                            ((listp table)        (rpgdm-tables--choose-list table))
@@ -87,6 +101,7 @@ dice table (see `rpgdm-tables--choose-dice-table')."
            (dice-sum (lambda (dice-exp) (number-to-string (rpgdm-roll-sum dice-exp))))
            (no-dice-nums  (replace-regexp-in-string rpgdm-roll-regexp dice-sum result))
            (no-alt-words  (rpgdm-tables--choose-string-list no-dice-nums)))
+      (kill-new no-alt-words)
       (rpgdm-message "%s" no-alt-words))))
 
 (defun rpgdm-tables--choose-list (lst)
