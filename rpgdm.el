@@ -33,16 +33,16 @@
   "Minor mode for layering role-playing game master functions over your notes."
   :lighter " D&D"
   :keymap (let ((map (make-sparse-keymap)))
-            (define-key map (kbd "<f13>") 'hydra-rpgdm/body)
+            (define-key map (kbd "<f12>") 'hydra-rpgdm/body)
             map))
 
 (defhydra hydra-rpgdm (:color pink :hint nil)
   "
-    ^Dice^                              ^Tables^          ^Checks^
- ----------------------------------------------------------------------------------------
-    _d_: Roll Dice _z_: Flip a coin    _r_: Dashboard    _s_: d20 Skill  _m_: Moderate
-    _b_: Previous  _f_: Next Dice Expr _t_: Load Tables  _e_: Easy check _h_: Hard check
-    _a_/_A_: Advantage/Disadvantage    _c_: Choose Item  _v_: Difficult  _i_: Impossible   "
+    ^Dice^                              ^Tables^          ^Checks^                        ^Moving^          ^Messages^
+ -----------------------------------------------------------------------------------------------------------------
+    _d_: Roll Dice _z_: Flip a coin    _r_: Dashboard    _s_: d20 Skill  _m_: Moderate      _o_: Links        ⌘-l: Last Results
+    _b_: Previous  _f_: Next Dice Expr _t_: Load Tables  _e_: Easy check _h_: Hard check  _J_/_K_: Page up/dn   ⌘-k: ↑ Previous
+    _a_/_A_: Advantage/Disadvantage    _c_: Choose Item  _v_: Difficult  _i_: Impossible  _N_/_W_: Narrow/Widen ⌘-j: ↓ Next   "
   ("d" rpgdm-roll)
   ("f" rpgdm-forward-roll)      ("b" rpgdm-forward-roll)
   ("a" rpgdm-roll-advantage)    ("A" rpgdm-roll-disadvantage)
@@ -52,15 +52,18 @@
   ("h" rpgdm-skill-check-hard)  ("v" rpgdm-skill-check-difficult)
 
   ("t" rpgdm-tables-load)       ("c" rpgdm-tables-choose)
-  ("r" rpgdm-screen-show)       ("R" delete-window)
-  ("n" rpgdm-npc)
+  ("r" rpgdm-screen-show)       ("R" rpgdm-quick-close)
+  ("o" ace-link)                ("N" org-narrow-to-subtree)   ("W" widen)
+  ("K" scroll-down)             ("J" scroll-up)
+
+  ("N" rpgdm-npc)
 
   ("C-m" rpgdm-last-results)
   ("C-n" rpgdm-last-results-next) ("C-p" rpgdm-last-results-previous)
   ("s-l" rpgdm-last-results)
   ("s-j" rpgdm-last-results-next) ("s-k" rpgdm-last-results-previous)
 
-  ("q" nil "quit") ("<f13>" nil))
+  ("q" nil "quit") ("<f12>" nil))
 
 
 (defvar rpgdm-last-results (make-ring 10)
@@ -139,7 +142,8 @@ https://www.drivethrurpg.com/product/89534/FU-The-Freeform-Universal-RPG-Classic
                         ((= rolled 4)  "Yes, but... (succeeds, but add a complication or caveat)")
                         ((= rolled 5)  "Yes.")
                         (t             "Yes, and... (succeeds, plus add a litle extra something-something)"))))
-    (rpgdm-message results)))
+    (rpgdm-message "Luck results: %s" results)))
+
 
 ;; ----------------------------------------------------------------------
 ;;    SKILL CHECKS
@@ -240,31 +244,33 @@ The LABEL will be append to the message, and used form other calls."
   (interactive (list (completing-read "Target Level: "
                                       '(Trivial Easy Moderate Hard Difficult Impossible))
                      (read-number "Rolled Results: ")))
-  (rpgdm-message (rpgdm--yes-and target rolled-results)))
+  (rpgdm-message "%s Skill Check: %s"
+                 (capitalize target)
+                 (rpgdm--yes-and (downcase target) rolled-results)))
 
 (defun rpgdm-skill-check-easy (rolled-results)
   "Return an embellished pass/fail from ROLLED-RESULTS for an easy skill check."
-  (interactive "nRolled Results: ")
+  (interactive "nEasy Check- Rolled Results: ")
   (rpgdm-skill-check (rpgdm--skill-level 'easy) rolled-results))
 
 (defun rpgdm-skill-check-moderate (rolled-results)
   "Return an embellished pass/fail from ROLLED-RESULTS for a moderately-difficult skill check."
-  (interactive "nRolled Results: ")
+  (interactive "nModerate Check- Rolled Results: ")
   (rpgdm-skill-check (rpgdm--skill-level 'medium) rolled-results))
 
 (defun rpgdm-skill-check-hard (rolled-results)
   "Return an embellished pass/fail from ROLLED-RESULTS for a hard skill check."
-  (interactive "nRolled Results: ")
+  (interactive "nHard Check- Rolled Results: ")
   (rpgdm-skill-check (rpgdm--skill-level 'hard) rolled-results))
 
 (defun rpgdm-skill-check-difficult (rolled-results)
   "Return an embellished pass/fail from ROLLED-RESULTS for a difficult skill check."
-  (interactive "nRolled Results: ")
+  (interactive "nVery Hard Check- Rolled Results: ")
   (rpgdm-skill-check (rpgdm--skill-level 'difficult) rolled-results))
 
 (defun rpgdm-skill-check-impossible (rolled-results)
   "Return an embellished pass/fail from ROLLED-RESULTS for an almost impossible skill check."
-  (interactive "nRolled Results: ")
+  (interactive "nImpossible Check- Rolled Results: ")
   (rpgdm-skill-check (rpgdm--skill-level 'impossible) rolled-results))
 
 (provide 'rpgdm)
