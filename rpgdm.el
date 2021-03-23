@@ -43,7 +43,7 @@
     _d_: Roll Dice _z_: Flip a coin    _r_: Dashboard    _s_: d20 Skill  _m_: Moderate      _o_: Links        ⌘-l: Last Results
     _b_: Previous  _f_: Next Dice Expr _t_: Load Tables  _e_: Easy check _h_: Hard check  _J_/_K_: Page up/dn   ⌘-k: ↑ Previous
     _a_/_A_: Advantage/Disadvantage    _c_: Choose Item  _v_: Difficult  _i_: Impossible  _N_/_W_: Narrow/Widen ⌘-j: ↓ Next   "
-  ("d" rpgdm-roll)
+  ("d" rpgdm-roll)              ("D" rpgdm-roll-again)
   ("f" rpgdm-forward-roll)      ("b" rpgdm-forward-roll)
   ("a" rpgdm-roll-advantage)    ("A" rpgdm-roll-disadvantage)
   ("z" rpgdm-yes-and-50/50)

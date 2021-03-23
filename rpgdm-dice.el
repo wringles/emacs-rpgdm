@@ -32,6 +32,10 @@
 ;;
 ;;; Code:
 
+(defvar rpgdm-previous-roll-expression nil
+  "Whenever we roll a dice from an expression, we remember it
+  here, so that we can re-roll it again.")
+
 ;; The basics of a dice roll is a random number from a given range. Note that if
 ;; we give a 6-sided die to the random number, we will end up with a range of 0
 ;; to 5, so we need to increase this value by 1.
@@ -282,9 +286,18 @@ Unless the point is on a dice roll description, e.g 2d12+3."
   (interactive (list (if (looking-at rpgdm-roll-regexp)
                          (match-string-no-properties 0)
                        (read-string "Dice Expression: "))))
+  (setq rpgdm-previous-roll-expression expression)
   (let ((roll-results (rpgdm--roll-expression expression)))
     (rpgdm-message "Rolled: %s" (rpgdm--display-roll roll-results expression))))
 
+(defun rpgdm-roll-again ()
+  "Roll the previous expression ... again.
+Never rolled before? No problem, we'll query for the expression
+if we need too."
+  (interactive)
+  (if rpgdm-previous-roll-expression
+      (rpgdm-roll rpgdm-previous-roll-expression)
+    (call-interactively 'rpgdm-roll)))
 
 ;; ----------------------------------------------------------------------
 ;;    ADVANTAGE and DISADVANTAGE ROLLS
