@@ -1,0 +1,217 @@
+#+TITLE:  Waterdeep Taverns and Locations
+#+AUTHOR: Howard X. Abrams
+#+EMAIL:  howard.abrams@gmail.com
+#+DATE:   2020-11-18 November
+#+FILETAGS:   rpg
+* Waterdeep Locations
+** [[http://oakthorne.net/wiki/index.php?title=Castle_Ward_of_Waterdeep][Castle Ward]]
+
+*** Inns
+
+- *The Jade Jug:* /Inn (5c•5a)/. Waterdeep's plushest inn with luxury in every detail, and well worth the expensive price.
+- *The Pampered Traveler:* /Inn (4c•4a)/
+- *The [[http://oakthorne.net/wiki/index.php?title=Yawning_Portal][Yawning Portal]]:* /Inn (3c•4p•3a)/ A well-known inn and tavern whose main feature is a massive well on the ground floor of the tavern, some 40 feet across, that descends 140 feet into the first level of Undermountain. There is a rope hoist that can be used to lower or raise those foolhardy enough to venture into Undermountain, at a cost of 1 gp per person.
+
+*** Taverns
+    :PROPERTIES:
+    :CUSTOM_ID: taverns
+    :END:
+
+- *The Crow's Nest:* /Tavern (3c•2p)/ A modest but comfortable tavern; a favorite among the clerks, bureaucrats, and visitors of nearby Castle Waterdeep.
+- *The Dragon's Head:* /Tavern (3c•3p)/ A comfortable, unimpressive local ale-house that is a favorite of the average Waterdhavian locals, well-loved for its cheap ale and heavily spiced coast chowder.
+- *The Elfstone:* /Tavern (4c•4p)/. An old earthy tavern, with live trees in the walls and the bar, that caters to elves and half-elves, and is a rare source of such delicacies as elverquisst, guldathen nectar and maerlathen blue wine.
+- *The [[http://oakthorne.net/wiki/index.php?title=Flagon_Dragon][Flagon Dragon]]:* /Tavern (2c•3p)/ A modest neighborhood pub renowned for its zzar (Waterdhavian mulled wine) and talyths (a palm-sized cracker with a thin slice of sausage on top, and a mixture of cheese, herbs, mashed root vegetables and other ingredients whose recipe is a house secret)
+- *Gralkyn's Tankard:* /Tavern (3c•2p)/. A true oddity, the Tankard is a tavern built in the very lap of the Great Drunkard, one of the Walking Statues.
+- *The Mighty Manticore:* /Tavern (2c•3p)/. An older friendly tavern with ample ale and light evening fare at affordable prices that attracts a loyal clientele of merchants at the close of day.
+- *The Quaffing Quaggoth:* /Tavern (3c•4p)/. A dwarf-owned tavern and a growing favorite among the city's sailors, merchants and young nobles. The tavern is well-known for the house specialty: a thick-brewed stout mixed with an unknown liquor that is called the Quaggoth for its rumored ability to cure every hair on a quaggoth and then some.
+- *Sailor's Own:* /Tavern (3c•2p)/ A crowded, dark, and dirty sailor's dive bar.
+- *The Singing Sword:* /Tavern (4c•4p)/
+- *The Sleepy Sylph:* /Tavern (4c•3p)/ A popular tavern for visitors to Waterdeep, featuring /driftglobe/ lights and scantily clad waitstaff dressed as fairies.
+
+*** Festhalls
+    :PROPERTIES:
+    :CUSTOM_ID: festhalls
+    :END:
+
+- *Blushing Nymph:* /Festhall (3c•3p)/ An upscale brothel known for its exotic pleasures.
+- *The [[http://oakthorne.net/wiki/index.php?title=Crawling_Spider][Crawling Spider]]:* /Tavern, Nightclub (4c•3p)/ A tavern for subterraneans that pine for their homes (as well as regulars who like the thrilling atmosphere), decorated as if underground with serving folk dressed as drow elves. Well known for its subterranean dancing floor, and the many small "caverns" that lead off of it whose dark recesses are best left alone by the curious.
+- *Genmura's Stage:* /Festhall (2c•1p)/ A bawdy burlesque palace with two floors of small, cheap, stinking rooms above its taphall, Genmura's sees plenty of seedy sorts, criminals, dock hands, and sailors just come a'shore.
+- *Lightsinger Theater:* /Theater (3c)/ A festhall that specializes in small plays and the hosting of traveling troupes (burlesque and otherwise).
+- *Mother Salinka's House of Pleasure:* /Festhall (3c)/ A shabby, low-coin festhall.
+- *Mother Tathlorn's House of Pleasure & Healing:* /Spa (4c)/ A surprisingly upscale spa that features relaxation luxuries for all discerning tastes, Mother Tathlorn (the name has evolved over the years into a title for the proprietress) is widely considered a bureaucrat's best friend, providing a discreet, comfortable, and relaxing environment for the political figures of the city large and small to enjoy themselves, unwind, and chat with one another in private.
+- *Silavene's:* /Casino (4c)/ A casino with on-staff soft trader escorts to help woo Lady Luck or celebrate her smile. Regular guards watch the interior and front door, but the odd-ly armor plated back doors are known to become helmed horrors when folk attempt to pick or breach them!
+- *The [[http://oakthorne.net/wiki/index.php?title=Smiling_Siren][Smiling Siren]]:* /Festhall (4c•3p)/. A festhall beloved for the statue of the siren over the door, whose skirts occasionally billow in the seabreeze, and the lushly decorated fantasyland on the ground floor within, half sylvan paradise, and half beach-side wonderland. The dwarf-matron Sanchel runs the establishment with artistry and practicality.
+
+** [[http://oakthorne.net/wiki/index.php?title=Sea_Ward_of_Waterdeep][Sea Ward]]
+   :PROPERTIES:
+   :CUSTOM_ID: sea-ward
+   :END:
+
+*** Inns
+    :PROPERTIES:
+    :CUSTOM_ID: inns-1
+    :END:
+
+- *Pilgrim's Rest:* /Inn (4c•4a)/. A comfortable but modest inn that provides affordable stabling and lodgings for many visitors of Waterdeep's temples.
+- *The Wandering Wemic:* /Inn (4c•4a)/
+- *Golden Harp Inn:* /Inn (3c•4a)/. A comfortable two-story stone and slate inn, cheery and well lit at all times and noted for the magical harp that appears in mid-air at odd times to sing and play ancient ballads by itself.
+
+*** Taverns
+    :PROPERTIES:
+    :CUSTOM_ID: taverns-1
+    :END:
+
+- *The Broken Lance:* /Tavern (2c•3p)/. A cozy tavern frequented and staffed by the athletes and fighters from the Field of Triumph. The eel pie is the house specialty.
+- *The Crown & Heron:* /Tavern (5c•5p)/
+- *Gournar's Tavern:* /Tavern (4c•3p)/. A brightly lit, expensive place that's more a showcase for Waterdeep's high society at play than a tavern. It is a place to be seen, first and foremost.
+- *The Fiery Flagon:* /Tavern (4c•3p)/. A tavern that is famous among sailors the Realms over for its seafaring decor and pricey fare, without the trouble and decay of the Dock Ward.
+- *Mermaid on a Dolphin:* /Eating Lounge (4c•/. An undersea-themed eatery known for its many plates of small nibbly seafood creations and sweet sipping wine.
+- *Wyvern's Rest:* /Tavern (2c•4p)/. A former Watch-post and blockhouse, this one-story stone tavern is a favorite of Watch and Guard members, it hallmark being the stuffed wyvern that looms over the bar.
+
+*** Festhalls
+    :PROPERTIES:
+    :CUSTOM_ID: festhalls-1
+    :END:
+
+- *House of Purple Silks:* /Festhall (5c)/
+- *High Flagon Gambling House:* /Gambling House (4c)/
+
+** [[http://oakthorne.net/wiki/index.php?title=North_Ward_of_Waterdeep][North Ward]]
+   :PROPERTIES:
+   :CUSTOM_ID: north-ward
+   :END:
+
+*** Inns
+    :PROPERTIES:
+    :CUSTOM_ID: inns-2
+    :END:
+
+- *The Galloping Minotaur:* /Inn (4c•3a)/. An inn well-favored among visiting merchants that has had to expand its operations to two other buildings and implement Waterdeep's first advance bookings system. Known as a busy place with lots of overstuffed merchants, bustling messengers, and secret passages by which the servants get around.
+- *The [[http://oakthorne.net/wiki/index.php?title=Cliffwatch][Cliffwatch]]:* /Inn (3c•3a)/. An inn of tremendous size that caters mostly to wealth merchants and their caravans, the Cliffwatch is the beating heart of its neighborhood. Though blown up in the 1370s sometime, the Spindrivver family rebuilt it taller and grander than before.
+- *Swordshire House:* /Inn (4c•4a)/. A grand building that is best described as a cozy halfling burrow blown up to human-sized scale, the Swordshire attracts mostly out of towners as well as the occasional noble party looking for a unique venue for their celebrations. Notably, most hin-folk find it tacky and ridiculous. Even the most grumpy of them are forced to admit that there is no better curated collection of "hill wines" - as the wines made from sweet root vegetables made by halfling folk - to be found in Waterdeep. Its proprietor, Harnorr Leerthyn, is the Speaker for the [[http://oakthorne.net/wiki/index.php?title=Fellowship_of_Innkeepers][Fellowship of Innkeepers]].
+- *Twilight Hunters:* /Inn/. An inn decorated with various adventuring equipment and battle trophies, the Twilight Hunter is named for an adventuring company of old that owned it. The tropies are actually those gathered by the company from its days of adventuring. It is now in the holding of some of their descendants, all of whom have been inkeeps for generations now. The inn's taproom is gaining some notice for its "orangeberry wine," a sweet and fiery drink.
+
+*** Taverns
+    :PROPERTIES:
+    :CUSTOM_ID: taverns-2
+    :END:
+
+- *The Grinning Lion:* /Tavern (4c•2p)/. A raucous tavern favored by less adventurous young nobles who dare not visit the Dock Ward.
+
+*** Festhalls
+    :PROPERTIES:
+    :CUSTOM_ID: festhalls-2
+    :END:
+
+- *The Gentle Mermaid:* /Gambling House (4c•4p)/. One of the largest gambling houses in all of Faerun, and a luxurious place to see and be seen among the fabulously wealthy and powerful.
+- *The Many Masks:* /Festhall (4c•4p)/. A bawdy environs where everyone goes masked -- including when they are wearing nothing else. A grand masquerade at all times.
+
+** [[http://oakthorne.net/wiki/index.php?title=Trades_Ward_of_Waterdeep][Trades Ward]]
+   :PROPERTIES:
+   :CUSTOM_ID: trades-ward
+   :END:
+
+*** Inns
+    :PROPERTIES:
+    :CUSTOM_ID: inns-3
+    :END:
+
+- *The [[http://oakthorne.net/wiki/index.php?title=Dusken_Glade_Inn][Dusken Glade Inn]]:* /Inn (3c•4a)/. A large inn known for its music and the fact that it is largely the heart of Twilight Vaeteru in the Trades Ward.
+- *The Gentle Rest:* /Inn (3c•2a)/ A five-story structure with a nice central location and good views, the Gentle Rest used to be a bit more upscale than it is today. A handful of the in-room tubs no longer hold water properly, and some of the rooms are simply out of order and never seem to be in any better condition.
+- *Inn of the Dripping Dagger:* /Inn (3c•4p•4a)/. A battle-scarred and bloodied door hiding an amiable, comfortable place for hire-swords to stay and be hired from.
+- *The Unicorn's Horn:* /Inn (5c•4a)/. A decadent and costly inn to stay at (its Imperial Suite on the sixth floor has an impressive view, but not one worth 40 gp per night). Its saving grace is its strategic placement to the High Road.
+- *Gondalim''s Inn:* /Inn (3c•5a)/. An established inn of many comforts, with single rooms or suites available at affordable prices.
+
+*** Taverns & Eateries
+    :PROPERTIES:
+    :CUSTOM_ID: taverns-eateries
+    :END:
+
+- *Bowels of the Earth:* /Tavern (Dive) (4c•2p)/. An ill-lit rough-and-tumble tavern that caters to mercenaries looking for employment or a good brawl.
+- *The Sleeping Dragon's Den:* /Tavern (3c•2p)/. A local's pub.
+- *The Underdark:* /Tavern (Dive) (2c•2p)/. An old, rare cellar tavern with low ceilings (5' clearance) that once catered primarily to the dwarves, gnomes, halflings, and odd goblins in Waterdeep. Today, however, it is almost entirely goblinoids, kobolds, and the occasional orc (those who can tolerate being crouched over constantly). It is a rough place, with a reputation as a meeting spot for rough sorts.
+
+*** Festhalls
+    :PROPERTIES:
+    :CUSTOM_ID: festhalls-3
+    :END:
+
+- *The Golden Horn:* /Gambling House (3c)/. Once a crimson den of vice with a sinister reputation, the Golden Horn is now a well-regarded gambling establishment. Though no longer as upscale as it once was, it attracts a great deal of those merchants and visitors to Waterdeep, catering to them and offering a night of glamor and shining coin. Its owner are a married couple: Linchaser, a cleric of Tymora and his wife, Dame Wynda, who is a paladin of Waukeen. The two take great pride in the honesty of their games.
+- *The Saucy Satyr:* /Private Club (4c•3c•4a)/. One of the new private membership clubs that have taken Waterdeep by storm, the Saucy Satyr has a lascivious reputation in the broadsheets and gossip circles. They take delight in their sensual, sylvan themes.
+
+** [[http://oakthorne.net/wiki/index.php?title=South_Ward_of_Waterdeep][South Ward]]
+   :PROPERTIES:
+   :CUSTOM_ID: south-ward
+   :END:
+
+*** Inns
+    :PROPERTIES:
+    :CUSTOM_ID: inns-4
+    :END:
+
+- *House of Good Spirits:* /Vintners' Distillers' & Brewers Guild, Inn, Tavern (2c•5p•2a)/. A brewery, winery and inn noted for its wide variety of liquors and strong drink from across the Realms. Its specialty is Waterdhavian /zzar/, and it serves as the guildhouse for the Vintners' Guild as well.
+
+*** Taverns
+    :PROPERTIES:
+    :CUSTOM_ID: taverns-3
+    :END:
+
+- *The Beer Golem:* /Tavern/
+- *House of Dust:* /Tavern (1c•1p)/
+- *The Red Gauntlet:* /Tavern (2c•3p)/ Mercenary and caravan guard tavern.
+- *The Sword's Rest:* /Tavern (3c•4p)/. A tavern for strong drink, strong arms and thick skulls (for when that burly fighter cracks a mug over your head - which is often!).
+- *Tymora's Blessing:* /Tavern/. A seedy dive frequented by caravan drovers and noted for all-too-frequent brawls.
+
+*** Festhalls
+    :PROPERTIES:
+    :CUSTOM_ID: festhalls-4
+    :END:
+
+- *The [[http://oakthorne.net/wiki/index.php?title=Jade_Dancer][Jade Dancer]]:* /Festhall (4c•4p)/ A festhall well worth the high price for its entertaining dancer-escorts and excellent drinks.
+
+** [[http://oakthorne.net/wiki/index.php?title=Dock_Ward_of_Waterdeep][Dock Ward]]
+   :PROPERTIES:
+   :CUSTOM_ID: dock-ward
+   :END:
+
+*** Inns
+    :PROPERTIES:
+    :CUSTOM_ID: inns-5
+    :END:
+
+- *Shipmaster's Hall:* /Inn (sea captains)/. A private inn and dining club for captains, first mates and ship owners and their guests, with an interior elegance that far outweighs its exterior. It is sponsored by the Master Mariners' Guild.
+- *The Ship's Prow:* /Inn (3c•5a)/. An inn well known among sailors of the Sword Coast and easily found as it is actually a converted ship's prow that now juts into Fish Street and Ship Street. The prices and services in this four-story inn are reasonable, though its clientele often isn't.
+- *The Rearing Hippocampus:* /Inn (4c•3a)/
+- *The [[http://oakthorne.net/wiki/index.php?title=Sleeping_Snake][Sleeping Snake]]:* /Tavern & Inn (barely) (3c•2p•2a)/
+- *[[http://oakthorne.net/wiki/index.php?title=Stormcloak_Inn][Stormcloak Inn]]:* /Inn (1c • 1a)/ The Stormcloak is a run-down ramshackle inn whose rooms are filthy and taproom filled with street thugs and drunken sailors.
+
+*** Taverns
+    :PROPERTIES:
+    :CUSTOM_ID: taverns-4
+    :END:
+
+- *The Angry Coxswain:* /Tavern/
+- *Azuth's Mug:* /Tavern (3c•2p)/
+- *The Bloody Fist:* /Tavern (Dive) (2c•1p)/
+- *The Blue Mermaid:* /Tavern (3c•2p)/
+- *The Dancing Pony:* /Tavern (2c•1p)/
+- *The Friendly Flounder:* /Tavern (3c•3p)/. A local tavern that thrives on simple seafood fare, favored by the locals and almost unknown to visitors.
+- *Full Sails Tavern:* /Tavern, Guild HQ: [[http://oakthorne.net/wiki/index.php?title=Most_Diligent_League_of_Sailmakers_%26_Cordwainers&action=edit&redlink=1][Most Diligent League of Sailmakers & Cordwainers]]/. A merry, bright tavern on Net Street at the docks, with its upstairs space acting as meeting and storage space for the sailmakers' guild.
+- *The Grog House:* /Tavern (1c•1p)/. Often called a "swill hall" by those who've heard of it, it is a place that literally does nothing else but serve terribly cheap alcoholic swill for sailors to drink away their coins. It offers no accommodations, but no one cares if its patrons pass out under their tables.
+- *The Keelhauled Dwarf:* /Tavern (2c•1p)/. A tavern in the basements of the House of Tarmagus (a rental warehouse complex), with low ceilings, good dwarf-brewed ale, and a dark, smoky ambiance.
+- *The Knight 'n Shadow:* /Tavern (1c•1p)/. A run-down, dingy tavern with a long, poorly lit staircase that descends into Downshadow below, a portion of Undermountain that some Waterdhavians down on their luck or on the run from the law have laid claim to. A squatting ground for unsuccessful treasure hunters, coin-shy adventurers, and other criminals.
+- *Muleskull Tavern:* /Tavern; Guild HQ: [[http://oakthorne.net/wiki/index.php?title=Dungsweepers%27_Guild][Dungsweepers' Guild]]/
+- *Selune's Smile:* /Tavern/
+- *The Thirsty Throat:* /Tavern (2c•2p)/. A ramshackle dive known for its massive tankards of cheap ale and its taproom full of quiet drinking men.
+
+*** Festhalls
+    :PROPERTIES:
+    :CUSTOM_ID: festhalls-5
+    :END:
+
+- *The Copper Cup:* /Inn, Festhall (4c•3p•2a)/. Three old three- and four-story warehouses linked and converted into one of Waterdeep's busiest and most famous nightlife spots.
+- *The Mermaid's Arms:* /Inn, Festhall (3c•3p•3a)/
+- *Three Pearls Nightclub:* /Nightclub (4c)/. A popular festhall with nightly stage acts such as comedians, trained animal acts, illusionists' displays, recitals by famed bards and orators and exotic dance.
+- *The Hanging Lantern:* /Festhall (4c)/. A festhall famed for its stunning escorts and its skilled matchmakers, as well as a side business in costume rental.
+- *The Smiling Succubus:* /Festhall (2c)/
+- *Tarstroun's:* /Gambling Den (3c) & Moneylender/ A notorious gambling den and money-lender for those who are desperate or down on their luck. Known to have rooms for rent above the main floor.

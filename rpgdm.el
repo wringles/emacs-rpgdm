@@ -246,7 +246,7 @@ The LABEL will be append to the message, and used form other calls."
                      (read-number "Rolled Results: ")))
   (rpgdm-message "%s Skill Check: %s"
                  (capitalize target)
-                 (rpgdm--yes-and (downcase target) rolled-results)))
+                 (rpgdm--yes-and (rpgdm--skill-level (downcase target)) rolled-results)))
 
 (defun rpgdm-skill-check-easy (rolled-results)
   "Return an embellished pass/fail from ROLLED-RESULTS for an easy skill check."

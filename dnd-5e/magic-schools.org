@@ -4,7 +4,7 @@
 #+FILETAGS: :rpg:5e:dm-screen:
 
   - [[#conjuration][Conjuration]] ... creating
-  - [[#necromancy][Necromancy]] ...
+  - [[#necromancy][Necromancy]] ... animating
   - [[#evocation][Evocation]] ... offensive
   - [[#abjuration][Abjuration]] ... defensive
   - [[#transmutation][Transmutation]] ... physically changing

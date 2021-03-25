@@ -60,7 +60,7 @@ Interactively, display a list of files in `rpgdm-screen-directory'."
 (defun rpgdm-screen-screen-list ()
   "A memoized list of cons cells containing the title and fully-qualified filename."
   (unless rpgdm-screen-files
-    (dolist (file (directory-files rpgdm-screen-directory t))
+    (dolist (file (directory-files rpgdm-screen-directory t (rx bol (not "."))))
       (add-to-list 'rpgdm-screen-files (cons (rpgdm-screen--read-title file) file))))
   rpgdm-screen-files)
 
