@@ -3,7 +3,7 @@
 ;; Copyright (C) 2021 Howard X. Abrams
 ;;
 ;; Author: Howard X. Abrams <http://gitlab.com/howardabrams>
-;; Maintainer: Howard X. Abrams <howard.abrams@workday.com>
+;; Maintainer: Howard X. Abrams
 ;; Created: January  4, 2021
 ;;
 ;; This file is not part of GNU Emacs.
@@ -40,18 +40,19 @@
   "
     ^Dice^                              ^Tables^          ^Checks^                        ^Moving^          ^Messages^
  -----------------------------------------------------------------------------------------------------------------
-    _d_: Roll Dice _z_: Flip a coin    _r_: Dashboard    _s_: d20 Skill  _m_: Moderate      _o_: Links        ⌘-l: Last Results
-    _b_: Previous  _f_: Next Dice Expr _t_: Load Tables  _e_: Easy check _h_: Hard check  _J_/_K_: Page up/dn   ⌘-k: ↑ Previous
-    _a_/_A_: Advantage/Disadvantage    _c_: Choose Item  _v_: Difficult  _i_: Impossible  _N_/_W_: Narrow/Widen ⌘-j: ↓ Next   "
+    _d_: Roll Dice / _D_: Reroll Dice  _r_: Dashboard    _s_: d20 Skill  _m_: Moderate      _o_: Links        ⌘-l: Last Results
+    _z_: Flip a coin _O_: Oracle roll  _t_: Load Tables  _e_: Easy check _h_: Hard check  _J_/_K_: Page up/dn   ⌘-k: ↑ Previous
+    _b_: Previous  _f_: Next Dice Expr _c_: Choose Item  _v_: Difficult  _i_: Impossible  _N_/_W_: Narrow/Widen ⌘-j: ↓ Next
+    _a_/_A_: Advantage/Disadvantage    _N_: Show NPC "
   ("d" rpgdm-roll)              ("D" rpgdm-roll-again)
   ("f" rpgdm-forward-roll)      ("b" rpgdm-forward-roll)
   ("a" rpgdm-roll-advantage)    ("A" rpgdm-roll-disadvantage)
-  ("z" rpgdm-yes-and-50/50)
+  ("z" rpgdm-yes-and-50/50)     ("O" rpgdm-oracle)
   ("s" rpgdm-skill-check)       ("i" rpgdm-skill-check-impossible)
   ("e" rpgdm-skill-check-easy)  ("m" rpgdm-skill-check-moderate)
   ("h" rpgdm-skill-check-hard)  ("v" rpgdm-skill-check-difficult)
 
-  ("t" rpgdm-tables-load)       ("c" rpgdm-tables-choose)
+  ("t" rpgdm-tables-load)       ("c" rpgdm-tables-choose) ("C" rpgdm-tables-choose :color blue)
   ("r" rpgdm-screen-show)       ("R" rpgdm-quick-close)
   ("o" ace-link)                ("N" org-narrow-to-subtree)   ("W" widen)
   ("K" scroll-down)             ("J" scroll-up)
@@ -118,6 +119,32 @@ Meant to be used with `rpgdm-last-results-previous'."
   (should (equal "0> Almost the newest" (rpgdm-last-results-next)))
   (should (equal "0> Almost the newest" (rpgdm-last-results-next))))
 
+(defvar rpgdm-oracle-mod 0 "Cummulative skew to create more tension.")
+
+(defun rpgdm-oracle ()
+  "Return a good/fair/bad message for GM-less result.
+The algorithm here comes from Victor's GM-less Oracle game, see
+https://cursenightgames.itch.io/victors-gm-less-oracle
+
+This results of this idea mimic a bell curve, but creates
+tension, for with more good outcomes, a bad outcome is more
+likely. How this works in game play vs. a standard bell curve is
+not clear."
+  (interactive)
+  (let* ((rolled  (rpgdm--roll-die 6))
+         (outcome (+ rolled rpgdm-oracle-mod))
+         (diffmsg (if (= rolled outcome) "" ; empty string if true
+                    (format " with mod of %d" rpgdm-oracle-mod)))
+         (results (cond ((<= outcome 1) "Best outcome")
+                        ((<= outcome 3) (progn
+                                          (setq rpgdm-oracle-mod (1+ rpgdm-oracle-mod))
+                                          "Best outcome"))
+                        ((<= outcome 5) "Middling outcome")
+                        (t             (progn
+                                         (setq rpgdm-oracle-mod 0)
+                                         "Worst outcome")))))
+    (rpgdm-message "Oracle says: %s (Rolled %d%s ... Now mod is %d)"
+                   results rolled diffmsg rpgdm-oracle-mod)))
 
 (defun rpgdm-yes-and-50/50 ()
   "Add spice to your 50/50 events (luck) with Yes/No+complications.

@@ -3,7 +3,7 @@
 ;; Copyright (C) 2021 Howard X. Abrams
 ;;
 ;; Author: Howard X. Abrams <http://gitlab.com/howardabrams>
-;; Maintainer: Howard X. Abrams <howard.abrams@workday.com>
+;; Maintainer: Howard X. Abrams
 ;; Created: February 26, 2021
 ;;
 ;; This file is not part of GNU Emacs.

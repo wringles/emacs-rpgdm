@@ -3,7 +3,7 @@
 ;; Copyright (C) 2021 Howard X. Abrams
 ;;
 ;; Author: Howard X. Abrams <http://gitlab.com/howardabrams>
-;; Maintainer: Howard X. Abrams <howard.abrams@workday.com>
+;; Maintainer: Howard X. Abrams
 ;; Created: January  8, 2021
 ;;
 ;; This file is not part of GNU Emacs.
@@ -38,6 +38,10 @@
 (defvar rpgdm-tables (make-hash-table :test 'equal)
   "Collection of tables and lists for the Dungeon Master.")
 
+(defun rpgdm-tables-clear ()
+  "Clear previously loaded tables."
+  (interactive)
+  (setq rpgdm-tables (make-hash-table :test 'equal)))
 
 (defun rpgdm-tables-load (&optional filepath)
   "Read and parse table files located in FILEPATH directory.
@@ -160,6 +164,15 @@ would be converted randomly to something like: 'You found a box.'"
       (insert-file-contents table-file)
       (goto-char (point-min))
       (flush-lines (rx bol (zero-or-more space) "#"))
+
+      ;; I noticed that org-mode links we screwing up the output, so we strip them out:
+
+      (goto-char (point-min))
+      (let ((org-link-re (rx "[[" (one-or-more (not "]")) "]["
+                             (group (one-or-more (not "]")))
+                             "]]")))
+        (while (re-search-forward org-link-re nil t)
+          (replace-match (match-string 1) nil nil)))
 
       ;; The following predicates are not /pure functions/, as they scan the
       ;; current buffer, leaving the initial match in the 'hopper', so the parsing

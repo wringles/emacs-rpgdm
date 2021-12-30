@@ -3,7 +3,7 @@
 ;; Copyright (C) 2020 Howard X. Abrams
 ;;
 ;; Author: Howard X. Abrams <http://gitlab.com/howardabrams>
-;; Maintainer: Howard X. Abrams <howard.abrams@gmail.com>
+;; Maintainer: Howard X. Abrams
 ;; Created: December 15, 2020
 ;;
 ;;; Commentary:

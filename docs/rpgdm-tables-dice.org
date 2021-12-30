@@ -1,12 +1,9 @@
 #+title:     Dice Tables for Games
 #+author:    Howard X. Abrams
-#+email:     howard.abrams@gmail.com
 #+FILETAGS:  :org-mode:emacs:rpgdm:
 #+STARTUP: inlineimages yes
 #+PROPERTY: header-args:emacs-lisp :tangle ../rpgdm-tables-dice.el :comments no
-#+PROPERTY: header-args :eval no-export
-#+PROPERTY: header-args :results silent
-#+PROPERTY: header-args :exports both
+#+PROPERTY: header-args :eval no-export :results silent :exports both
 
 #+BEGIN_SRC emacs-lisp
 ;;; rpgdm-tables-dice.el --- Rolling dice for choosing items from Tables -*- lexical-binding: t; -*-

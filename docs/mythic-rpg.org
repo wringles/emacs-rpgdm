@@ -1,0 +1,545 @@
+#+TITLE:  Mythic TTRPG
+#+AUTHOR: Howard X. Abrams
+#+DATE:   2021-08-09 August
+#+TAGS:   rpg
+
+I'm intrigued with the possibilities associated with Tana Pigeons's (from Word Mill Games) TTRPG, [[http://wordmillgames.com/mythic-rpg.html][Mythic]], however, to make things quicker (at least for me), I'm going to try to render the Fate Chart and other aspects from the book.
+
+To summarize, we ask ourselves questions about the situation our characters find themselves. These questions much adhere to these /rules/:
+
+  - The question is often what a player would ask their game master.
+  - The answer must be either /yes/ or /no/.
+  - The question must be /logical/ (for the story, not necessarily reality).
+
+We then rate the /challenge/ or /likelihood/ of the question on the following scale (so send this list to all other placyers):
+
+This is the /likelihood/ gradient levels:
+
+  - impossible
+  - no way
+  - very unlikely
+  - unlikely
+  - *50/50* ... note that this is the middle ground, and everything above is less likely to be a /yes/ and everything below this is /more likely/ to be yes.
+  - maybe
+  - likely
+  - probably
+  - near sure
+  - sure thing
+  - absolutely
+
+And this is the /challenge levels/:
+
+  - trivial
+  - miniscule
+  - weak
+  - low
+  - below average (will accept a negative)
+  - average
+  - above average
+  - high
+  - exceptional
+  - incredible
+  - awesome
+  - superhuman
+  - superhuman+
+
+We typically don't bother with the challenge levels, as we just allow our D&D rules carry these situations. Also, usually the person that asks the question allows the other players to determine the likelihood level.
+
+
+#+BEGIN_SRC emacs-lisp :exports none
+;;; rpgdm-mythic.org --- Functions to help when playing Mythic RPG. -*- lexical-binding: t; -*-
+;;
+;; Copyright (C) 2021 Howard X. Abrams
+;;
+;; Author: Howard X. Abrams <http://gitlab.com/howardabrams>
+;; Maintainer: Howard X. Abrams <howard.abrams@gmail.com>
+;; Created: 9 August 2021
+;;
+;; This file is not part of GNU Emacs.
+;;
+;;; Commentary:
+;;
+;;    This source code is literally extracted from an essay about creating an
+;;    user interface to the Mythic RPG game system. See the book,
+;;    http://wordmillgames.com/mythic-rpg.html
+;;
+;;; Code:
+#+END_SRC
+* Introduction
+I'm not sure why I'm here. I guess I'm just curious. Mumma said that was what would kill me. Just like that tentacled kitten my father found in the woods. Here I am, at Her House.
+
+Am I here to deliver something? No. Am I here to get something? No. Am I here to /learn/ something? Not that either. Am I hear to deliver a message? Hrm ... really rolling high. No, not that.
+
+I guess I just came here because I was curious.
+
+Does the place look peculiar or /odd/? Yes. An exceptional yes.
+
+I came here to see if the rumors are true. The house, if you could call it a house isn't anything like the others at the village. Is it a tower? No. Does it even look like a house? No. She must live in a stone sphere here in the middle of the forest.
+
+Is there a door? I would assume so. Yes, there is. Is the stone ball floating? I mean, I have heard about the magics and that seems like something she might employ. Yes. It is floating just out of reach. I suppose I have seen what I came to see. The rumors are true, she lives in a floating stone ball.
+
+Does She have windows, or does She use magics to view the land around her dwelling. No, She uses magics. The stone is featureless, except for the door. I move closer and wonder how She goes in and out. Is there an invisible stair to aid her? Seems very likely, but (exceptional no) I can walk right underneath it without noticing that. But when I come closer, the stone sphere floats further away.
+
+Curiouser. I wonder what She is like. Would she be angry if I knocked on the door? Assuming I could reach it. I want to know more about her, otherwise, I couldn't live with the mystery. I pick up a rock and throw it at the door, while I'm a pretty strong thrower, the door is far away.
+
+The stone hits the door. Does someone open the door? Yes! After some time, the stone door creaks open. Is it Her? No! It must be one of Her servants. Is it human? (Exceptional no). A small goblin girl peers around looking for what made the noise. Does the goblin look angry? I didn't hurt the door, so maybe she is just as curious as I. But she is! Exceptionally so! I quickly hide in the forest undergrowth. Does she see me? Due to my curious nature, I've always been sneaky (else how would I have heard all the delicious rumors), however, the goblin looks straight at me, as if I wasn't even hiding.
+
+Does she do something to me? Yes. Does she use magic? Yes.
+
+Curiosity may have killed the tentacled kitten, but curiosity turned this human into a tentacled cat.
+* Interface
+Since I will be using Mythic features primarily while either writing (or at least, taking notes), the user interface needs to be un-intrusive. I'll just put everything under leader keys using Doom macros:
+
+#+BEGIN_SRC emacs-lisp
+(map! :leader (:prefix-map ("a" . "abrams")
+                (:prefix-map ("r" . "rpg-dm")
+                  :desc "table choice"        "c" 'rpgdm-tables-choose
+                  :desc "roll the dice"       "r" 'rpgdm-roll
+                  :desc "best/middling/worse" "z" 'rpgdm-oracle
+                  :desc "flip coin, and..."   "a" 'rpgdm-yes-and-50/50
+                  :desc "new adventure"       "N" 'rpgdm-mythic-new-adventure
+                  :desc "new scene"           "n" 'rpgdm-mythic-new-scene
+                  :desc "what are the odds?"  "o" 'rpgdm-mythic-fate-odds
+                  :desc "skill challenge"     "f" 'rpgdm-mythic-fate-challenge)))
+#+END_SRC
+
+What I've noticed is that I would like to run these commands while actually editing, so let's have a new key sequence that begins with ~F19~ on my fancy keyboard.
+
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "<f19> c") 'rpgdm-tables-choose)
+(global-set-key (kbd "<f19> r") 'rpgdm-roll)
+(global-set-key (kbd "<f19> z") 'rpgdm-oracle)
+(global-set-key (kbd "<f19> a") 'rpgdm-yes-and-50/50)
+(global-set-key (kbd "<f19> N") 'rpgdm-mythic-new-adventure)
+(global-set-key (kbd "<f19> n") 'rpgdm-mythic-new-scene)
+(global-set-key (kbd "<f19> o") 'rpgdm-mythic-fate-odds)
+(global-set-key (kbd "<f19> f") 'rpgdm-mythic-fate-challenge)
+#+END_SRC
+And because I use the /odds/ chart a lot more than anything else. I'm going to bind it to another, easier key.
+
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "<f15>") 'rpgdm-mythic-fate-odds)
+#+END_SRC
+
+Some of these functions are from my [[file:rpgdm.el][rpgdm.el]] code, while the Mythic-specific ones, we define here, primarily:
+
+  - =new-adventure= :: To create a directory structure of org-mode files to document/retell the adventure as it unfolds.
+  - =fate-odds= :: To determine, based on the current chaos level, what are the odds of something. I will use that a lot.
+  - =fate-challenge= :: The primary Fate Chart use case where two "levels" compete on a bell curve of chance.
+** Questions?
+Can I ask a lengthy question with a one letter response? This function will issue a prompt with all the ranks available, get a single keystroke (using the =read-char= function), and return the numeric value of the rank, we can send to the other functions for the Fate Chart.
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun rpgdm-mythic-rank-level (&optional rank-type)
+  "Query user and return a numeric 'rank' level.
+This number is from -5 to 7, where 0 is a average."
+  (let* ((prompt (format "Choose a %sMythic Rank:
+  t) Trivial  m) Miniscule    w) Weak        l) Low      b) Below Average  a) Average  A) Above Average
+  H) High     E) Exceptional  I) Incredible  W) Awesome  S) Superhuman     V) Very Superhuman "
+                         (or rank-type "")))
+         (ascii (read-char (rpgdm--prompt-emphasis prompt))))
+    (cond
+     ((eq ascii ?t)                                  -5) ; t -> trivial
+     ((eq ascii ?m)                                  -4) ; m -> miniscule
+     ((eq ascii ?w)                                  -3) ; w -> weak                                      -
+     ((eq ascii ?l)                                  -2) ; l -> low                                       - terrible
+     ((or (eq ascii ?b) (eq ascii ?-))               -1) ; b -> below average (will accept a negative)    - poor
+     ((or (eq ascii ?A) (eq ascii ?1) (eq ascii ?+))  1) ; A -> above average                             - average
+     ((or (eq ascii ?H) (eq ascii ?h) (eq ascii ?2))  2) ; h -> high                                      - Fair
+     ((or (eq ascii ?E) (eq ascii ?e) (eq ascii ?3))  3) ; e -> exceptional                               - Good
+     ((or (eq ascii ?I) (eq ascii ?i) (eq ascii ?4))  4) ; i -> incredible                                - Great
+     ((or (eq ascii ?W) (eq ascii ?5))                5) ; W -> awesome                                   - Superb
+     ((or (eq ascii ?S) (eq ascii ?6))                6) ; s -> superhuman                                - Fantastic
+     ((or (eq ascii ?V) (eq ascii ?7))                7) ; S -> superhuman+                               - Epic
+     (t                                               0)))) ; * -> Average                                - mediocre
+#+END_SRC
+
+And we can also convert a list of /what are the odds/ for events and whatnot:
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun rpgdm-mythic-odds-level ()
+  "Query user and return a numeric 'odds' level.
+This number is from -4 to 6, where 0 is a 50/50."
+  (let ((ascii (read-char (rpgdm--prompt-emphasis "What is the likelihood of your question?
+  i) Impossible  n) No way  v) Very unlikely u) Unlikely   h) 50/50
+  M) Maybe       L) Likely  P) Probably      N) Near Sure  S) Sure thing  A) Absolutely"))))
+    (cond
+     ((eq ascii ?i)                                   -4) ; i -> impossible
+     ((eq ascii ?n)                                   -3) ; n -> no way
+     ((eq ascii ?v)                                   -2) ; v -> very unlikely
+     ((or (eq ascii ?u)               (eq ascii ?-))  -1) ; u -> unlikely
+     ((or (eq ascii ?M) (eq ascii ?m) (eq ascii ?1))   1) ; M -> maybe
+     ((or (eq ascii ?L) (eq ascii ?l) (eq ascii ?2))   2) ; L -> likely
+     ((or (eq ascii ?P) (eq ascii ?p) (eq ascii ?3))   3) ; P -> probably
+     ((or (eq ascii ?N) (eq ascii ?s) (eq ascii ?4))   4) ; N -> near sure
+     ((or (eq ascii ?S) (eq ascii ?t) (eq ascii ?5))   5) ; S -> sure thing
+     ((or (eq ascii ?A) (eq ascii ?a)
+          (eq ascii ?Y) (eq ascii ?y) (eq ascii ?6))   6) ; A -> absolutely
+     (t                                                0)))) ; * -> 50/50
+#+END_SRC
+
+And finally, we need to get the /chaos level/. From the Mythic RPG book about the chaos level:
+
+#+begin_quote
+The higher the number, the more unexpected events occur. Chaos can also influence the results of odds questions.
+The higher the chaos, the more frequently odds questions come up yes. Since yes answers usually add elements to an adventure, the higher the chaos factor, the more action you will have as a result of odds questions.
+#+end_quote
+While the chart's labels are 1 to 9, we need to convert them to the -4 to 4 range similar to the others:
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun rpgdm-mythic-chaos-level ()
+  "Query user and return a numeric 'chaos' level.
+Where `1' means a stable environment where most yes/no questions
+are no, and `9' is chaotic, and more often responds with yes.
+Return number is from -4 to 4, where 0 is normal."
+  (let* ((prompt (format "What is the Chaos level (1-9)?
+Where 1 is very stable (more noes), and 9 is chaotic (more yeses), and <RET> selects the current value, %d"
+                         rpgdm-mythic-current-chaos-level))
+        (ascii (read-char prompt)))
+    (cond
+     ((eq ascii ?9) -4)
+     ((eq ascii ?8) -3)
+     ((eq ascii ?7) -2)
+     ((eq ascii ?6) -1)
+     ((eq ascii ?5)  0)
+     ((eq ascii ?4)  1)
+     ((eq ascii ?3)  2)
+     ((eq ascii ?2)  3)
+     ((eq ascii ?1)  4)
+     (t              (- rpgdm-mythic-current-chaos-level 5)))))
+#+END_SRC
+
+Would be nice to visually see the keystrokes in a different color. Can I do this automatically?
+The =put-text-property= can change textual properties within a string, and since all of these prompts have a particular pattern, I can use it to easily identify the keys:
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun rpgdm--prompt-emphasis (message)
+  "Add emphasizing properties to the keystroke prompts in MESSAGE."
+  (let ((start 0)
+        (re (rx bow (one-or-more (not space)) ") ")))
+    (while (string-match re message start)
+      (let* ((key-start (match-beginning 0))
+             (key-end   (1+ key-start))
+             (par-start  key-end)
+             (par-end   (1+ par-start)))
+        (put-text-property key-start key-end 'face '(:foreground "green") message)
+        (put-text-property par-start par-end 'face '(:foreground "#666666") message))
+      (setq start (match-end 0))))
+  message)
+#+END_SRC
+
+** Requests?
+The initial request in Mythic RPG is the /challenge/. It requires two /ranks/, the initial actor (probably the player) vs. a contested /difficulty/ rank, like another NPC, or the strength of the door, etc. After querying for the ranks, we can just pass those values to the =rpgdm-mythic-fate-chart= function to do all the work:
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun rpgdm-mythic-fate-challenge (acting-rank acting-modifier difficulty-rank)
+  "Request a challange on the tables of fate.
+Send a message of the results of rolling a d100 on the Mythic
+Fate Chart. The ACTING-RANK and DIFFICULTY-RANK are numeric
+values from -5 to 7 (with 0 being average)."
+  (interactive (list (rpgdm-mythic-rank-level "Acting ")
+                     (read-number "Actiing modifier? " 0)
+                     (rpgdm-mythic-rank-level "Difficulty ")))
+  (rpgdm-mythic-fate-chart "Challenge " (+ acting-rank acting-modifier) difficulty-rank))
+#+END_SRC
+
+What are the odds of something happening? A little luck, a little logic, and a bit of the /chaos/ associated with the unfolding of the story:
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun rpgdm-mythic-fate-odds (odds chaos-level)
+  "Request a results of what are the odds on the tables of fate.
+Send a message of the results of rolling a d100 on the Mythic
+Fate Chart. The ODDS is the likelihood of something, and the
+CHAOS-LEVEL is a numeric values about how likely yes answer
+happen."
+  (interactive (list (rpgdm-mythic-odds-level)
+                     (rpgdm-mythic-chaos-level)))
+  (rpgdm-mythic-fate-chart "Odds " odds chaos-level))
+#+END_SRC
+* Fate Chart
+The main table/chart in the Mythic RPG is the *Fate Chart* that specifies all questions and conflict resolution. This interactive function should return the range, a d100 die roll, and also interpret the results. We can then use any aspect of the results.
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun rpgdm-mythic-fate-chart (chart-type x-rank y-rank)
+  "Return a colorized message of rolling dice against the Fate Chart.
+Use the X-RANK and Y-RANK as indexes in the Mythic RPG Fate
+chart (see `rpgdm-mythic--fate-chart'), and format the collected
+messages."
+  (let* ((range   (rpgdm-mythic--fate-chart x-rank y-rank))
+         (roll    (rpgdm--roll-die 100))
+         (results (rpgdm-mythic--result-message range roll))
+         (event?  (rpgdm-mythic--result-event-p range roll))
+         (message (format "Mythic %s- %d < %d < %d :: %d ... %s %s"
+                   chart-type (first range) (second range) (third range) roll results event?)))
+    (rpgdm-message (rpgdm-mythic--fate-chart-emphasize message))))
+#+END_SRC
+
+** The Actual Chart
+Obviously, the author calculated the chart, and then simplified it to be easier when rolling dice.
+Should we render the chart as an actual table?
+
+#+name: fate-table
+|    |  -5 |  -4 |  -3 |  -2 |  -1 |   0 |   1 |   2 |   3 |   4 |   5 |   6 |   7 |
+|----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
+| -5 |  50 |  25 |  10 |   5 |   5 |   0 |   0 | -20 | -20 | -40 | -40 | -55 | -65 |
+| -4 |  75 |  50 |  25 |  15 |  10 |   5 |   5 |   0 |   0 | -20 | -20 | -35 | -45 |
+| -3 |  90 |  75 |  50 |  35 |  25 |  15 |  10 |   5 |   5 |   0 |   0 | -15 | -25 |
+| -2 |  95 |  85 |  65 |  50 |  45 |  25 |  15 |  10 |   5 |   5 |   5 |   5 | -15 |
+| -1 | 100 |  90 |  75 |  55 |  50 |  35 |  20 |  15 |  10 |   5 |   5 |   0 | -10 |
+|  0 | 105 |  95 |  85 |  75 |  65 |  50 |  35 |  25 |  15 |  10 |  10 |   5 |  -5 |
+|  1 | 110 |  95 |  90 |  85 |  80 |  65 |  50 |  45 |  25 |  20 |  15 |   5 |   0 |
+|  2 | 115 | 100 |  95 |  90 |  85 |  75 |  55 |  50 |  35 |  25 |  20 |  10 |   5 |
+|  3 | 120 | 105 |  95 |  95 |  90 |  85 |  75 |  65 |  50 |  45 |  35 |  15 |   5 |
+|  4 | 125 | 115 | 100 |  95 |  95 |  90 |  80 |  75 |  55 |  50 |  45 |  20 |  10 |
+|  5 | 130 | 125 | 110 |  95 |  95 |  90 |  85 |  80 |  65 |  55 |  50 |  25 |  10 |
+|  6 | 150 | 145 | 130 | 100 | 100 |  95 |  95 |  90 |  85 |  80 |  75 |  50 |  25 |
+|  7 | 170 | 165 | 150 | 120 | 120 | 100 | 100 |  95 |  95 |  90 |  90 |  75 |  50 |
+
+We convert that table into a matrix (list of lists) in Emacs Lisp:
+
+#+BEGIN_SRC emacs-lisp :var fate-table-values=fate-table :rownames yes :results silent
+(defvar rpgdm-mythic-fate-table fate-table-values
+  "Only contains the medium boundary values of the Mythic Fate Chart.")
+#+END_SRC
+
+** Supporting Fate Functions
+A lookup function for the Fate Chart would be nice, but since the fate table data starts from 0, but the Mythic chart /visually/ starts from -5, we need to add 5 to the given parameter values.
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun rpgdm-mythic--fate-boundary (acting-rank difficulty-rank)
+  "Return the boundary value for a fate contest. The ACTING-RANK
+and DIFFICULTY-RANK are numeric values from -5 to 7 that
+correspond to the rows and colums of the Fate Chart from the
+Mythic RPG."
+  (nth (+ difficulty-rank 5)
+       (nth (+ acting-rank 5) rpgdm-mythic-fate-table)))
+#+END_SRC
+
+Now, can we get the exceptional values from the given average/medium boundary value?
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun rpgdm-mythic--fate-chart (acting-rank difficulty-rank)
+  "Return a list of the lower, medium and upper boundaries of the Fate Chart.
+The ACTING-RANK and DIFFICULTY-RANK are numeric values from -5 to
+7 that correspond to the rows and colums of the Fate Chart, for
+instance, a value of _weak_ on the chart is a -3, and a value of
+_incredible_ is a 4."
+  (let* ((medium (rpgdm-mythic--fate-boundary acting-rank difficulty-rank))
+         (lower  (if (> medium 0)   (/ medium 5)         0))
+         (upper  (if (< medium 100)
+                     (- 100 (/ (- 100 medium) 5)) 100)))
+    (list lower medium upper)))
+#+END_SRC
+
+Let's make sure this works:
+
+#+BEGIN_SRC emacs-lisp
+(ert-deftest rpgdm-mythic--fate-chart-test ()
+  (should (equal (rpgdm-mythic--fate-chart 0 0)   '(10 50 90)))
+  (should (equal (rpgdm-mythic--fate-chart 7 7)   '(10 50 90)))
+  (should (equal (rpgdm-mythic--fate-chart -5 -5) '(10 50 90)))
+  (should (equal (rpgdm-mythic--fate-chart -5 7)  '(0 -65 67)))
+  (should (equal (rpgdm-mythic--fate-chart 7 -5)  '(34 170 100)))
+  (should (equal (rpgdm-mythic--fate-chart -1 2)  '(3 15 83))))
+#+END_SRC
+
+Given a three-number range and the die roll results, we can respond with a yes/no:
+
+#+BEGIN_SRC emacs-lisp
+(defun rpgdm-mythic--result-message (chart-range die-roll)
+  "Return result message of a DIE-ROLL within the three numbers from the CHART-RANGE."
+  (cond
+   ((<= die-roll (first chart-range))  "Exceptional yes")
+   ((<= die-roll (second chart-range)) "Yes")
+   ((<= die-roll (third chart-range))  "No")
+   (t                                  "Exceptional no")))
+#+END_SRC
+
+If you roll a /yes/ result, and your the two d100 die have the same number (in other words, 11, 22, 33, etc), a random event occurs.
+
+#+BEGIN_SRC emacs-lisp
+(defun rpgdm-mythic--result-event-p (chart-range die-roll)
+  "Return a random event message of a DIE-ROLL within the yes values of the CHART-RANGE."
+  (let ((tens (/ die-roll 10))
+        (ones (mod die-roll 10)))
+    (when (and (= ones tens)
+               (<= die-roll (second chart-range)))
+      " <Random Event>")))
+#+END_SRC
+
+Let's make some tests to verify this:
+
+#+begin_src emacs-lisp
+(ert-deftest rpgdm-mythic--result-event-p-test ()
+  (should (rpgdm-mythic--result-event-p '(10 50 90) 11))
+  (should (rpgdm-mythic--result-event-p '(10 50 90) 44))
+  (should (not (rpgdm-mythic--result-event-p '(10 50 90) 88)))
+  (should (not (rpgdm-mythic--result-event-p '(10 50 90) 13))))
+#+end_src
+** Fate Chart Embellishment
+
+Would be nice to tailor the message output to make it easier to read the roll:
+
+#+BEGIN_SRC emacs-lisp
+(defun rpgdm-mythic--fate-chart-emphasize (message)
+  "We make certain assumption about the format of the message."
+  (let ((roll-re (rx ":: " (group (one-or-more digit))))
+        (main-re (rx "< " (group (one-or-more digit)) " <"))
+        (punc-re (rx "..."))
+        (rest-re (rx "... " (group (one-or-more any)))))
+    (string-match roll-re message)
+    (put-text-property (match-beginning 1) (match-end 1) 'face '(:foreground "yellow") message)
+    (string-match main-re message)
+    (put-text-property (match-beginning 1) (match-end 1) 'face '(:foreground "green") message)
+    (string-match rest-re message)
+    (put-text-property (match-beginning 1) (match-end 1) 'face '(:foreground "white") message)
+    (string-match punc-re message)
+    (put-text-property (match-beginning 0) (match-end 0) 'face '(:foreground "#666666") message)
+    message))
+#+END_SRC
+** Chaos Level
+While the Chaos level is a single digit, I have =Return= on the =rpgdm-mythic-choose-chaos-level= select the game's /current/ chaos level from this variable:
+
+#+BEGIN_SRC emacs-lisp
+(defvar rpgdm-mythic-current-chaos-level 5 "The current, and adjustable, default chaos level")
+#+END_SRC
+
+And a function to adjust it:
+
+#+BEGIN_SRC emacs-lisp
+(defun rpgdm-mythic-set-chaos-level (level)
+  "Change the `rpgdm-mythic-current-chaos-level' to LEVEL.
+This value can be an absolute number, or can be a relative value
+if prefixed with a `+' or `-'. Notice it takes a string..."
+  (interactive "sNew chaos level for current game: ")
+  (let* ((parse-re (rx (optional (group (any "+" "-")))
+                       (group digit)))
+         (matcher  (string-match parse-re level))
+         (sign     (match-string 1 level))
+         (value    (string-to-number (match-string 2 level))))
+    (setq rpgdm-mythic-current-chaos-level (cond
+                                            ((equal sign "=") (- rpgdm-mythic-current-chaos-level value))
+                                            ((equal sign "+") (+ rpgdm-mythic-current-chaos-level value))
+                                            ((> value 0)      value)))))
+#+END_SRC
+However, most adjustments are up or down a single number, so maybe we have these functions:
+#+BEGIN_SRC emacs-lisp
+(defun rpgdm-mythic-increase-chaos-level ()
+  "Increase the current chaos level by 1."
+  (interactive)
+  (setq rpgdm-mythic-current-chaos-level (1+ rpgdm-mythic-current-chaos-level)))
+
+(defun rpgdm-mythic-decrease-chaos-level ()
+  "Decrease the current chaos level by 1."
+  (interactive)
+  (setq rpgdm-mythic-current-chaos-level (1- rpgdm-mythic-current-chaos-level)))
+#+END_SRC
+
+* Random Events
+Now that we have our [[file:rpgdm-tables.el][tables code]], displaying a /random event/ is pretty trivial:
+
+#+BEGIN_SRC emacs-lisp
+(defun rpgdm-mythic-random-event ()
+  "Use `rpgdm-tables-choose' to select items from tables designed for Mythic.
+Make sure the following tables have been loaded before calling this function:
+  • `mythic/event-focus'
+  • `mythic/actions'
+  • `mythic/subject'
+Perhaps we should make sure that we load this beforehand."
+  (interactive)
+  (let ((focus (rpgdm-tables-choose "mythic/event-focus"))
+        (action (rpgdm-tables-choose "mythic/actions"))
+        (subject (rpgdm-tables-choose "mythic/subject")))
+    (rpgdm-message "Mythic Random Event- Focus: %s  Action: %s  Subject: %s"
+                   (propertize focus 'face '(:foreground "yellow"))
+                   (propertize action 'face '(:foreground "green"))
+                   (propertize subject 'face '(:foreground "green")))))
+#+END_SRC
+
+* Adventure Sequence
+Not sure what I want to do for an adventure sequence, but perhaps this could be a collection of files in a directory, with each file a scene. We might have sub-directories for the various lists:
+
+  - Player Characters
+  - Non-Player Characters
+  - Threads (remember PCs should have their own threads)
+  - Other Information:
+    - Skill Scaling boxes (what is average, what is above and below that)
+    - Resolution charts (types of acting ranks and what opposes it and modifiers)
+
+And of course, somewhere is the current chaos factor, which starts at 5, but changes /after/ each scene.
+
+    Note: The higher the chaos factor, the greater likelihood of a random event occurring and the greater are the odds of fate questions coming out yes.
+
+If nothing unexpected happened (or if the PCs are /in control/), lower the chaos factor, otherwise, increase it by one.
+
+** New Scene
+While each scene should be /logical/, Mythic rolls could interrupt or alter it, based on the current level of Chaos.
+
+#+BEGIN_SRC emacs-lisp
+(defun rpgdm-mythic-new-scene (chaos-factor)
+  "After planning the next scene, call this to see if that happens.
+The scene may change based on the given CHAOS-FACTOR.
+The message display may state that the scene is altered or interrupted."
+  (interactive (list (rpgdm-mythic-chaos-level)))
+  (let* ((roll (rpgdm--roll-die 10))
+         (mess (cond
+                ((and (<= roll chaos-factor) (evenp roll)) "The scene is interrupted")
+                ((and (<= roll chaos-factor) (oddp roll))  "The scene is altered")
+                (t                                         "The scene proceeds as planned"))))
+    (rpgdm-message mess)))
+#+END_SRC
+** Taking Notes
+To keep things straight and consistent, one really should take judicious notes. Perhaps what should begin with some sort of skeletal template creation, and a collection of YAS snippets for autoinserting the contents.
+
+#+BEGIN_SRC emacs-lisp
+(defun rpgdm-mythic-new-adventure (name)
+  "Create directory structure for adventure of NAME."
+  (interactive "sName this adventure: ")
+  (let* ((dirname (->> "Hunting Goblins"
+                       (downcase)
+                       (s-replace-all '((" " . "-")))))
+         (fullpath (format "~/projects/mythic-adventures/%s" dirname))
+         (overview (format "%s/overview.org" fullpath)))
+    (make-directory (format "%s/players" fullpath) t)
+    (make-directory (format "%s/characters" fullpath) t)
+    (make-directory (format "%s/scaling-boxes" fullpath) t)
+    (make-directory (format "%s/resolution-charts" fullpath) t)
+    (find-file overview)))
+#+END_SRC
+
+And the connection for snippets for each directory:
+
+#+BEGIN_SRC emacs-lisp
+(set-file-template! (rx "/mythic-adventures/" (one-or-more any) "/players/")
+  :trigger "__mythic_rpg_player" :mode 'org-mode)
+(set-file-template! (rx "/mythic-adventures/" (one-or-more any) "/characters/")
+  :trigger "__mythic_rpg_character" :mode 'org-mode)
+(set-file-template! (rx "/mythic-adventures/" (one-or-more any) "/scaling-boxes/")
+  :trigger "__mythic_rpg_scaling" :mode 'org-mode)
+(set-file-template! (rx "/mythic-adventures/" (one-or-more any) "/resolution-charts/")
+  :trigger "__mythic_rpg_resolution" :mode 'org-mode)
+(set-file-template! (rx "/mythic-adventures/overview.org")
+  :trigger "__mythic_rpg_overview" :mode 'org-mode)
+#+END_SRC
+
+The =set-file-template!=  function is a Doom helper function, but it should be clear what snippet templates should be use for various directories.
+* Summary
+Funny that I wrote the code here before even playing the game. Hope I like playing it as much as hacking this out.
+
+#+BEGIN_SRC emacs-lisp
+(provide 'rpgdm-mythic)
+;;; rpgdm.el ends here
+#+END_SRC
+
+#+DESCRIPTION: A literate programming file for generating support functions for Mythic RPG
+
+#+PROPERTY:    header-args:sh :tangle no
+#+PROPERTY:    header-args:emacs-lisp  :tangle ../rpgdm-mythic.el
+#+PROPERTY:    header-args   :results none   :eval no-export   :comments no
+
+#+OPTIONS:     num:nil toc:nil todo:nil tasks:nil tags:nil date:nil
+#+OPTIONS:     skip:nil author:nil email:nil creator:nil timestamp:nil
+#+INFOJS_OPT:  view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+# Local Variables:
+# eval: (add-hook 'after-save-hook #'org-babel-tangle t t)
+# End:
