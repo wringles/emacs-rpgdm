@@ -379,7 +379,7 @@ I'd like the Hydra to be more specific to Ironsworn:
       ^Dice^                              ^Adjust^      ^Oracles/Tables^                                   ^Moving^              ^Messages^
    ----------------------------------------------------------------------------------------------------------------------------------------------------
       _d_: Roll Dice  _D_: Progress Dice  _H_: Health   _z_: Yes/No Oracle _a_: Action/Theme  _n_: NPC      _o_: Links            ⌘-‿: Show Stats
-      _e_: Roll Edge  _s_: Roll Shadow    _S_: Spirit   _c_: Show Oracle   _c_: Combat Action _f_: Feature  _J_/_K_: Page up/dn     ⌘-l: Last Results
+      _e_: Roll Edge  _s_: Roll Shadow    _S_: Spirit   _c_: Show Oracle   _A_: Combat Action _f_: Feature  _J_/_K_: Page up/dn     ⌘-l: Last Results
       _h_: Roll Heart _w_: Roll Wits      _G_: Supply   _O_: Other Oracle  _p_: Place Name    _P_: Place    _N_/_W_: Narrow/Widen   ⌘-k: ↑ Previous
       _i_: Roll Iron  _x_: Roll Stat      _M_: Momentum _T_: Load Oracles  _t_: Threat Goal                                   ⌘-j: ↓ Next   "
     ("d" rpgdm-ironsworn-roll)    ("D" rpgdm-ironsworn-progress-roll)
@@ -387,7 +387,7 @@ I'd like the Hydra to be more specific to Ironsworn:
 
     ("a" rpgdm-ironsworn-oracle-action-theme)
     ("n" rpgdm-ironsworn-oracle-npc)
-    ("c" rpgdm-ironsworn-oracle-combat)
+    ("A" rpgdm-ironsworn-oracle-combat)
     ("f" rpgdm-ironsworn-oracle-feature)
     ("P" rpgdm-ironsworn-oracle-site-nature)
     ("p" rpgdm-ironsworn-oracle-site-name)
