@@ -195,7 +195,7 @@ Calls `rpgdm-tables-choose' a number of ITERATIONS (defaults to 500)."
   (let ((accumulator (make-hash-table :test 'equal)))
     (dotimes (i iterations accumulator)
       (let* ((item (rpgdm-tables-choose table-name))
-             (item-name (first (s-split " :: " item))))
+             (item-name (first (split-string item " :: "))))
         (incf (gethash item-name accumulator 0))))
     accumulator))
 
