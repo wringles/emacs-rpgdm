@@ -23,11 +23,16 @@
 (require 'hydra)
 (require 's)
 
-(defconst rpgdm-base (file-name-directory load-file-name))
-(load-file (expand-file-name "rpgdm-dice.el" rpgdm-base))
-(load-file (expand-file-name "rpgdm-screen.el" rpgdm-base))
-(load-file (expand-file-name "rpgdm-tables.el" rpgdm-base))
-(load-file (expand-file-name "rpgdm-npc.el" rpgdm-base))
+(require 'ert)
+
+(require 'rpgdm-dice)
+(require 'rpgdm-screen)
+(require 'rpgdm-tables)
+
+
+(defvar rpgdm-base
+  (seq-find (lambda (elt) (string-match "rpgdm" elt)) load-path (getenv "HOME"))
+  "Default directory to look for supporting data, like tables and charts.")
 
 (define-minor-mode rpgdm-mode
   "Minor mode for layering role-playing game master functions over your notes."
