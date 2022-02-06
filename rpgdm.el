@@ -59,6 +59,8 @@
 
   ("N" rpgdm-npc)
 
+  ("y" rpgdm-paste-last-message)
+
   ("C-m" rpgdm-last-results)
   ("C-n" rpgdm-last-results-next) ("C-p" rpgdm-last-results-previous)
   ("s-l" rpgdm-last-results)
@@ -103,6 +105,11 @@ Meant to be used with `rpgdm-last-results-previous'."
   (when (> rpgdm-last-results-ptr 0)
     (decf rpgdm-last-results-ptr))
   (message "%d> %s" rpgdm-last-results-ptr (ring-ref rpgdm-last-results rpgdm-last-results-ptr)))
+
+(defun rpgdm-paste-last-message ()
+  "Yank, e.g. paste, the last displayed message."
+  (interactive)
+  (insert (rpgdm-last-results)))
 
 (ert-deftest rpgdm-last-results-test ()
   (progn
