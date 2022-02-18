@@ -104,6 +104,7 @@ dice table (see `rpgdm-tables--choose-dice-table')."
       (setq table (rpgdm-tables-load-file table table-name)))
     (let* ((result   (cond ((dice-table-p table) (rpgdm-tables--choose-dice-table table))
                            ((hash-table-p table) (rpgdm-tables--choose-freq-table table))
+			   ((functionp table)    (call-interactively table))
                            ((listp table)        (rpgdm-tables--choose-list table))
                            (t "Error: Could choose anything from %s (internal bug?)" table-name)))
            ;; Replace any dice expression in the message with an roll:
