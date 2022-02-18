@@ -38,7 +38,7 @@
   "Minor mode for layering role-playing game master functions over your notes."
   :lighter " D&D"
   :keymap (let ((map (make-sparse-keymap)))
-            (define-key map (kbd "<f12>") 'hydra-rpgdm/body)
+            (define-key map (kbd "<f6>") 'hydra-rpgdm/body)
             map))
 
 (defhydra hydra-rpgdm (:color pink :hint nil)

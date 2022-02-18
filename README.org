@@ -5,7 +5,7 @@
 
 The overlap between Emacs and running a Dungeons & Dragons campaign is... expected? Jotting notes and plans in an org-mode file has been great, but what if, during a game session, my notes became /more interactive/? I started creating some helper functions, which has now become a minor mode I use as a sort of layer on top of Org. Let's blame this insanity on the pandemic, but it has been fun.
 
-The primary interface is =f12= which calls up a /sticky/ Hydra to call my functions, but still allowing full cursor movement (mostly):
+The primary interface is =f6= which calls up a /sticky/ Hydra to call my functions, but still allowing full cursor movement (mostly):
 
 #+attr_html: :width 800px
 [[file:images/screenshot-of-hydra.png]]
