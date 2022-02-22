@@ -37,7 +37,10 @@
   "Directory path containing the tables to load and create functions.")
 
 (defvar rpgdm-tables (make-hash-table :test 'equal)
-  "Collection of tables and lists for the Dungeon Master.")
+  "Collection of tables and lists for the Dungeon Master.
+When a table directory is first loaded, the _values_ are the
+filenames. After a call to `rpgdm-tables-choose', the value
+is replaced by the data (in the form of a data structure).")
 
 (defun rpgdm-tables-clear ()
   "Clear previously loaded tables."
