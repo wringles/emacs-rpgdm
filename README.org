@@ -127,4 +127,4 @@ I'm also intrigued with rulesets that are unique, for instance:
 
   - [[file:docs/fate-rpg.org][FATE]] :: Easy character creation and a nice bell-curve dice roll, but it requires [[https://fudgerpg.com/products/fudge-dice.html][special Fudge dice]], that are easy enough to recreate in Emacs. See [[https://fate-srd.com/][fate-srd.com]] for details about this game.
   - [[file:docs/mythic-rpg.org][Mythic RPG]] :: A nice RPG for solo play as it has a GM-less option that I wanted to capture, see [[https://www.wordmillgames.com/mythic-rpg.html][Wordmill Games]] for details.
-  - [[file:docs/ironsworn-rpg.org][Ironsworn]] :: Another good solo RPG, I wanted to capture its quick check resolution. See [[https://www.ironswornrpg.com/][ironswornrpg.com]] for the free rules.
+  - [[https://gitlab.com/howardabrams/emacs-ironsworn][Ironsworn]] :: Another good solo RPG, I wanted to capture its quick check resolution. See [[https://www.ironswornrpg.com/][ironswornrpg.com]] for the free rules.
