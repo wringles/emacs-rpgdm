@@ -106,13 +106,25 @@ dice table (see `rpgdm-tables--choose-dice-table')."
                            ((hash-table-p table) (rpgdm-tables--choose-freq-table table))
 			   ((functionp table)    (call-interactively table))
                            ((listp table)        (rpgdm-tables--choose-list table))
-                           (t "Error: Could choose anything from %s (internal bug?)" table-name)))
+                           (t "Error: Could not choose anything from %s (internal bug?)" table-name)))
            ;; Replace any dice expression in the message with an roll:
            (dice-sum (lambda (dice-exp) (number-to-string (rpgdm-roll-sum dice-exp))))
            (no-dice-nums  (replace-regexp-in-string rpgdm-roll-regexp dice-sum result))
-           (no-alt-words  (rpgdm-tables--choose-string-list no-dice-nums)))
-      (kill-new no-alt-words)
-      (rpgdm-message "%s" no-alt-words))))
+           (no-alt-words  (rpgdm-tables--choose-string-list no-dice-nums))
+
+	   ;; Can we replace a <<tablename>> substring with the results from calling this function again?
+	   (final-choice  (replace-regexp-in-string
+			   (rx "<<" (group (one-or-more (not ">"))) ">>")
+			   'rpgdm-tables--choose-replacement no-alt-words)))
+      (kill-new final-choice)
+      (rpgdm-message "%s" final-choice))))
+
+(defun rpgdm-tables--choose-replacement (str)
+  "Given STR like, <<foobar>>, return call to `rpgdm-tables-choose'.
+However, the `<<...>>' characters are replaced when calling function."
+  (if (string-match (rx "<<" (group (one-or-more (not ">"))) ">>") str)
+      (rpgdm-tables-choose (match-string 1 str))
+    str))
 
 (defun rpgdm-tables--choose-list (lst)
   "Randomly choose (equal chance for any) element in LST."
