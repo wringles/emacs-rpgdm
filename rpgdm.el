@@ -87,6 +87,7 @@ The FORMAT-STRING is a standard string for the `format' function,
 and ARGS are substitued values."
   (let ((message (apply 'format format-string args)))
     (ring-insert rpgdm-last-results message)
+    (kill-new message)
     (rpgdm-last-results)))
 
 (defun rpgdm-last-results ()
@@ -195,12 +196,12 @@ The formula is based on the NUMBER-OF-DICE. According to the
 Players Handbook in Dungeons and Dragons, we have this table
 to determine difficulty skill check levels:
 
-  - Very easy	5
-  - Easy	10
-  - Medium	15
-  - Hard	20
-  - Very hard	25
-  - Nearly impossible	30
+  - Very easy   5
+  - Easy        10
+  - Medium      15
+  - Hard        20
+  - Very hard   25
+  - Nearly impossible   30
 
 But I read somewhere that you could roll some 6 sided die to help
 add a bit of randomness to the leve setting. Essentially, roll
