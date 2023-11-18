@@ -3,7 +3,7 @@
 ;; Copyright (C) 2021 Howard X. Abrams
 ;;
 ;; Author: Howard X. Abrams <http://gitlab.com/howardabrams>
-;; Maintainer: Howard X. Abrams
+;; Maintainer: Howard X. Abrams <howard.abrams@workday.com>
 ;; Created: January  8, 2021
 ;;
 ;; This file is not part of GNU Emacs.
@@ -25,11 +25,10 @@
 ;;
 ;;; Code:
 
-(require 'ert)
-
-(require 'rpgdm-dice)
-(require 'rpgdm-tables-freq)
-(require 'rpgdm-tables-dice)
+(defvar rpgdm-base ".")
+(require 'rpgdm-dice (expand-file-name "rpgdm-dice.el" rpgdm-base) t)
+(require 'rpgdm-tables-freq (expand-file-name "rpgdm-tables-freq.el" rpgdm-base) t)
+(require 'rpgdm-tables-dice (expand-file-name "rpgdm-tables-dice.el" rpgdm-base) t)
 
 
 (defvar rpgdm-tables-directory
@@ -91,7 +90,6 @@ Store it by NAME in the `rpgdm-tables' hash table."
       (message "Read: %s" name))
     (puthash name contents rpgdm-tables)))
 
-
 (defun rpgdm-tables-choose (table-name)
   "Return random item from a table of a given TABLE-NAME string.
 
@@ -105,29 +103,25 @@ dice table (see `rpgdm-tables--choose-dice-table')."
   (when-let ((table  (gethash table-name rpgdm-tables)))
     (when (stringp table)
       (setq table (rpgdm-tables-load-file table table-name)))
-    (let* ((result   (cond ((dice-table-p table) (rpgdm-tables--choose-dice-table table))
+    (let* ((initial   (cond ((dice-table-p table) (rpgdm-tables--choose-dice-table table))
                            ((hash-table-p table) (rpgdm-tables--choose-freq-table table))
-			   ((functionp table)    (call-interactively table))
+                           ((functionp table)    (call-interactively table))
                            ((listp table)        (rpgdm-tables--choose-list table))
                            (t "Error: Could not choose anything from %s (internal bug?)" table-name)))
-           ;; Replace any dice expression in the message with an roll:
+
+           ;; Function to return dice expression as a sum (and string):
            (dice-sum (lambda (dice-exp) (number-to-string (rpgdm-roll-sum dice-exp))))
-           (no-dice-nums  (replace-regexp-in-string rpgdm-roll-regexp dice-sum result))
-           (no-alt-words  (rpgdm-tables--choose-string-list no-dice-nums))
 
-	   ;; Can we replace a <<tablename>> substring with the results from calling this function again?
-	   (final-choice  (replace-regexp-in-string
-			   (rx "<<" (group (one-or-more (not ">"))) ">>")
-			   'rpgdm-tables--choose-replacement no-alt-words)))
-      (kill-new final-choice)
-      (rpgdm-message "%s" final-choice))))
+           (results (thread-last initial
+                    ;; Replace dice expression in the message with an roll:
+                    (replace-regexp-in-string rpgdm-roll-regexp dice-sum )
+                    ;; Replace [[table-name]] with results from table:
+                    (rpgdm-tables--choose-string-from-table)
+                    ;; Replace [one/two/three] with one of those words:
+                    (rpgdm-tables--choose-string-list))))
 
-(defun rpgdm-tables--choose-replacement (str)
-  "Given STR like, <<foobar>>, return call to `rpgdm-tables-choose'.
-However, the `<<...>>' characters are replaced when calling function."
-  (if (string-match (rx "<<" (group (one-or-more (not ">"))) ">>") str)
-      (rpgdm-tables-choose (match-string 1 str))
-    str))
+      (kill-new results)
+      (rpgdm-message "%s" results))))
 
 (defun rpgdm-tables--choose-list (lst)
   "Randomly choose (equal chance for any) element in LST."
@@ -139,30 +133,17 @@ However, the `<<...>>' characters are replaced when calling function."
 For instance, the string: 'You found a [chair/box/statue]'
 would be converted randomly to something like: 'You found a box.'"
   (let ((regexp (rx "[" (+? any) "/" (+? any) "]"))
-	(subbed (lambda (str) (--> str
-				   (substring it 1 -1)
-				   (s-split (rx "/") it)
-				   (seq-random-elt it)
-				   (s-trim it)))))
+        (subbed (lambda (str) (--> str
+                           (substring it 1 -1)
+                           (s-split (rx (*? space) "/" (*? space)) it)
+                           (seq-random-elt it)))))
     (replace-regexp-in-string regexp subbed str)))
 
-(ert-deftest rpgdm-tables--choose-string-list ()
-  (let ((empty-string "")
-	(no-op-string "This is just a phrase.")
-	(two-choices  "We can have [this/that]")
-	(two-choices1 "We can have this")
-	(two-choices2 "We can have that")
-	(tri-choices  "We can have [this / that / the other].")
-	(tri-choices1 "We can have this.")
-	(tri-choices2 "We can have that.")
-	(tri-choices3 "We can have the other."))
-
-    (should (equal (rpgdm-tables--choose-string-list empty-string) empty-string))
-    (should (equal (rpgdm-tables--choose-string-list no-op-string) no-op-string))
-    (let ((chosen (rpgdm-tables--choose-string-list two-choices)))
-      (should (or (equal chosen two-choices1) (equal chosen two-choices2))))
-    (let ((chosen (rpgdm-tables--choose-string-list tri-choices)))
-      (should (or (equal chosen tri-choices1) (equal chosen tri-choices2) (equal chosen tri-choices3))))))
+(defun rpgdm-tables--choose-string-from-table (str)
+  "Replace <<table-name>> sequence in STR with call to `rpgdm-tables-choose'."
+  (let ((regexp (rx "<<" (+? any) ">>"))
+        (subbed (lambda (s) (rpgdm-tables-choose (substring s 2 -2)))))
+    (replace-regexp-in-string regexp subbed str nil nil 0)))
 
 ;; I originally thought that I could have a single regular expression that
 ;; matched all possible tables, but that is a bit too complicated. The following
