@@ -25,7 +25,7 @@
 ;;
 ;;; Code:
 
-(defvar rpgdm-base ".")
+(require 'rpgdm-core (expand-file-name "rpgdm-core.el" rpgdm-base) t)
 (require 'rpgdm-dice (expand-file-name "rpgdm-dice.el" rpgdm-base) t)
 (require 'rpgdm-tables-freq (expand-file-name "rpgdm-tables-freq.el" rpgdm-base) t)
 (require 'rpgdm-tables-dice (expand-file-name "rpgdm-tables-dice.el" rpgdm-base) t)

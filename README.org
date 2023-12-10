@@ -99,6 +99,7 @@ The second thing I realized is that Org's links can call Emacs functions. This a
 My initial ideas for listing a bunch of random NPC names and having a link that displayed one of them, got supplanted for the ideas I described above.
 * Code
 What do I have here:
+  - [[file:rpgdm-core.el][rpgdm-core]] :: Package that provides common functionality; namely in messaging and the =rpgdm-last-results= ring.
   - [[file:rpgdm.el][rpgdm]] :: Primary interface offering:
     - =rpgdm-mode=, plus a Hydra interface for easily calling the rest of these functions.
     - =rpgdm-yes-and-50/50=, flip a coin and make a give a result with or without complications or bonuses.
