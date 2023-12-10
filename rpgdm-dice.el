@@ -81,7 +81,7 @@ This really tests the `rpgdm--test-rolls' function."
                        (8 1 8)
                        (20 1 20)
                        (100 1 100)))
-    (destructuring-bind (die lowest highest) test-data
+    (cl-destructuring-bind (die lowest highest) test-data
       (rpgdm--test-rolls #'rpgdm--roll-die (list die) lowest highest))))
 
 ;; ----------------------------------------------------------------------
@@ -155,7 +155,7 @@ average value of AVG, if given."
                      ((3 6 4) 7 22)
                      ((4 6 4 "-") 0 20))))
     (dolist (test-seq test-data)
-      (destructuring-bind (dice-args lowest highest) test-seq
+      (cl-destructuring-bind (dice-args lowest highest) test-seq
         (rpgdm--test-roll-series 'rpgdm--roll dice-args lowest highest)))))
 
 
@@ -240,7 +240,7 @@ the following:
                       ("2d12" 2 24)
                       ("3d6+2" 5 20))))
     (dolist (test-data test-cases)
-      (destructuring-bind (dice-expression lowest highest) test-data
+      (cl-destructuring-bind (dice-expression lowest highest) test-data
         (rpgdm--test-roll-series 'rpgdm--roll-expression (list dice-expression) lowest highest)))))
 
 

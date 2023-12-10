@@ -109,7 +109,7 @@ and ARGS are substitued values."
 Meant to be used with `rpgdm-last-results-previous'."
   (interactive)
   (when (> rpgdm-last-results-ptr 0)
-    (decf rpgdm-last-results-ptr))
+    (cl-decf rpgdm-last-results-ptr))
   (message "%d> %s" rpgdm-last-results-ptr (ring-ref rpgdm-last-results rpgdm-last-results-ptr)))
 
 (defun rpgdm-paste-last-message ()

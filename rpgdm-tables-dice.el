@@ -17,7 +17,7 @@
 
 ;;; Code:
 
-(defstruct dice-table dice rows)
+(cl-defstruct dice-table dice rows)
 
 (defun rpgdm-tables--choose-dice-table (table)
   "Choose a string from a random dice table."
