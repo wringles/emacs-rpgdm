@@ -46,7 +46,7 @@ For instance, Xanathar's Guide to Everything, a Dungeons and Dragons supplement 
 To represent these types of tables, we create a special type, called a =dice-table=. Where the first "slot" is the dice expression (or the number of sides of a dice to roll), and an associative list of result values and the choice.
 
 #+BEGIN_SRC emacs-lisp :results silent
-(defstruct dice-table dice rows)
+(cl-defstruct dice-table dice rows)
 #+END_SRC
 
 How is this used to render the example table above?

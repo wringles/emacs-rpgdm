@@ -21,8 +21,7 @@
 (require 'org)
 (require 'org-element)
 (require 's)
-
-(defvar rpgdm-base ".")
+(require 'rpgdm-core (expand-file-name "rpgdm-core.el" rpgdm-base) t)
 
 (defvar rpgdm-screen-directory
   (expand-file-name "dnd-5e" rpgdm-base)

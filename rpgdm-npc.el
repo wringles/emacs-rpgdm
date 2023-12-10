@@ -28,9 +28,9 @@
 ;;;
 ;;; CCode:
 
-(defvar rpgdm-base ".")
+(require 'rpgdm-core (expand-file-name "rpgdm-core.el" rpgdm-base) t)
 (require 'rpgdm-dice (expand-file-name "rpgdm-dice.el" rpgdm-base) t)
-(require 'rpgdm-dice (expand-file-name "rpgdm-tables.el" rpgdm-base) t)
+(require 'rpgdm-tables (expand-file-name "rpgdm-tables.el" rpgdm-base) t)
 
 (defun rpgdm-npc-gender-name ()
   "Return nil or non-nil for male or female names."

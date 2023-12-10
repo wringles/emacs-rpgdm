@@ -226,7 +226,7 @@ decrement the ROLL value."
            ;; (message "Comparing %d <= %d for %s" roll num-elems tag)
            (if (<= roll num-elems)
                (return tag)
-             (decf roll num-elems))))
+             (cl-decf roll num-elems))))
 
 (ert-deftest rpgdm-tables--find-tag-test ()
   (let ((weighted-tags
